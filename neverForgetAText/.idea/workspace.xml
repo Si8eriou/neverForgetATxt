@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f8b21a43-b84b-46a5-9a5b-97f82f1bc706" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTTP Private Environment File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1ZPMGr37lFO22dU17njZrMfE5fA" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs.protractor.protractor_package" value="$PROJECT_DIR$/node_modules/protractor" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
+  </component>
+  <component name="RunManager" selected="npm.Angular CLI Server">
+    <configuration name="E2E Tests (app)" type="JavaScriptTestRunnerProtractor">
+      <config-file value="$PROJECT_DIR$/e2e/protractor.conf.js" />
+      <node-interpreter value="project" />
+      <protractor-package value="$PROJECT_DIR$/node_modules/protractor" />
+      <protractor-options value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular Application" type="JavascriptDebugType" uri="http://localhost:4200">
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular CLI Server" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f8b21a43-b84b-46a5-9a5b-97f82f1bc706" name="Default Changelist" comment="" />
+      <created>1584736182163</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1584736182163</updated>
+      <workItem from="1584736184016" duration="4392000" />
+      <workItem from="1584974021489" duration="31000" />
+      <workItem from="1584984421898" duration="136000" />
+      <workItem from="1585086008144" duration="2363000" />
+      <workItem from="1585864996625" duration="3869000" />
+      <workItem from="1586298880191" duration="506000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2930" y="433" width="530" height="598" key="FileChooserDialogImpl" timestamp="1585946103904">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state x="2930" y="433" key="FileChooserDialogImpl/1920.0.2560.1440/0.27.1920.1053/4480.0.1920.1080@1920.0.2560.1440" timestamp="1585946103904" />
+    <state x="2930" y="433" width="530" height="598" key="FileChooserDialogImpl/1920.0.2560.1440/0.360.1920.1080/4480.360.1920.1080@1920.0.2560.1440" timestamp="1584974042096" />
+    <state x="2779" y="340" width="840" height="1034" key="search.everywhere.popup" timestamp="1584741471086">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state x="2779" y="340" width="840" height="1034" key="search.everywhere.popup/1920.0.2560.1440/0.360.1920.1080/4480.360.1920.1080@1920.0.2560.1440" timestamp="1584741471086" />
+  </component>
+</project>
