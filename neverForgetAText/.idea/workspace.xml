@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f8b21a43-b84b-46a5-9a5b-97f82f1bc706" name="Default Changelist" comment="" />
+    <list default="true" id="f8b21a43-b84b-46a5-9a5b-97f82f1bc706" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../app/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/app/home/home-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/app/home/home.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/app/home/home/home.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/app/home/home/home.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/app/home/home/home.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/app/home/home/home.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/app/navigation/navigation.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/app/navigation/navigation.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../laravel/angular/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../laravel/angular/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../laravel/angular/main.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../laravel/angular/main.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ubuntu-bionic-18.04-cloudimg-console.log" beforeDir="false" afterPath="$PROJECT_DIR$/../ubuntu-bionic-18.04-cloudimg-console.log" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -81,6 +96,9 @@
       <workItem from="1585086008144" duration="2363000" />
       <workItem from="1585864996625" duration="3869000" />
       <workItem from="1586298880191" duration="506000" />
+      <workItem from="1586974488329" duration="120000" />
+      <workItem from="1586990484224" duration="58000" />
+      <workItem from="1586990548767" duration="9000" />
     </task>
     <servers />
   </component>
@@ -88,10 +106,10 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2930" y="433" width="530" height="598" key="FileChooserDialogImpl" timestamp="1585946103904">
+    <state x="2930" y="433" width="530" height="598" key="FileChooserDialogImpl" timestamp="1586974606543">
       <screen x="1920" y="0" width="2560" height="1440" />
     </state>
-    <state x="2930" y="433" key="FileChooserDialogImpl/1920.0.2560.1440/0.27.1920.1053/4480.0.1920.1080@1920.0.2560.1440" timestamp="1585946103904" />
+    <state x="2930" y="433" width="530" height="598" key="FileChooserDialogImpl/1920.0.2560.1440/0.27.1920.1053/4480.0.1920.1080@1920.0.2560.1440" timestamp="1586974606543" />
     <state x="2930" y="433" width="530" height="598" key="FileChooserDialogImpl/1920.0.2560.1440/0.360.1920.1080/4480.360.1920.1080@1920.0.2560.1440" timestamp="1584974042096" />
     <state x="2779" y="340" width="840" height="1034" key="search.everywhere.popup" timestamp="1584741471086">
       <screen x="1920" y="0" width="2560" height="1440" />
