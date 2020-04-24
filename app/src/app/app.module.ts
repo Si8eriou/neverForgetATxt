@@ -12,6 +12,8 @@ import {MatIconModule} from "@angular/material/icon";
 import { HomeComponent } from './home/home.component';
 import {NeverForgetATextModule} from "./never-forget-atext/never-forget-atext.module";
 import {IconsModule} from "./icons/icons.module";
+import {AuthModule} from "./auth/auth.module";
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import {IconsModule} from "./icons/icons.module";
         MatButtonModule,
         MatIconModule,
         NeverForgetATextModule,
-        IconsModule
+        IconsModule,
+        AuthModule,
+        HttpClientModule,
     ],
   providers: [],
   bootstrap: [AppComponent]
