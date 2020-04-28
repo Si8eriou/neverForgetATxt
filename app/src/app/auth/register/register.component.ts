@@ -20,13 +20,14 @@ export class RegisterComponent implements OnInit {
 
   submitForm() {
     let formData = new FormData();
+    let userID = false;
 
     formData.append('name', this.fName);
     formData.append('email', this.email);
     formData.append('password', this.password);
 
 
-    this.authService.saveNewUser(formData);
+    this.authService.saveUser(formData, userID);
   }
 
 }

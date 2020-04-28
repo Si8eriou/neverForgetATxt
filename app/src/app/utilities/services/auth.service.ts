@@ -10,8 +10,11 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  public saveNewUser(body) {
-    let url = `${environment.apiUrl}/auth/saveNewUser`;
+  public saveUser(body, userID = false) {
+    let url = `${environment.apiUrl}/auth`;
+    if(userID) {
+      url += '/' + userID
+    }
 
     return this.http.post(url, body).pipe(
       map((response: any) => response)).toPromise();

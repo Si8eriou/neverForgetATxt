@@ -9,12 +9,6 @@
           <input matInput [(ngModel)]="fName" required="required">
         </label>
       </mat-form-field>
-      <mat-form-field>
-        <mat-label>Last Name</mat-label>
-        <label>
-          <input matInput [(ngModel)]="lName" required="required">
-        </label>
-      </mat-form-field>
     </p>
     <p>
       <mat-form-field>
@@ -28,7 +22,7 @@
       <mat-form-field>
         <mat-label>Password</mat-label>
         <label>
-          <input matInput [(ngModel)]="password" required="required">
+          <input matInput [(ngModel)]="password" required="required" type="password">
         </label>
       </mat-form-field>
     </p>
@@ -36,12 +30,10 @@
       <mat-form-field>
         <mat-label>Re-enter Password</mat-label>
         <label>
-          <input matInput [(ngModel)]="rePassword" required="required">
+          <input matInput [(ngModel)]="rePassword" required="required" type="password">
         </label>
       </mat-form-field>
     </p>
-
-
 
     <div class="button">
       <div class="button">
