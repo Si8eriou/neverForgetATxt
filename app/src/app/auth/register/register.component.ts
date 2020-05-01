@@ -7,8 +7,7 @@ import {AuthService} from "../../utilities/services/auth.service";
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  public fName: any;
-  public lName: any;
+  public name: any;
   public email: any;
   public password: any;
   public rePassword: any;
@@ -19,15 +18,41 @@ export class RegisterComponent implements OnInit {
   }
 
   submitForm() {
-    let formData = new FormData();
-    let userID = false;
+    if (!this.name) {
+      alert('Must have a Name')
+    }
+    if (!this.email) {
+      alert('Must have a email')
+    }
+    if (!this.password) {
+      alert('Must have a password')
+    }
+    if (!this.rePassword) {
+      alert('Must reenter a password')
+    }
+    if (this.password !== this.rePassword) {
+      alert('Password does not match.')
+    }
+    if (!this.email.includes('@') || !this.email.includes('.com')) {
+      alert('must be proper email.')
+    }
+    else {
+      if (this.password !== this.rePassword) {
+        alert('Password does not match.')
+      }
+      else {
+        let formData = new FormData();
 
-    formData.append('name', this.fName);
-    formData.append('email', this.email);
-    formData.append('password', this.password);
+        formData.append('name', this.name);
+        formData.append('email', this.email);
+        formData.append('password', this.password);
 
 
-    this.authService.saveUser(formData, userID);
-  }
+        let registered = this.authService.saveUser(formData);
+
+        console.log(registered);
+      }
+    }
+    }
 
 }

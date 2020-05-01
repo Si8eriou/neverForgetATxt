@@ -34,7 +34,6 @@ import { HttpClientModule } from '@angular/common/http';
         IconsModule,
         AuthModule,
         HttpClientModule,
-        
     ],
   providers: [],
   bootstrap: [AppComponent]

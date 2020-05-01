@@ -16,5 +16,6 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::group(['prefix' => 'auth'], function() {
-    Route::post('{userID?}', 'Auth\AuthController@saveNewUser');
+    Route::post('register', 'Auth\AuthController@saveNewUser');
+    Route::post('userLogin', 'Auth\AuthController@userLogin');
 });

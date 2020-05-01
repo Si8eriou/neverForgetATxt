@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://api.jacoby.test/api'
+  apiUrl: 'http://jacoby.test/api'
 };
 
 /*

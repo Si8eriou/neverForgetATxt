@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthService} from "../../utilities/services/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -6,16 +8,38 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  public username: any;
+  public email: any;
   public password: any;
+  public name: any;
+  public user: any;
 
-  constructor() { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
 
-  submitForm(username, password) {
-    console.log(username, password);
-  }
+  async submitForm(email, password) {
+    if (!this.email) {
+      alert('No email entered');
+    }
+    if (!this.password) {
+      alert('No password entered');
+    }
+    else {
+      let formData = new FormData();
+      formData.append('email', this.email ? this.email : '');
+      formData.append('password', this.password ? this.password : '');
+
+      this.user = await this.authService.userLogin(formData);
+    }
+
+    if (this.user) {
+      console.log(this.user);
+      sessionStorage.setItem('user', this.user);
+    }
+    else {
+      console.log('false');
+    }
+    }
 }

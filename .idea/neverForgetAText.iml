@@ -7,8 +7,12 @@
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/laravel/tests" isTestSource="true" packagePrefix="Tests\" />
       <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/asm89/stack-cors" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/brick/math" />
       <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/dnoegel/php-xdg-base-dir" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/doctrine/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/doctrine/dbal" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/doctrine/event-manager" />
       <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/doctrine/inflector" />
       <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/doctrine/instantiator" />
       <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/doctrine/lexer" />
@@ -25,8 +29,6 @@
       <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/guzzlehttp/promises" />
       <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/guzzlehttp/psr7" />
       <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/hamcrest/hamcrest-php" />
-      <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/jakub-onderka/php-console-color" />
-      <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/jakub-onderka/php-console-highlighter" />
       <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/laravel/framework" />
       <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/laravel/tinker" />
       <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/league/commonmark" />
@@ -38,7 +40,6 @@
       <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/nikic/php-parser" />
       <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/nunomaduro/collision" />
       <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/opis/closure" />
-      <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/paragonie/random_compat" />
       <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/phar-io/manifest" />
       <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/phar-io/version" />
       <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/phpdocumentor/reflection-common" />
@@ -59,6 +60,7 @@
       <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/psr/simple-cache" />
       <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/psy/psysh" />
       <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/ralouphie/getallheaders" />
+      <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/ramsey/collection" />
       <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/ramsey/uuid" />
       <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/scrivo/highlight.php" />
       <excludeFolder url="file://$MODULE_DIR$/laravel/vendor/sebastian/code-unit-reverse-lookup" />

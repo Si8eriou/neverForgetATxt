@@ -10,18 +10,36 @@ use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
-    public function saveNewUser(Request $request, $userID=false) {
-        if($userID) {
-            $user = User::find($userID);
+    public function saveNewUser(Request $request) {
+        $authEmail = User::where('email', $request->get('email'))->first();
+
+        if($authEmail) {
+            return false;
         }
         else {
             $user = new User();
+
+            $user->name = $request->get('name');
+            $user->email = $request->get('email');
+            $user->password = $request->get('password');
+
+            $user->save();
+
+            return redirect('jacoby.test/home');
         }
+    }
 
-        $user->name = $request->get('name');
-        $user->email = $request->get('email');
-        $user->password = $request->get('password');
+    public function userLogin(Request $request) {
+        dd($request->get('email'));
 
-        $user->save();
+
+        $user = User::where('email', $request->get('email'))->where('password', $request->get('password'))->first();
+        dd($user);
+
+        if ($user){
+            return response()->json(['user' => $user]);        }
+        else {
+            return false;
+        }
     }
 }
