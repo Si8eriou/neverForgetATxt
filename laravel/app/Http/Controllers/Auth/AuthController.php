@@ -7,6 +7,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+
 
 class AuthController extends Controller
 {
@@ -14,7 +16,7 @@ class AuthController extends Controller
         $authEmail = User::where('email', $request->get('email'))->first();
 
         if($authEmail) {
-            return false;
+            return response()->json([false]);
         }
         else {
             $user = new User();
@@ -22,34 +24,28 @@ class AuthController extends Controller
             $user->name = $request->get('name');
             $user->email = $request->get('email');
             $user->password = $request->get('password');
+            $user->remember_token = Str::random(60);
 
             $user->save();
 
-            return redirect('jacoby.test/home');
+            return response()->json(['user' => $user]);
         }
     }
 
     public function userLogin(Request $request) {
 
-
         $user = User::where('email', $request->get('email'))->first();
 
         if(!$user) {
-            //return not foujd
+            return response()->json([false]);
         }
 
         if($user->password === $request->get('password')) {
-            dd('yes');
-        }
-        else {
-            dd('no');
-        }
-        dd($user);
+            return response()->json(['user' => $user]);
 
-        if ($user){
-            return response()->json(['user' => $user]);        }
+        }
         else {
-            return false;
+            return response()->json([false]);
         }
     }
 }

@@ -9,18 +9,17 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
-import { HomeComponent } from './home/home.component';
 import {NeverForgetATextModule} from "./never-forget-atext/never-forget-atext.module";
 import {IconsModule} from "./icons/icons.module";
 import {AuthModule} from "./auth/auth.module";
 import { HttpClientModule } from '@angular/common/http';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {HomeModule} from "./home/home.module";
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
-    HomeComponent,
-
   ],
     imports: [
         BrowserModule,
@@ -34,6 +33,8 @@ import { HttpClientModule } from '@angular/common/http';
         IconsModule,
         AuthModule,
         HttpClientModule,
+        MatSnackBarModule,
+        HomeModule,
     ],
   providers: [],
   bootstrap: [AppComponent]

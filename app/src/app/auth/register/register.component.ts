@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../utilities/services/auth.service";
+import {Router} from "@angular/router";
+
+
 
 @Component({
   selector: 'app-register',
@@ -11,8 +14,9 @@ export class RegisterComponent implements OnInit {
   public email: any;
   public password: any;
   public rePassword: any;
+  public userRegistered: any;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -48,9 +52,15 @@ export class RegisterComponent implements OnInit {
         formData.append('password', this.password);
 
 
-        let registered = this.authService.saveUser(formData);
+        this.userRegistered = this.authService.saveUser(formData);
 
-        console.log(registered);
+        if(this.userRegistered) {
+          sessionStorage.setItem('user', this.userRegistered);
+          this.router.navigate( ['home'])
+        }
+        else {
+          alert('Email is already used.')
+        }
       }
     }
     }
