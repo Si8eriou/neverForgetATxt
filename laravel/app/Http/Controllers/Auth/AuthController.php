@@ -30,10 +30,20 @@ class AuthController extends Controller
     }
 
     public function userLogin(Request $request) {
-        dd($request->get('email'));
 
 
-        $user = User::where('email', $request->get('email'))->where('password', $request->get('password'))->first();
+        $user = User::where('email', $request->get('email'))->first();
+
+        if(!$user) {
+            //return not foujd
+        }
+
+        if($user->password === $request->get('password')) {
+            dd('yes');
+        }
+        else {
+            dd('no');
+        }
         dd($user);
 
         if ($user){
