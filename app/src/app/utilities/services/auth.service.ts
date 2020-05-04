@@ -1,0 +1,37 @@
+import { Injectable } from '@angular/core';
+import {environment} from "../../../environments/environment";
+import {map, tap} from "rxjs/operators";
+import { HttpClient } from "@angular/common/http";
+import {getToken} from "codelyzer/angular/styles/cssLexer";
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthService {
+  private token: string;
+  private redirectUrl: string;
+
+
+
+
+  constructor(private http: HttpClient) { }
+
+  public saveUser(body) {
+    let url = `${environment.apiUrl}/auth/register`;
+
+    return this.http.post(url, body).pipe(
+      map((response: any) => response)).toPromise();
+  }
+
+  public userLogin(body) {
+    const url = `${environment.apiUrl}/auth/userLogin`;
+
+    return this.http.post(url, body).pipe(
+      map((response:any) => response.user)).toPromise();
+  }
+
+  public getToken() {
+    return this.token;
+  }
+
+}

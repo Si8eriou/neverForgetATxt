@@ -1,0 +1,17 @@
+<mat-toolbar color="primary" class="center">
+  <button *ngIf= mat-button routerLink="/">
+
+    <img src="/assets/img/mainLogo.png">
+  </button>
+  <button mat-button routerLink="/">
+
+    <img src="/assets/img/mainLogo.png">
+  </button>
+  <span class="fill-remaining-space"></span>
+  <button mat-icon-button [routerLink]="['text']">
+    <mat-icon>smartphone</mat-icon>
+  </button>
+  <button mat-icon-button [routerLink]="">
+    <mat-icon>person</mat-icon>
+  </button>
+</mat-toolbar>

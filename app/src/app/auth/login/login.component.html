@@ -1,0 +1,25 @@
+<div>
+  <p>
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <label>
+        <input matInput [(ngModel)]="email" required="required" type="email">
+      </label>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <label>
+        <input matInput [(ngModel)]="password" required="required" type="password">
+      </label>
+    </mat-form-field>
+  </p>
+
+  <p>
+    <button color="primary" mat-raised-button [routerLink]="['/registerForm']">Register</button>
+    <button color='primary' mat-raised-button (click)="submitForm(email, password)">
+      Submit
+    </button>
+  </p>
+</div>

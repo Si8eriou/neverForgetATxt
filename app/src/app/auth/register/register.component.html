@@ -1,0 +1,48 @@
+<h1 class="centerHeading">User Register</h1>
+
+<table class="mat-elevation-z4">
+  <div>
+    <p>
+      <mat-form-field>
+        <mat-label>First Name</mat-label>
+        <label>
+          <input matInput [(ngModel)]="name" required="required">
+        </label>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field>
+        <mat-label>E-Mail</mat-label>
+        <label>
+          <input matInput [(ngModel)]="email" required="required" type="email">
+        </label>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <label>
+          <input matInput [(ngModel)]="password" required="required" type="password">
+        </label>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field>
+        <mat-label>Re-enter Password</mat-label>
+        <label>
+          <input matInput [(ngModel)]="rePassword" required="required" type="password">
+        </label>
+      </mat-form-field>
+    </p>
+
+    <div class="button">
+      <div class="button">
+        <p>
+          <button color='primary' mat-raised-button (click)="submitForm()">
+            Submit
+          </button>
+        </p>
+      </div>
+    </div>
+  </div>
+</table>

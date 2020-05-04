@@ -1,0 +1,38 @@
+table {
+  margin-top: 8em !important;
+  border-spacing: 0;
+  border-collapse: collapse;
+  margin-bottom: 7em;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.centerHeading {
+  margin: 1em;
+  text-align: center;
+}
+
+.button {
+  text-align: center;
+}
+
+
+mat-form-field {
+  width: 300px !important;
+  margin: 2em;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: rebeccapurple !important;
+}
+
+::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: rebeccapurple !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color: rebeccapurple !important;;
+}
