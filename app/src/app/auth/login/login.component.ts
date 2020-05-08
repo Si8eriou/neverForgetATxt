@@ -36,12 +36,14 @@ export class LoginComponent implements OnInit {
       this.userLogged = await this.authService.userLogin(formData);
 
       if (this.userLogged) {
-        sessionStorage.setItem('user', this.userLogged);
-        this.router.navigate( ['home'])
+        sessionStorage.setItem('user', this.userLogged.name);
+        sessionStorage.setItem('id', this.userLogged.id);
+        this.router.navigate(['']);
       }
       else {
         alert('Username or password do not match records')
       }
+
     }
 
     }

@@ -3,6 +3,7 @@ import {environment} from "../../../environments/environment";
 import {map, tap} from "rxjs/operators";
 import { HttpClient } from "@angular/common/http";
 import {getToken} from "codelyzer/angular/styles/cssLexer";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +12,7 @@ export class AuthService {
   private token: string;
   private redirectUrl: string;
 
-
-
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, public router: Router) { }
 
   public saveUser(body) {
     let url = `${environment.apiUrl}/auth/register`;
@@ -34,4 +32,12 @@ export class AuthService {
     return this.token;
   }
 
+  canActivate(): boolean {
+    if (sessionStorage.getItem('id') == null) {
+      this.router.navigate(['login']);
+
+      return false;
+    }
+    return true;
+  }
 }

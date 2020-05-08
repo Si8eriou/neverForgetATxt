@@ -1,19 +1,28 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {AuthService} from "./utilities/services/auth.service";
 
 
 const routes: Routes = [
   {
-    path: '',
-    loadChildren: './auth/auth.module#AuthModule'
+    path: 'login',
+    loadChildren: './auth/auth.module#AuthModule',
   },
   {
     path: 'home',
-    loadChildren: './home/home.module#HomeModule'
+    loadChildren: './home/home.module#HomeModule',
+    canActivate:[AuthService]
+  },
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full',
+    canActivate:[AuthService]
   },
   {
     path: 'text',
-    loadChildren: './never-forget-atext/never-forget-atext.module#NeverForgetATextModule'
+    loadChildren: './never-forget-atext/never-forget-atext.module#NeverForgetATextModule',
+    canActivate:[AuthService]
   },
 ];
 

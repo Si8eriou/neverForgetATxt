@@ -12,4 +12,8 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public getUserName() {
+    return sessionStorage.getItem('user');
+  }
+
 }
