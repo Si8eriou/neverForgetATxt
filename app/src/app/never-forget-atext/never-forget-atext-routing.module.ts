@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {NeverForgetATextComponent} from "./never-forget-atext/never-forget-atext.component";
-import {ContactsComponent} from "./contacts/contacts.component";
+import {UserContactsComponent} from "./contacts/user-contacts/user-contacts.component";
+import {CreateContactComponent} from "./contacts/create-contact/create-contact.component";
+
 
 
 const routes: Routes = [
@@ -11,7 +13,11 @@ const routes: Routes = [
   },
   {
     path: 'contacts',
-    component: ContactsComponent
+    component: UserContactsComponent
+  },
+  {
+    path: 'createContact',
+    component: CreateContactComponent
   },
 ];
 

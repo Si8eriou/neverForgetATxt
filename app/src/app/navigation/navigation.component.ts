@@ -8,15 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class NavigationComponent implements OnInit {
 
   constructor() {
-    this.getSession();
   }
 
   ngOnInit(): void {
-    this.getSession()
 
-  }
-
-
-  getSession() {
   }
 }
