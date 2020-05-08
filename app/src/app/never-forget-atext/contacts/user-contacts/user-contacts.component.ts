@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ContactService} from "../../../utilities/services/contact.service";
+import {ContactService} from "../../../utilities/services/neverForgetAText/contact.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-user-contacts',
@@ -9,7 +10,7 @@ import {ContactService} from "../../../utilities/services/contact.service";
 export class UserContactsComponent implements OnInit {
   public userContacts: any;
 
-  constructor(private contactService: ContactService) { }
+  constructor(private contactService: ContactService, private router: Router) { }
 
   ngOnInit(): void {
     this.getUserContacts();
@@ -17,7 +18,10 @@ export class UserContactsComponent implements OnInit {
 
  async getUserContacts() {
     this.userContacts = await this.contactService.getUserContacts(sessionStorage.id);
-    console.log(this.userContacts);
+  }
+
+  editContact(cid) {
+    this.router.navigate(['editContact'], {queryParams: {'cid': cid}})
   }
 
 }

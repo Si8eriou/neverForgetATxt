@@ -1,0 +1,16 @@
+<h1>Events For {{'TODO'}}</h1>
+
+
+<div>
+  <div>
+    <button mat-raised-button [routerLink]="['/newEvent']" [queryParams]="{'cid': contactID}" >
+      Crete new event
+    </button>
+  </div>
+</div>
+
+<table *ngIf="events">
+
+</table>
+
+<h1 *ngIf="!events">No current events for {{'TODO'}}!</h1>

@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {ContactService} from "../../../utilities/services/contact.service";
+import {ContactService} from "../../../utilities/services/neverForgetAText/contact.service";
 import { Routes, RouterModule } from '@angular/router';
 
 @Component({
@@ -13,7 +13,7 @@ export class ContactFormComponent implements OnInit {
   public lName: any;
   public cell: any;
   public email: any;
-  private userID: any;
+  public userID: any;
 
   @Input() contactToEdit: any;
 
@@ -21,7 +21,15 @@ export class ContactFormComponent implements OnInit {
               private router: RouterModule) { }
 
   ngOnInit() {
-    this.assignContactToEdit();
+    if(this.contactToEdit) {
+      this.fName = this.contactToEdit.fname;
+      this.lName = this.contactToEdit.lname;
+      this.email = this.contactToEdit.email;
+      this.cell = this.contactToEdit.cell;
+    }
+    else {
+      this.assignContactToEdit();
+    }
   }
 
 
@@ -49,18 +57,19 @@ export class ContactFormComponent implements OnInit {
       let formData = new FormData();
 
       formData.append('fname', this.fName ? this.fName : '')
-      formData.append('lName', this.lName ? this.lName : '')
+      formData.append('lname', this.lName ? this.lName : '')
       formData.append('cell', this.cell ? this.cell : '')
       formData.append('email', this.email ? this.email : '')
-      formData.append('userID', this.userID);
 
-      let userID = false;
+
+      let contactID = false;
 
       if (typeof this.contactToEdit === 'object') {
-        userID = this.contactToEdit.userID;
+        contactID = this.contactToEdit.id;
+        formData.append('userID', this.userID);
       }
 
-      this.contactService.saveContact(formData, userID);
+      this.contactService.saveContact(formData, contactID);
       this.snackBar.open('Saved', 'X', {
         duration: 4000
       });

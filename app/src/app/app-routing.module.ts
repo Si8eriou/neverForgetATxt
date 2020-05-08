@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {AuthService} from "./utilities/services/auth.service";
+import {AuthService} from "./utilities/services/neverForgetAText/auth.service";
 
 
 const routes: Routes = [
