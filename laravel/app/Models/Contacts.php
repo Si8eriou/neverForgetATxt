@@ -12,7 +12,7 @@ class Contacts extends Model
 
     protected $primaryKey = 'id';
 
-    public $timestamps = false;
+    public $timestamps = true;
 
     protected $fillable = [
         'fname', 'lname', 'cell', 'email'

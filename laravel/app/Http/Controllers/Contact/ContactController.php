@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
-    public function saveContact(Request $request, $contactID = false, ContactsRepository $contactsRepository) {
+    public function saveContact(Request $request, ContactsRepository $contactsRepository, $contactID = false) {
 
         $contact = $contactsRepository->saveContact($contactID, $request);
 

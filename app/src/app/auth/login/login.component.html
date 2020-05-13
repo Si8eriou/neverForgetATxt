@@ -11,7 +11,7 @@
     <mat-form-field>
       <mat-label>Password</mat-label>
       <label>
-        <input matInput [(ngModel)]="password" required="required" type="password">
+        <input (keydown.enter)="onKeydown($event, email, password)" matInput [(ngModel)]="password" required="required" type="password">
       </label>
     </mat-form-field>
   </p>
@@ -19,7 +19,7 @@
   <p>
     <button color="primary" mat-raised-button [routerLink]="['/registerForm']">Register</button>
     <button color='primary' mat-raised-button (click)="submitForm(email, password)">
-      Submit
-    </button>
+    Submit
+  </button>
   </p>
 </div>

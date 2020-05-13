@@ -10,8 +10,7 @@ use Illuminate\Http\Request;
 
 class ContactsRepository
 {
-    public function saveContact($contactID, $request)
-    {
+    public function saveContact($contactID, $request) {
         if ($contactID) {
             $contact = Contacts::where('id', $contactID)->first();
         } else {

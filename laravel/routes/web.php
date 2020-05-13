@@ -17,6 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'asdf'], function() {
-    Route::post('saveNewUser', 'Auth\AuthController@saveNewUser');
+Route::group(['prefix' => 'auth'], function() {
+    Route::post('register', 'Auth\AuthController@saveNewUser');
+    Route::post('userLogin', 'Auth\AuthController@userLogin');
+});
+
+Route::group(['prefix' => 'contact'], function() {
+    Route::post('/{contactID?}', 'Contact\ContactController@saveContact');
+    Route::get('/getUserContacts/{userID}', 'Contact\ContactController@getUserContacts');
 });

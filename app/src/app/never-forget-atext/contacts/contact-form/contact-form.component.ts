@@ -56,19 +56,20 @@ export class ContactFormComponent implements OnInit {
     else {
       let formData = new FormData();
 
-      formData.append('fname', this.fName ? this.fName : '')
-      formData.append('lname', this.lName ? this.lName : '')
-      formData.append('cell', this.cell ? this.cell : '')
-      formData.append('email', this.email ? this.email : '')
+      formData.append('fname', this.fName ? this.fName : '');
+      formData.append('lname', this.lName ? this.lName : '');
+      formData.append('cell', this.cell ? this.cell : '');
+      formData.append('email', this.email ? this.email : '');
+      formData.append('userID', this.userID ? this.userID : '');
 
 
       let contactID = false;
 
       if (typeof this.contactToEdit === 'object') {
         contactID = this.contactToEdit.id;
-        formData.append('userID', this.userID);
       }
 
+      console.log(this.userID);
       this.contactService.saveContact(formData, contactID);
       this.snackBar.open('Saved', 'X', {
         duration: 4000

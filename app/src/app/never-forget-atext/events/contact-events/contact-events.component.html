@@ -4,7 +4,10 @@
 <div>
   <div>
     <button mat-raised-button [routerLink]="['/newEvent']" [queryParams]="{'cid': contactID}" >
-      Crete new event
+      Create new event
+    </button>
+    <button mat-raised-button [routerLink]="['/default']" [queryParams]="{'cid': contactID}">
+      Events Default
     </button>
   </div>
 </div>

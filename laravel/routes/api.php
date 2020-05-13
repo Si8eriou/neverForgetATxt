@@ -27,10 +27,10 @@ Route::group(['prefix' => 'contact'], function() {
 });
 
 Route::group(['prefix' => 'event'], function() {
-    Route::get('/getAllEvents/{userID}',  'Event\EventController@getUserEvents');
-    Route::delete('/deleteEvent/{eventID}',  'Event\EventController@deleteEvent');
-    Route::post('/saveEvent/{eventID}',  'Event\EventController@saveEvent');
-    Route::get('/getContactEvents/${contactID}, Event\EventController@GetContactEvents');
+    Route::get('/getAllEvents/{userID}',  'Events\EventsController@getUserEvents');
+    Route::delete('/deleteEvent/{eventID}',  'Events\Eventsontroller@deleteEvent');
+    Route::post('/saveEvent/{eventID?}',  'Events\EventsController@saveEvent');
+    Route::get('/getContactEvents/${contactID}, Events\EventsController@GetContactEvents');
 });
 
 

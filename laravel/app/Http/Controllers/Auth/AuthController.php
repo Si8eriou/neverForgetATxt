@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 
 
 use App\Http\Controllers\Controller;
+use App\Http\Repositories\AuthRepository;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -12,40 +13,15 @@ use Illuminate\Support\Str;
 
 class AuthController extends Controller
 {
-    public function saveNewUser(Request $request) {
-        $authEmail = User::where('email', $request->get('email'))->first();
+    public function saveNewUser(Request $request, AuthRepository $authRepository) {
+        $user = $authRepository->saveNewUser($request);
 
-        if($authEmail) {
-            return response()->json([false]);
-        }
-        else {
-            $user = new User();
-
-            $user->name = $request->get('name');
-            $user->email = $request->get('email');
-            $user->password = $request->get('password');
-            $user->remember_token = Str::random(60);
-
-            $user->save();
-
-            return response()->json(['user' => $user]);
-        }
+        return response()->json(['user' => $user]);
     }
 
-    public function userLogin(Request $request) {
+    public function userLogin(Request $request, AuthRepository $authRepository) {
+        $user = $authRepository->userLogin($request);
 
-        $user = User::where('email', $request->get('email'))->first();
-
-        if(!$user) {
-            return response()->json([false]);
-        }
-
-        if($user->password === $request->get('password')) {
-            return response()->json(['user' => $user]);
-
-        }
-        else {
-            return response()->json([false]);
-        }
+        return response()->json(['user' => $user]);
     }
 }

@@ -12,10 +12,15 @@ export class EventsService {
   constructor(private http: HttpClient, public router: Router) { }
 
   public saveEvent(body, eventID) {
-    let url = `${environment.apiUrl}/event/saveEvent/${eventID}`;
+    console.log(eventID);
+    let url = `${environment.apiUrl}/event/saveEvent`;
+
+    if(eventID) {
+      url += '/' + eventID;
+    }
 
     return this.http.post(url, body).pipe(
-      map((response: any) => response.contact)).toPromise();
+      map((response: any) => response)).toPromise();
   }
 
   public getUserEvents(userID) {

@@ -38,6 +38,8 @@ export class LoginComponent implements OnInit {
       if (this.userLogged) {
         sessionStorage.setItem('user', this.userLogged.name);
         sessionStorage.setItem('id', this.userLogged.id);
+        sessionStorage.setItem('token', this.userLogged.token);
+        console.log(sessionStorage);
         this.router.navigate(['']);
       }
       else {
@@ -47,4 +49,10 @@ export class LoginComponent implements OnInit {
     }
 
     }
+
+  onKeydown(event, email, password) {
+    if (event.key === "Enter") {
+      this.submitForm(email, password);
+    }
+  }
 }
