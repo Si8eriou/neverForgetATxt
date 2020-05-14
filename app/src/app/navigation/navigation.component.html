@@ -14,3 +14,10 @@
     <mat-icon>exit_to_app</mat-icon>
   </button>
 </mat-toolbar>
+
+<mat-toolbar color="primary" class="center">
+  <span class="fill-remaining-space"></span>
+  <button *ngIf="isMasterUser()" mat-raised-button mat-icon-button>
+    <mat-icon>photo</mat-icon>
+  </button>
+</mat-toolbar>

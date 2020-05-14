@@ -38,8 +38,7 @@ export class LoginComponent implements OnInit {
       if (this.userLogged) {
         sessionStorage.setItem('user', this.userLogged.name);
         sessionStorage.setItem('id', this.userLogged.id);
-        sessionStorage.setItem('token', this.userLogged.token);
-        console.log(sessionStorage);
+        sessionStorage.setItem('remember_token', this.userLogged.remember_token);
         this.router.navigate(['']);
       }
       else {
@@ -47,6 +46,7 @@ export class LoginComponent implements OnInit {
       }
 
     }
+    // TODO:laravel middleware
 
     }
 

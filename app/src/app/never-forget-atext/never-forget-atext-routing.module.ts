@@ -8,6 +8,7 @@ import {NewEventComponent} from "./events/new-event/new-event.component";
 import {EditEventsComponent} from "./events/edit-events/edit-events.component";
 import {EditContactComponent} from "./contacts/edit-contact/edit-contact.component";
 import {DefaultEventsComponent} from "./events/default-events/default-events.component";
+import {UserEventsComponent} from "./events/user-events/user-events.component";
 
 
 
@@ -43,6 +44,10 @@ const routes: Routes = [
   {
     path: 'default',
     component: DefaultEventsComponent
+  },
+  {
+    path: 'UserEvents',
+    component: UserEventsComponent
   }
 ];
 

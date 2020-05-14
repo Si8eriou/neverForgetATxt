@@ -23,24 +23,24 @@ export class EventsService {
       map((response: any) => response)).toPromise();
   }
 
-  public getUserEvents(userID) {
-    let url = `${environment.apiUrl}/event/getAllEvents/${userID}`;
+  public getAllActiveUserEvents(userID) {
+    let url = `${environment.apiUrl}/event/getAllActiveUserEvents/${userID}`;
 
     return this.http.get(url).pipe(
-      map((response: any) => response.contact)).toPromise();
+      map((response: any) => response)).toPromise();
   }
 
   public getContactEvents(contactID) {
     let url = `${environment.apiUrl}/event/getContactEvents/${contactID}`;
 
     return this.http.get(url).pipe(
-      map((response: any) => response.contact)).toPromise();
+      map((response: any) => response)).toPromise();
   }
 
   public deleteEvent(eventID) {
     let url = `${environment.apiUrl}/event/deleteEvent/${eventID}`;
 
     return this.http.delete(url).pipe(
-      map((response: any) => response.contact)).toPromise();
+      map((response: any) => response)).toPromise();
   }
 }

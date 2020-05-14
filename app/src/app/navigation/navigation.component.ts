@@ -20,4 +20,15 @@ export class NavigationComponent implements OnInit {
     sessionStorage.clear();
     this.router.navigate(['login']);
   }
+
+  public isMasterUser() {
+    let user = sessionStorage.id;
+
+    if (user == 0) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
 }

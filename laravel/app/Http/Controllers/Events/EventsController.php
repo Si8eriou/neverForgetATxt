@@ -22,7 +22,10 @@ class EventsController
         return response()->json(['event' => $event]);
     }
 
-    public function getEvents(Request $request, $userID) {
-        $events = EventsLibrary::getUserEvents($userID);
+    public function getAllActiveUserEvents(Request $request, EventsRepository $eventsRepository, $userID) {
+
+        $events = $eventsRepository->getAllActiveUserEvents($userID, $request);
+
+        return response()->json(['events' => $events]);
     }
 }

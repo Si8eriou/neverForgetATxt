@@ -1,1 +1,14 @@
-<p>user-events works!</p>
+<table *ngIf="events">
+  <tr>
+    <td>ID</td>
+    <td>name</td>
+    <td>body</td>
+    <td>useriD</td>
+  </tr>
+  <tr *ngFor="let event of events.events">
+    <th>{{event.id}}</th>
+    <th>{{event.name}}</th>
+    <th>{{event.body}}</th>
+    <th>{{event.userID}}</th>
+  </tr>
+</table>

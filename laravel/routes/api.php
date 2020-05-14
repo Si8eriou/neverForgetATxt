@@ -27,7 +27,7 @@ Route::group(['prefix' => 'contact'], function() {
 });
 
 Route::group(['prefix' => 'event'], function() {
-    Route::get('/getAllEvents/{userID}',  'Events\EventsController@getUserEvents');
+    Route::get('/getAllActiveUserEvents/{userID}',  'Events\EventsController@getAllActiveUserEvents');
     Route::delete('/deleteEvent/{eventID}',  'Events\Eventsontroller@deleteEvent');
     Route::post('/saveEvent/{eventID?}',  'Events\EventsController@saveEvent');
     Route::get('/getContactEvents/${contactID}, Events\EventsController@GetContactEvents');
