@@ -47,8 +47,4 @@ class User extends Authenticatable
     public function setPasswordAttribute($value) {
         $this->attributes['password'] = encrypt($value);
     }
-
-    public function events() {
-        return $this->hasMany(Events::class, 'id');
-    }
 }

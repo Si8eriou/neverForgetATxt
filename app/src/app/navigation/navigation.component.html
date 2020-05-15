@@ -15,9 +15,9 @@
   </button>
 </mat-toolbar>
 
-<mat-toolbar color="primary" class="center">
+<mat-toolbar *ngIf="isMasterUser()" color="primary" class="center">
   <span class="fill-remaining-space"></span>
-  <button *ngIf="isMasterUser()" mat-raised-button mat-icon-button>
-    <mat-icon>photo</mat-icon>
+  <button mat-raised-button mat-icon-button [routerLink]="['defaultEvent']">
+    <mat-icon>today</mat-icon>
   </button>
 </mat-toolbar>

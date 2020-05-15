@@ -4,11 +4,15 @@
     <td>name</td>
     <td>body</td>
     <td>useriD</td>
+    <td>date</td>
   </tr>
-  <tr *ngFor="let event of events.events">
+  <tr *ngFor="let event of events.triggers">
     <th>{{event.id}}</th>
     <th>{{event.name}}</th>
     <th>{{event.body}}</th>
     <th>{{event.userID}}</th>
+    <th>{{event.trigger.date}}</th>
   </tr>
 </table>
+
+<h1 *ngIf="!events"></h1>

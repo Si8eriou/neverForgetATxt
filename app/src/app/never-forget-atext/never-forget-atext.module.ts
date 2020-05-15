@@ -23,7 +23,7 @@ import { DefaultEventsComponent } from './events/default-events/default-events.c
 
 
 @NgModule({
-  declarations: [NeverForgetATextComponent, UserContactsComponent, CreateContactComponent, EditContactComponent, ContactFormComponent, EditEventsComponent, NewEventComponent, EventFormComponent, ContactEventsComponent, UserEventsComponent, DefaultEventsComponent],
+  declarations: [NeverForgetATextComponent, UserContactsComponent, CreateContactComponent, EditContactComponent, ContactFormComponent, EditEventsComponent, NewEventComponent, EventFormComponent, ContactEventsComponent, UserEventsComponent, DefaultEventsComponent,],
   imports: [
     CommonModule,
     NeverForgetATextRoutingModule,

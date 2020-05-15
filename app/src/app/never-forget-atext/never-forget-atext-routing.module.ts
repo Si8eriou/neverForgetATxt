@@ -48,7 +48,7 @@ const routes: Routes = [
   {
     path: 'UserEvents',
     component: UserEventsComponent
-  }
+  },
 ];
 
 @NgModule({

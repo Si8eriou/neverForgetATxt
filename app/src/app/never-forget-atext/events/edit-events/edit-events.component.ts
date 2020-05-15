@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {EventsService} from "../../../utilities/services/neverForgetAText/events.service";
 
 @Component({
   selector: 'app-edit-events',
@@ -7,16 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditEventsComponent implements OnInit {
   public eventToEdit: any;
-  public contactID: any;
+  public eventID: any;
 
-  constructor() {
+  constructor(private eventsService: EventsService) {
     const queryString = window.location.search;
 
     const urlParamOne = new URLSearchParams(queryString);
-    this.contactID = urlParamOne.get('cid');
+    this.eventID = urlParamOne.get('evID');
   }
 
   ngOnInit(): void {
+    this.getEvent(this.eventID);
   }
 
+  async getEvent(eventID) {
+    this.eventToEdit = await this.eventsService.getEvent(eventID);
+  }
 }

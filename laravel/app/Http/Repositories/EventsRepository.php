@@ -4,7 +4,8 @@
 namespace App\Http\Repositories;
 
 use App\Models\Events;
-use APP\Models\User;
+use App\Models\Trigger;
+use App\Models\User;
 
 
 class EventsRepository
@@ -30,8 +31,21 @@ class EventsRepository
         return $event;
     }
 
-    public function  getAllActiveUserEvents($userID, $request) {
+    public function getAllActiveUserEvents($userID, $request) {
 
-        return Events::where('userID', $userID)->with(eventTriggers)->get();
+        return Events::where('userID', $userID)->with('trigger')->get();
+    }
+
+    public function getContactEvents($contactID, $request) {
+
+        return Trigger::where('contactID', $contactID)->with('event')->get();
+    }
+    public function getDefaultEvents() {
+
+        return Events::where('userID', '0')->with('trigger')->get();
+    }
+    public function getEvent($eventID) {
+
+        return Events::where('id', $eventID)->with('trigger')->first();
     }
 }

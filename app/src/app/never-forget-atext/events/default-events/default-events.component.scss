@@ -1,0 +1,25 @@
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  margin-bottom: 7em;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+tr.element-row:hover {
+  background: #9561E2;
+}
+
+th {
+  font-size: 17px;
+  letter-spacing: 2px;
+}
+
+td {
+  letter-spacing: 1px;
+}
+
+th, td {
+  text-align: left;
+  padding: 20px;
+}

@@ -29,6 +29,16 @@ export class EventFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.eventToEdit);
+    this.editOrNew();
+  }
+
+  editOrNew() {
+    if (this.eventToEdit) {
+      this.eventName = this.eventToEdit.name;
+      this.eventBody = this.eventToEdit.body;
+      this.eventDate = this.eventToEdit.trigger.date;
+    }
   }
 
 
@@ -59,9 +69,13 @@ export class EventFormComponent implements OnInit {
 
 
       let eventID = false;
+      let masterID = '0';
 
       if (typeof this.eventToEdit === 'object') {
         eventID = this.eventToEdit.id;
+        if(this.eventToEdit.id === masterID) {
+          eventID = false;
+        }
       }
 
       this.eventsService.saveEvent(formData, eventID);

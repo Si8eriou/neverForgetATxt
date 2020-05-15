@@ -18,4 +18,7 @@ class Events extends Model
       'name', 'body', 'userID'
     ];
 
+    public function trigger() {
+        return $this->hasOne( Trigger::class, 'eventID');
+    }
 }

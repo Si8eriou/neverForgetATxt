@@ -22,4 +22,8 @@ class Contacts extends Model
     public function user() {
         return $this->belongsTo(User::class, 'id');
     }
+
+    public function events() {
+        return$this->hasMany(Events::class, 'contactID', 'id');
+    }
 }

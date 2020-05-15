@@ -1,1 +1,10 @@
-<app-event-form></app-event-form>
+<table class="mat-elevation-z4">
+  <tr>
+    <th>Name</th>
+    <th>Date</th>
+  </tr>
+  <tr class="element-row" *ngFor="let event of events" (dblclick)="routeToEdit(event.id)">
+    <td>{{event.name}}</td>
+    <td>{{event.trigger.date}}</td>
+  </tr>
+</table>

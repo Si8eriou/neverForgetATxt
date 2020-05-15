@@ -12,7 +12,6 @@ export class EventsService {
   constructor(private http: HttpClient, public router: Router) { }
 
   public saveEvent(body, eventID) {
-    console.log(eventID);
     let url = `${environment.apiUrl}/event/saveEvent`;
 
     if(eventID) {
@@ -42,5 +41,19 @@ export class EventsService {
 
     return this.http.delete(url).pipe(
       map((response: any) => response)).toPromise();
+  }
+
+  public getDefaultEvents() {
+    let url = `${environment.apiUrl}/event/getDefaultEvents`;
+
+    return this.http.get(url).pipe(
+      map((response: any) => response.events)).toPromise();
+  }
+
+  public getEvent(eventID) {
+    let url = `${environment.apiUrl}/event/getEvent/${eventID}`;
+
+    return this.http.get(url).pipe(
+      map((response: any) => response.event)).toPromise();
   }
 }

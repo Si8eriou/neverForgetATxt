@@ -1,4 +1,4 @@
-<div>
+<div class="margin-top" >
   <mat-form-field class="line-width">
     <mat-label>Event Name</mat-label>
     <input matInput required [(ngModel)]="eventName">
@@ -8,7 +8,7 @@
 <div>
   <mat-form-field class="line-width">
     <mat-label>Choose a date</mat-label>
-    <input matInput [matDatepicker]="picker" [(ngModel)]="eventDate" required="required">
+    <input matInput [(ngModel)]="eventDate" [matDatepicker]="picker" required>
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>

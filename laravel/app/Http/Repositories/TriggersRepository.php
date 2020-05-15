@@ -27,4 +27,9 @@ class TriggersRepository
 
         return $trigger;
     }
+
+    public function getTrigger($event) {
+
+        return Trigger::where('eventID', $event->id)->first();
+    }
 }
