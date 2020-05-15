@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from "../../utilities/services/auth.service";
+import {AuthService} from "../../utilities/services/neverForgetAText/auth.service";
 import {Router} from "@angular/router";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 
@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
       if (this.userLogged) {
         sessionStorage.setItem('user', this.userLogged.name);
         sessionStorage.setItem('id', this.userLogged.id);
+        sessionStorage.setItem('remember_token', this.userLogged.remember_token);
         this.router.navigate(['']);
       }
       else {
@@ -45,6 +46,13 @@ export class LoginComponent implements OnInit {
       }
 
     }
+    // TODO:laravel middleware
 
     }
+
+  onKeydown(event, email, password) {
+    if (event.key === "Enter") {
+      this.submitForm(email, password);
+    }
+  }
 }

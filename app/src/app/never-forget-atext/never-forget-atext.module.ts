@@ -13,10 +13,17 @@ import {CreateContactComponent} from "./contacts/create-contact/create-contact.c
 import {FormsModule} from "@angular/forms";
 import { EditContactComponent } from './contacts/edit-contact/edit-contact.component';
 import { ContactFormComponent } from './contacts/contact-form/contact-form.component';
+import { EditEventsComponent } from './events/edit-events/edit-events.component';
+import { NewEventComponent } from './events/new-event/new-event.component';
+import { EventFormComponent } from './events/event-form/event-form.component';
+import { ContactEventsComponent } from './events/contact-events/contact-events.component';
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import { UserEventsComponent } from './events/user-events/user-events.component';
+import { DefaultEventsComponent } from './events/default-events/default-events.component';
 
 
 @NgModule({
-  declarations: [NeverForgetATextComponent, UserContactsComponent, CreateContactComponent, EditContactComponent, ContactFormComponent],
+  declarations: [NeverForgetATextComponent, UserContactsComponent, CreateContactComponent, EditContactComponent, ContactFormComponent, EditEventsComponent, NewEventComponent, EventFormComponent, ContactEventsComponent, UserEventsComponent, DefaultEventsComponent,],
   imports: [
     CommonModule,
     NeverForgetATextRoutingModule,
@@ -25,6 +32,7 @@ import { ContactFormComponent } from './contacts/contact-form/contact-form.compo
     MatIconModule,
     MatInputModule,
     FormsModule,
+    MatDatepickerModule,
   ]
 })
 export class NeverForgetATextModule { }

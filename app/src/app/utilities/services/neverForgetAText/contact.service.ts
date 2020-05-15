@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { environment } from "../../../environments/environment";
+import { environment } from "../../../../environments/environment";
 import { map } from 'rxjs/operators';
 import {Router} from "@angular/router";
 
@@ -27,5 +27,12 @@ export class ContactService {
 
     return this.http.get(url).pipe(
       map((response: any) => response.userContacts)).toPromise();
+  }
+
+  public getContact(contactID) {
+    let url = `${environment.apiUrl}/contact/getContact/${contactID}`;
+
+    return this.http.get(url).pipe(
+      map((response: any) => response.contact)).toPromise();
   }
 }

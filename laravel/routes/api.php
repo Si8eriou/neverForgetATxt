@@ -23,6 +23,16 @@ Route::group(['prefix' => 'auth'], function() {
 Route::group(['prefix' => 'contact'], function() {
     Route::post('/{contactID?}', 'Contact\ContactController@saveContact');
     Route::get('/getUserContacts/{userID}', 'Contact\ContactController@getUserContacts');
+    Route::get('/getContact/{contactID}', 'Contact\ContactController@getContact');
+});
+
+Route::group(['prefix' => 'event'], function() {
+    Route::get('/getAllActiveUserEvents/{userID}',  'Events\EventsController@getAllActiveUserEvents');
+    Route::get('/getContactEvents/{contactID}', 'Events\EventsController@getContactEvents');
+    Route::get('/getDefaultEvents', 'Events\EventsController@getDefaultEvents');
+    Route::get('/getEvent/{eventID}', 'Events\EventsController@getEvent');
+    Route::delete('/deleteEvent/{eventID}',  'Events\Eventsontroller@deleteEvent');
+    Route::post('/saveEvent/{eventID?}',  'Events\EventsController@saveEvent');
 });
 
 

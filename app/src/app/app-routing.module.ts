@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {AuthService} from "./utilities/services/auth.service";
+import {AuthService} from "./utilities/services/neverForgetAText/auth.service";
+import {DefaultEventsComponent} from "./never-forget-atext/events/default-events/default-events.component";
 
 
 const routes: Routes = [
@@ -23,6 +24,10 @@ const routes: Routes = [
     path: 'text',
     loadChildren: './never-forget-atext/never-forget-atext.module#NeverForgetATextModule',
     canActivate:[AuthService]
+  },
+  {
+    path: 'defaultEvent',
+    component: DefaultEventsComponent
   },
 ];
 

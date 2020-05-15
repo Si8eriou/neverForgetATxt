@@ -1,0 +1,26 @@
+<h1>Events For {{'TODO'}}</h1>
+
+
+<div>
+  <div>
+    <button mat-raised-button [routerLink]="['/newEvent']" [queryParams]="{'cid': contactID}" >
+      Create new event
+    </button>
+    <button mat-raised-button [routerLink]="['/default']" [queryParams]="{'cid': contactID}">
+      Events Default
+    </button>
+  </div>
+</div>
+
+<table *ngIf="events" class="mat-elevation-z4">
+  <tr>
+    <td>Name</td>
+    <td>Date</td>
+  </tr>
+  <tr class="element-row" *ngFor="let event of events.triggers" (dblclick)="routeToEdit(event.event.id)">
+    <th>{{event.event.name}}</th>
+    <th>{{event.date}}</th>
+  </tr>
+</table>
+
+<h1 *ngIf="!events">No current events for {{'TODO'}}!</h1>

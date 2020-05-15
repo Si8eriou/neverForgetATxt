@@ -12,13 +12,21 @@
       <th></th>
       <th></th>
       <th></th>
+      <th></th>
     </ng-container>
   </tr>
-  <tr *ngFor="let contacts of userContacts">
+  <tr *ngFor="let contacts of userContacts" class="element-row" (dblclick)="editContact(contacts.id)">
     <ng-container>
       <td>{{contacts.fname ? contacts.fname : ''}} {{contacts.lname ? contacts.lname : ''}}</td>
       <td>{{contacts.email ? contacts.email : ''}}</td>
       <td>{{contacts.cell ? contacts.cell : ''}}</td>
+      <td>
+        <button mat-raised-button mat-icon-button [routerLink]="['/contactEvents']" [queryParams]="{'cid': contacts.id}">
+          <mat-icon>
+            event
+          </mat-icon>
+        </button>
+      </td>
     </ng-container>
   </tr>
 </table>

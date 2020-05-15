@@ -5,35 +5,28 @@ namespace App\Http\Controllers\Contact;
 
 
 use App\Http\Controllers\Controller;
+use App\Http\Repositories\ContactsRepository;
 use App\Models\Contacts;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
-    public function saveContact(Request $request, $contactID = false) {
-        if($contactID) {
-            $contact = Contacts::where('id', $contactID)->get();
-        }
-        else {
-            $contact = new Contacts;
-        }
+    public function saveContact(Request $request, ContactsRepository $contactsRepository, $contactID = false) {
 
-
-        $contact->fname = $request->get('fname');
-        $contact->lname = $request->get('lname');
-        $contact->cell = $request->get('cell');
-        $contact->email = $request->get('email');
-        $contact->userID = $request->get('userID');
-
-        $contact->save();
+        $contact = $contactsRepository->saveContact($contactID, $request);
 
         return response()->json(['contact' => $contact]);
     }
 
-    public function getUserContacts(Request $request, $userID) {
-        $userContacts = Contacts::with('user')->where('userID', $userID)->get();
+    public function getUserContacts(Request $request, $userID, ContactsRepository $contactsRepository) {
+        $userContacts = $contactsRepository->getUserContacts($userID);
 
         return response()->json(['userContacts' => $userContacts], 200, [], JSON_INVALID_UTF8_IGNORE);
     }
 
+    public function getContact(Request $request, $contactID, ContactsRepository $contactsRepository) {
+        $contact = $contactsRepository->getContact($contactID);
+
+        return response()->json(['contact' => $contact], 200, [], JSON_INVALID_UTF8_IGNORE);
+    }
 }

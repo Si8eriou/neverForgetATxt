@@ -15,6 +15,7 @@ import {AuthModule} from "./auth/auth.module";
 import { HttpClientModule } from '@angular/common/http';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {HomeModule} from "./home/home.module";
+import {MatNativeDateModule} from "@angular/material/core";
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import {HomeModule} from "./home/home.module";
         MatMenuModule,
         MatButtonModule,
         MatIconModule,
+        MatNativeDateModule,
         NeverForgetATextModule,
         IconsModule,
         AuthModule,

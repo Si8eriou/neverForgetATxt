@@ -18,5 +18,11 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'auth'], function() {
-    Route::post('saveNewUser', 'Auth\AuthController@saveNewUser');
+    Route::post('register', 'Auth\AuthController@saveNewUser');
+    Route::post('userLogin', 'Auth\AuthController@userLogin');
+});
+
+Route::group(['prefix' => 'contact'], function() {
+    Route::post('/{contactID?}', 'Contact\ContactController@saveContact');
+    Route::get('/getUserContacts/{userID}', 'Contact\ContactController@getUserContacts');
 });
