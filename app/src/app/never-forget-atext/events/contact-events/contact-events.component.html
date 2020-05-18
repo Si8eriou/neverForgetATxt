@@ -1,14 +1,14 @@
-<h1>Events For {{'TODO'}}</h1>
+<h1 *ngIf="currentContact">Events for {{currentContact.fname}} {{currentContact.lname}}</h1>
 
 
-<div>
+<div class="bottomMargin">
   <div>
     <button mat-raised-button [routerLink]="['/newEvent']" [queryParams]="{'cid': contactID}" >
       Create new event
     </button>
-    <button mat-raised-button [routerLink]="['/default']" [queryParams]="{'cid': contactID}">
-      Events Default
-    </button>
+<!--    <button mat-raised-button [routerLink]="['/default']" [queryParams]="{'cid': contactID}">-->
+<!--      Events Default-->
+<!--    </button>-->
   </div>
 </div>
 
