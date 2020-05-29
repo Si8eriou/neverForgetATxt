@@ -22,18 +22,9 @@ class EventsRepository
         $event->body = $request->get('body');
         $event->userID = $request->get('userID');
 
-//        if ($event->userID = '0') {
-//            $event->default = '1';
-//        }
-
         $event->save();
 
         return $event;
-    }
-
-    public function getAllActiveUserEvents($userID, $request) {
-
-        return Events::where('userID', $userID)->with('trigger')->get();
     }
 
     public function getContactEvents($contactID, $request) {
@@ -43,9 +34,5 @@ class EventsRepository
     public function getDefaultEvents() {
 
         return Events::where('userID', '0')->with('trigger')->get();
-    }
-    public function getEvent($eventID) {
-
-        return Events::where('id', $eventID)->with('trigger')->first();
     }
 }

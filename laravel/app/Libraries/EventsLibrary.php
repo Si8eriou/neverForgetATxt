@@ -4,12 +4,17 @@
 namespace App\Libraries;
 
 
+use App\Models\Events;
+
 class EventsLibrary
 {
-    public static function getUserEvents($userID){
-        //get default events
-        //get user events
+    public function getAllActiveUserEvents($userID, $request) {
 
-        return ['default' => 'hi', 'user' => 'hello'];
+        return Events::where('userID', $userID)->with('trigger')->get();
+    }
+
+    public function getEvent($eventID) {
+
+        return Events::where('id', $eventID)->with('trigger')->first();
     }
 }

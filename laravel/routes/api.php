@@ -35,4 +35,9 @@ Route::group(['prefix' => 'event'], function() {
     Route::post('/saveEvent/{eventID?}',  'Events\EventsController@saveEvent');
 });
 
+Route::group(['prefix' => 'event'], function() {
+    Route::post('/sendSMS', 'SMS\SMSController@sendSMS');
+});
+
+
 
