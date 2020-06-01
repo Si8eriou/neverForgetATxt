@@ -16,11 +16,13 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {HomeModule} from "./home/home.module";
 import {MatNativeDateModule} from "@angular/material/core";
+import { SendSmsComponent } from './send-sms/send-sms.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
+    SendSmsComponent,
   ],
     imports: [
         BrowserModule,

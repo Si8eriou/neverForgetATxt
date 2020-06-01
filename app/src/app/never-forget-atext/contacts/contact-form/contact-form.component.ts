@@ -69,7 +69,6 @@ export class ContactFormComponent implements OnInit {
         contactID = this.contactToEdit.id;
       }
 
-      console.log(this.userID);
       this.contactService.saveContact(formData, contactID);
       this.snackBar.open('Saved', 'X', {
         duration: 4000

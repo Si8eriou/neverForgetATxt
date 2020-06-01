@@ -22,9 +22,9 @@ class EventsController
         return response()->json(['event' => $event]);
     }
 
-    public function getAllActiveUserEvents(Request $request, EventsRepository $eventsRepository,
+    public function getAllActiveUserEvents(Request $request, EventsLibrary $eventsLibrary,
                                            $userID) {
-        $events = $eventsRepository->getAllActiveUserEvents($userID, $request);
+        $events = $eventsLibrary->getAllActiveUserEvents($userID, $request);
 
         return response()->json(['events' => $events], 200, [], JSON_INVALID_UTF8_IGNORE);
     }
@@ -41,8 +41,8 @@ class EventsController
         return response()->json(['events' => $events], 200, [], JSON_INVALID_UTF8_IGNORE);
     }
 
-    public function getEvent(Request $request, EventsRepository $eventsRepository, $eventID) {
-        $event = $eventsRepository->getEvent($eventID);
+    public function getEvent(Request $request, EventsLibrary $eventsLibrary, $eventID) {
+        $event = $eventsLibrary->getEvent($eventID);
 
         return response()->json(['event' => $event], 200, [], JSON_INVALID_UTF8_IGNORE);
     }
