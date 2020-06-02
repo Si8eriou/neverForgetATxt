@@ -29,7 +29,7 @@ class Kernel extends ConsoleKernel
         $date = new Carbon();
         $schedule->call(function () use ($date) {
             dispatch(new SendEventSms($date));
-        })->dailyAt('9:00');
+        })->dailyAt('10:00');
     }
 
     /**
