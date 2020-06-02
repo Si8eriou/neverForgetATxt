@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {ContactService} from "../../../utilities/services/neverForgetAText/contact.service";
-import {RouterModule} from "@angular/router";
+import {Router} from "@angular/router";
 import {EventsService} from "../../../utilities/services/neverForgetAText/events.service";
 
 @Component({
@@ -20,7 +20,7 @@ export class EventFormComponent implements OnInit {
 
 
   constructor(private snackBar: MatSnackBar, private eventsService: EventsService,
-              private router: RouterModule) {
+              private router: Router) {
 
     const queryString = window.location.search;
 
@@ -29,7 +29,6 @@ export class EventFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.eventToEdit);
     this.editOrNew();
   }
 
@@ -82,6 +81,7 @@ export class EventFormComponent implements OnInit {
       this.snackBar.open('Saved', 'X', {
         duration: 4000
       });
+      this.router.navigate(['UserEvents']);
     }
 
 
