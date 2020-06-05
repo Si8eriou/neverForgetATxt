@@ -2270,7 +2270,7 @@ class SendSmsComponent {
     }
 }
 SendSmsComponent.ɵfac = function SendSmsComponent_Factory(t) { return new (t || SendSmsComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_utilities_services_neverForgetAText_send_sms_service__WEBPACK_IMPORTED_MODULE_1__["SendSmsService"])); };
-SendSmsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: SendSmsComponent, selectors: [["app-send-sms"]], decls: 14, vars: 2, consts: [["appearance", "outline", 1, "message"], ["matInput", "", 1, "full-height", 3, "ngModel", "ngModelChange"], ["appearance", "outline", 1, "numberWidth"], ["matInput", "", 3, "ngModel", "ngModelChange"], ["mat-raised-button", "", "mat-icon-button", ""]], template: function SendSmsComponent_Template(rf, ctx) { if (rf & 1) {
+SendSmsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: SendSmsComponent, selectors: [["app-send-sms"]], decls: 14, vars: 2, consts: [["appearance", "outline", 1, "message"], ["matInput", "", 1, "full-height", 3, "ngModel", "ngModelChange"], ["appearance", "outline", 1, "numberWidth"], ["matInput", "", 3, "ngModel", "ngModelChange"], ["mat-raised-button", "", "mat-icon-button", "", 3, "click"]], template: function SendSmsComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "h1");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Send SMS");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -2295,6 +2295,7 @@ SendSmsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineC
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "button", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function SendSmsComponent_Template_button_click_12_listener() { return ctx.sendSms(); });
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](13, "send");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
