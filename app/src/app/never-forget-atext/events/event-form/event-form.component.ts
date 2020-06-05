@@ -5,6 +5,7 @@ import {Router} from "@angular/router";
 import {EventsService} from "../../../utilities/services/neverForgetAText/events.service";
 import {MatNativeDateModule} from "@angular/material/core";
 import {format} from "util";
+import {FormControl} from "@angular/forms";
 
 @Component({
   selector: 'app-event-form',
@@ -12,6 +13,7 @@ import {format} from "util";
   styleUrls: ['./event-form.component.scss']
 })
 export class EventFormComponent implements OnInit {
+  date = new FormControl()
   public eventName: any;
   public eventBody: any;
   public eventDate: any;
@@ -34,14 +36,6 @@ export class EventFormComponent implements OnInit {
     this.editOrNew();
   }
 
-
-  getFormattedDate(eventDate) {
-    var month = format(eventDate.getMonth() + 1);
-    var day = format(eventDate .getDate());
-    var year = format(eventDate .getFullYear());
-    var time = format(eventDate .getTime())
-    return month + "-" + day + "-" + year;
-  }
 
 
   editOrNew() {
@@ -74,7 +68,7 @@ export class EventFormComponent implements OnInit {
 
       formData.append('name', this.eventName ? this.eventName : '');
       formData.append('body', this.eventBody ? this.eventBody : '');
-      formData.append('date', this.eventDate ? this.getFormattedDate(this.eventDate) : '');
+      formData.append('date', this.eventDate ? this.eventDate : '');
       formData.append('contactID', this.contactID ? this.contactID : '');
       formData.append('userID', this.userID);
 

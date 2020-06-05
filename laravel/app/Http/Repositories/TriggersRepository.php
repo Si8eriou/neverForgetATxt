@@ -4,6 +4,7 @@
 namespace App\Http\Repositories;
 
 use App\Models\Trigger;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -18,6 +19,7 @@ class TriggersRepository
             $trigger = new Trigger;
         }
 
+        $trigger->date = new Carbon($trigger->date);
 
         $trigger->contactID = $request->get('contactID');
         $trigger->date = $request->get('date');
