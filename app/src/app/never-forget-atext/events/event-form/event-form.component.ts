@@ -82,7 +82,6 @@ export class EventFormComponent implements OnInit {
           eventID = false;
         }
       }
-      console.log(formData)
 
       this.eventsService.saveEvent(formData, eventID);
       this.snackBar.open('Saved', 'X', {
