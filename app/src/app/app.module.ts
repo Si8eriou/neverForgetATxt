@@ -17,6 +17,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {HomeModule} from "./home/home.module";
 import {MatNativeDateModule} from "@angular/material/core";
 import { SendSmsComponent } from './send-sms/send-sms.component';
+import {MatDatepickerModule} from "@angular/material/datepicker";
 
 @NgModule({
   declarations: [
@@ -39,6 +40,8 @@ import { SendSmsComponent } from './send-sms/send-sms.component';
         HttpClientModule,
         MatSnackBarModule,
         HomeModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
     ],
   providers: [],
   bootstrap: [AppComponent]
