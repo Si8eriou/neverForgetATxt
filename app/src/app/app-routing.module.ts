@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {AuthService} from "./utilities/services/neverForgetAText/auth.service";
 import {DefaultEventsComponent} from "./never-forget-atext/events/default-events/default-events.component";
+import {SendSmsService} from "./utilities/services/neverForgetAText/send-sms.service";
+import {SendSmsComponent} from "./send-sms/send-sms.component";
 
 
 const routes: Routes = [
@@ -28,6 +30,10 @@ const routes: Routes = [
   {
     path: 'defaultEvent',
     component: DefaultEventsComponent
+  },
+  {
+    path: 'sendSMS',
+    component: SendSmsComponent
   },
 ];
 

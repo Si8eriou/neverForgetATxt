@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {SendSmsService} from "../utilities/services/neverForgetAText/send-sms.service";
+import {MatInputModule} from '@angular/material/input';
 
 @Component({
   selector: 'app-send-sms',
@@ -7,11 +8,9 @@ import {SendSmsService} from "../utilities/services/neverForgetAText/send-sms.se
   styleUrls: ['./send-sms.component.scss']
 })
 export class SendSmsComponent implements OnInit {
-  @Input() message;
-  @Input() userSending;
-  @Input() contactReceiving;
 
-  public userNumber: any;
+  public whoToNum: any;
+  public message: any;
 
 
   constructor(private sendSmsService: SendSmsService) { }
@@ -23,7 +22,7 @@ export class SendSmsComponent implements OnInit {
     let formData = new FormData();
 
     formData.append('message', this.message ? this.message : '');
-    formData.append('contactReceivingCell', this.contactReceiving.cell ? this.contactReceiving.cell : '');
+    formData.append('contactReceivingCell', this.whoToNum ? this.whoToNum : '');
 
     this.sendSmsService.sendSMS(formData);
   }
