@@ -18,6 +18,9 @@ import {HomeModule} from "./home/home.module";
 import {MatNativeDateModule} from "@angular/material/core";
 import { SendSmsComponent } from './send-sms/send-sms.component';
 import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatInputModule} from "@angular/material/input";
+import {FormsModule} from "@angular/forms";
+import {MatFormFieldModule} from "@angular/material/form-field";
 
 @NgModule({
   declarations: [
@@ -25,24 +28,28 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
     NavigationComponent,
     SendSmsComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatToolbarModule,
-        MatMenuModule,
-        MatButtonModule,
-        MatIconModule,
-        MatNativeDateModule,
-        NeverForgetATextModule,
-        IconsModule,
-        AuthModule,
-        HttpClientModule,
-        MatSnackBarModule,
-        HomeModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatButtonModule,
+    MatIconModule,
+    MatNativeDateModule,
+    NeverForgetATextModule,
+    IconsModule,
+    AuthModule,
+    HttpClientModule,
+    MatSnackBarModule,
+    HomeModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule,
+    FormsModule,
+    MatFormFieldModule,
+
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
