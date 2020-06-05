@@ -17,10 +17,8 @@ class SendSms {
                 [
                     "body" => $event->body,
                     "from" => env("TWILIO_NUMBER"),
-//                    "statusCallback" => ""
                 ]
             );
-
         return($message->status);
     }
 }
