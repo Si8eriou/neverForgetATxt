@@ -3,7 +3,6 @@
 
 namespace App\Libraries;
 use Twilio\Rest\Client;
-require_once '../../vendor/autoload.php';
 
 
 class SendSms {
