@@ -14,7 +14,7 @@ class SendSms {
         $message = $twilio->messages
             ->create("+14357201828", // to
                 [
-                    "body" => $event->body,
+                    "body" => $event->body ?: $event->message,
                     "from" => env("TWILIO_NUMBER"),
                 ]
             );
