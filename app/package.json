@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --output-path=../laravel/angular",
+    "build": "ng build --output-path=../laravel/angular --prod",
     "watch": "ng build --watch=true --output-path=../laravel/angular",
     "test": "ng test",
     "lint": "ng lint",
