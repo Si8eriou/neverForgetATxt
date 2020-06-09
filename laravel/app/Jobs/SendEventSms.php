@@ -45,14 +45,14 @@ class SendEventSms implements ShouldQueue
 
     private function checkForEvents($date)
     {
-        $this->trigger = Trigger::where('date', $date)->get();
+        $this->triggers = Trigger::where('date', '=', $this->date->toDateString())->get();
     }
 
     private function getEventInfo($triggers, $sendSms)
     {
         if(count($triggers)) {
             foreach ($this->triggers as $trigger) {
-                $event = Events::where('id', $trigger->eventID)->get();
+                $event = Events::find($trigger->eventID);
 
                 $this->sendEventSms($event, $sendSms);
             }
@@ -61,7 +61,7 @@ class SendEventSms implements ShouldQueue
 
     private function sendEventSms($event, $sendSms)
     {
-        if(count($event)) {
+        if($event) {
             $sendSms->sendText($event);
         }
     }
