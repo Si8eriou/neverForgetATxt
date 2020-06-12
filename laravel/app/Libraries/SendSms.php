@@ -10,15 +10,17 @@ class SendSms {
         $sid    = env('TWILIO_SID');
         $token  = env("TWILIO_TOKEN");
         $twilio = new Client($sid, $token);
-        $number = '+1';
 
+        $messageBody = $event->event->body ?: $event->message;
+
+        $number = '+1';
         $number .= $event->contact->cell ?: $event->contactReceivingCell;
 
 
         $message = $twilio->messages
-            ->create($event->contact->cell ?: $event->number, // to
+            ->create($number, // to
                 [
-                    "body" => $event->body ?: $event->message,
+                    "body" => $messageBody,
                     "from" => env("TWILIO_NUMBER"),
                 ]
             );
