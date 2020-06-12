@@ -56,4 +56,12 @@ export class EventsService {
     return this.http.get(url).pipe(
       map((response: any) => response.event)).toPromise();
   }
+
+  public getEventRepeatTypes() {
+    let url = `${environment.apiUrl}/event/getEventRepeatTypes`;
+
+    return this.http.get(url).pipe(
+      map((response: any) => response)).toPromise();
+  }
+  // $eventTypes = config('constants.event_repeat_types.');
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Jobs\SendEventSms;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +32,7 @@ Route::group(['prefix' => 'event'], function() {
     Route::get('/getContactEvents/{contactID}', 'Events\EventsController@getContactEvents');
     Route::get('/getDefaultEvents', 'Events\EventsController@getDefaultEvents');
     Route::get('/getEvent/{eventID}', 'Events\EventsController@getEvent');
+    Route::get('/getEventRepeatTypes', 'Events\EventController@getEventRepeatType');
     Route::delete('/deleteEvent/{eventID}',  'Events\Eventsontroller@deleteEvent');
     Route::post('/saveEvent/{eventID?}',  'Events\EventsController@saveEvent');
 });
@@ -39,5 +41,8 @@ Route::group(['prefix' => 'sendSMS'], function() {
     Route::post('', 'SMS\SMSController@sendSMS');
 });
 
+Route::get('test', function () {
+    SendEventSms::dispatch(new Carbon\Carbon());
+});
 
 

@@ -22,6 +22,15 @@
 </div>
 
 <div>
+  <mat-form-field>
+    <mat-label>Repeat Every:</mat-label>
+    <mat-select [(ngModel)]="eventRepeatType">
+      <mat-option *ngFor="let eventRepeatType of eventRepeatTypes" [value]="eventRepeatType.value">{{eventRepeatType.viewValue}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div>
   <button mat-raised-button color="primary" (click)="saveForm()">
     <mat-icon>save</mat-icon>
   </button>

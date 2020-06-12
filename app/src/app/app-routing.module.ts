@@ -29,11 +29,15 @@ const routes: Routes = [
   },
   {
     path: 'defaultEvent',
-    component: DefaultEventsComponent
+    component: DefaultEventsComponent,
+    canActivate:[AuthService]
+
   },
   {
     path: 'sendSMS',
-    component: SendSmsComponent
+    component: SendSmsComponent,
+    canActivate:[AuthService]
+
   },
 ];
 

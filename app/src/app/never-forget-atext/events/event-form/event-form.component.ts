@@ -4,8 +4,14 @@ import {ContactService} from "../../../utilities/services/neverForgetAText/conta
 import {Router} from "@angular/router";
 import {EventsService} from "../../../utilities/services/neverForgetAText/events.service";
 import {MatNativeDateModule} from "@angular/material/core";
-import {format} from "util";
+import {MatSelectModule} from '@angular/material/select';
 import {FormControl} from "@angular/forms";
+
+
+interface EventRepeatTypes {
+  value: number;
+  viewValue: string;
+}
 
 @Component({
   selector: 'app-event-form',
@@ -19,6 +25,15 @@ export class EventFormComponent implements OnInit {
   public eventDate: any;
   public userID: any;
   public contactID: any;
+  public eventRepeatType: any;
+
+  eventRepeatTypes: EventRepeatTypes[] = [
+    {value: 1, viewValue: 'Day'},
+    {value: 2, viewValue: 'Week'},
+    {value: 3, viewValue: 'Month'},
+    {value: 4, viewValue: '30 Days'},
+    {value: 5, viewValue: 'Year'},
+  ];
 
   @Input() eventToEdit;
 
@@ -40,12 +55,12 @@ export class EventFormComponent implements OnInit {
 
   editOrNew() {
     if (this.eventToEdit) {
-      this.eventName = this.eventToEdit.name;
-      this.eventBody = this.eventToEdit.body;
-      this.eventDate = this.eventToEdit.trigger.date;
+      this.eventName = this.eventToEdit.name ? this.eventToEdit.name : '';
+      this.eventBody = this.eventToEdit.body ? this.eventToEdit.body : '';
+      this.eventDate = this.eventToEdit.trigger.date ? this.eventToEdit.trigger.date : ''
+      this.eventRepeatType = this.eventToEdit.repeat_type ? this.eventToEdit.repeat_type : '';
     }
   }
-
 
   getCurrentUser() {
     this.userID = sessionStorage.id;
@@ -71,6 +86,7 @@ export class EventFormComponent implements OnInit {
       formData.append('date', this.eventDate ? this.eventDate : '');
       formData.append('contactID', this.contactID ? this.contactID : '');
       formData.append('userID', this.userID);
+      formData.append('repeat_type', this.eventRepeatType ? this.eventRepeatType : '');
 
 
       let eventID = false;

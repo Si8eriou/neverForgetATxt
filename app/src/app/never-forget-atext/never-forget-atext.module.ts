@@ -20,19 +20,21 @@ import { ContactEventsComponent } from './events/contact-events/contact-events.c
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import { UserEventsComponent } from './events/user-events/user-events.component';
 import { DefaultEventsComponent } from './events/default-events/default-events.component';
+import {MatSelectModule} from "@angular/material/select";
 
 
 @NgModule({
   declarations: [NeverForgetATextComponent, UserContactsComponent, CreateContactComponent, EditContactComponent, ContactFormComponent, EditEventsComponent, NewEventComponent, EventFormComponent, ContactEventsComponent, UserEventsComponent, DefaultEventsComponent,],
-  imports: [
-    CommonModule,
-    NeverForgetATextRoutingModule,
-    MatButtonModule,
-    MatTableModule,
-    MatIconModule,
-    MatInputModule,
-    FormsModule,
-    MatDatepickerModule,
-  ]
+    imports: [
+        CommonModule,
+        NeverForgetATextRoutingModule,
+        MatButtonModule,
+        MatTableModule,
+        MatIconModule,
+        MatInputModule,
+        FormsModule,
+        MatDatepickerModule,
+        MatSelectModule,
+    ]
 })
 export class NeverForgetATextModule { }

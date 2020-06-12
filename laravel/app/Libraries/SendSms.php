@@ -2,6 +2,7 @@
 
 
 namespace App\Libraries;
+use App\Http\Controllers\Triggers\SaveSentTriggerController;
 use Twilio\Rest\Client;
 
 
@@ -11,10 +12,10 @@ class SendSms {
         $token  = env("TWILIO_TOKEN");
         $twilio = new Client($sid, $token);
 
-        $messageBody = $event->event->body ?: $event->message;
+        $messageBody = $event->event->body;
 
         $number = '+1';
-        $number .= $event->contact->cell ?: $event->contactReceivingCell;
+        $number .= $event->contact->cell;
 
 
         $message = $twilio->messages
@@ -24,6 +25,11 @@ class SendSms {
                     "from" => env("TWILIO_NUMBER"),
                 ]
             );
-        return($message->status);
+
+        self::saveSentTrigger($event);
+    }
+
+    public static function saveSentTrigger($event) {
+        (new SaveSentTriggerController)->saveSentTrigger($event);
     }
 }

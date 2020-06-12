@@ -24,6 +24,6 @@ class Contacts extends Model
     }
 
     public function events() {
-        return$this->hasMany(Events::class, 'contactID', 'id');
+        return $this->hasMany(Events::class, 'contactID', 'id');
     }
 }

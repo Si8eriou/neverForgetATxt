@@ -46,4 +46,11 @@ class EventsController
 
         return response()->json(['event' => $event], 200, [], JSON_INVALID_UTF8_IGNORE);
     }
+
+    public function getEventRepeatType(Request $request, EventsRepository $eventsRepository) {
+        $eventTypes = $eventsRepository->getEventRepeatType();
+
+        return response()->json(['eventTypes' => $eventTypes], 200, [], JSON_INVALID_UTF8_IGNORE);
+    }
+
 }
