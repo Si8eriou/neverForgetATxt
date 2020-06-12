@@ -176,37 +176,39 @@
     </index>
     <column id="48" parent="11" name="id">
       <Position>1</Position>
-      <DataType>integer|0s</DataType>
+      <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="49" parent="11" name="eventID">
       <Position>2</Position>
-      <DataType>integer|0s</DataType>
+      <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
     </column>
     <column id="50" parent="11" name="userID">
       <Position>3</Position>
-      <DataType>integer|0s</DataType>
+      <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
     </column>
     <column id="51" parent="11" name="contactID">
       <Position>4</Position>
-      <DataType>integer|0s</DataType>
+      <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="52" parent="11" name="date">
+    <column id="52" parent="11" name="created_at">
       <Position>5</Position>
-      <DataType>integer|0s</DataType>
-      <NotNull>1</NotNull>
+      <DataType>DATETIME|0s</DataType>
+      <DefaultExpression>NULL</DefaultExpression>
     </column>
-    <column id="53" parent="11" name="created_at">
+    <column id="53" parent="11" name="updated_at">
       <Position>6</Position>
-      <DataType>datetime|0s</DataType>
+      <DataType>DATETIME|0s</DataType>
+      <DefaultExpression>NULL</DefaultExpression>
     </column>
-    <column id="54" parent="11" name="updated_at">
+    <column id="54" parent="11" name="date">
       <Position>7</Position>
-      <DataType>datetime|0s</DataType>
+      <DataType>DATETIME|0s</DataType>
+      <NotNull>1</NotNull>
     </column>
     <key id="55" parent="11">
       <ColNames>id</ColNames>
