@@ -53,4 +53,8 @@ class EventsController
         return response()->json(['eventTypes' => $eventTypes], 200, [], JSON_INVALID_UTF8_IGNORE);
     }
 
+    public function deleteEvent(Request $request, EventsRepository $eventsRepository, $triggerID) {
+        $eventsRepository->deleteEvent($triggerID);
+    }
+
 }

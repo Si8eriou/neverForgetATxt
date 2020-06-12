@@ -14,12 +14,18 @@
 
 <table *ngIf="events" class="mat-elevation-z4">
   <tr>
-    <td>Name</td>
-    <td>Date</td>
+    <th>Name</th>
+    <th>Date</th>
+    <th></th>
   </tr>
   <tr class="element-row" *ngFor="let event of events.triggers" (dblclick)="routeToEdit(event.event.id)">
-    <th>{{event.event.name}}</th>
-    <th>{{event.date}}</th>
+    <td>{{event.event.name}}</td>
+    <td>{{event.date}}</td>
+    <td>
+      <button mat-raised-button mat-icon-button (click)="deleteEvent(event.id)">
+        <mat-icon>delete_forever</mat-icon>
+      </button>
+    </td>
   </tr>
 </table>
 

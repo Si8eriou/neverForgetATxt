@@ -36,8 +36,8 @@ export class EventsService {
       map((response: any) => response)).toPromise();
   }
 
-  public deleteEvent(eventID) {
-    let url = `${environment.apiUrl}/event/deleteEvent/${eventID}`;
+  public deleteEvent(triggerID) {
+    let url = `${environment.apiUrl}/event/deleteEvent/${triggerID}`;
 
     return this.http.delete(url).pipe(
       map((response: any) => response)).toPromise();

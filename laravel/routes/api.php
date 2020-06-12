@@ -33,7 +33,7 @@ Route::group(['prefix' => 'event'], function() {
     Route::get('/getDefaultEvents', 'Events\EventsController@getDefaultEvents');
     Route::get('/getEvent/{eventID}', 'Events\EventsController@getEvent');
     Route::get('/getEventRepeatTypes', 'Events\EventController@getEventRepeatType');
-    Route::delete('/deleteEvent/{eventID}',  'Events\Eventsontroller@deleteEvent');
+    Route::delete('/deleteEvent/{triggerID}',  'Events\EventsController@deleteEvent');
     Route::post('/saveEvent/{eventID?}',  'Events\EventsController@saveEvent');
 });
 

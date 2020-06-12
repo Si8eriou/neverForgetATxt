@@ -39,4 +39,14 @@ class EventsRepository
     public function getEventRepeatType() {
         return config('event_repeat_types');
     }
+
+    public function deleteEvent($triggerID) {
+        $trigger = Trigger::find($triggerID);
+
+        $event = Events::find($trigger->event->id);
+
+        $trigger->delete();
+        $event->delete();
+
+    }
 }
