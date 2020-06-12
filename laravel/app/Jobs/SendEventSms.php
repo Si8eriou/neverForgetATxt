@@ -24,11 +24,11 @@ class SendEventSms implements ShouldQueue
     /**
      * Create a new job instance.
      *
-     * @param SendSms $sendSms
+     * @param Carbon $date
      */
     public function __construct(Carbon $date)
     {
-        $this->date = $date->format('m/d/Y');
+        $this->date = $date;
     }
 
     /**
@@ -39,30 +39,22 @@ class SendEventSms implements ShouldQueue
      */
     public function handle(SendSms $sendSms)
     {
-        $this->checkForEvents($this->date);
-        $this->getEventInfo($this->triggers, $sendSms);
+        $this->checkForEvents($this->date, $sendSms);
     }
 
-    private function checkForEvents($date)
+    private function checkForEvents($date, $sendSms)
     {
-        $this->triggers = Trigger::where('date', '=', $this->date->toDateString())->get();
+        $this->triggers = Trigger::where('date', '=', $this->date->toDateString())->with('event', 'contact')->get();
+
+        $this->sendEventSms($this->triggers, $sendSms);
     }
 
-    private function getEventInfo($triggers, $sendSms)
+    private function sendEventSms($triggers, $sendSms)
     {
-        if(count($triggers)) {
-            foreach ($this->triggers as $trigger) {
-                $event = Events::find($trigger->eventID);
-
-                $this->sendEventSms($event, $sendSms);
+        if($triggers) {
+            foreach ($triggers as $trigger) {
+                $sendSms->sendText($trigger);
             }
-        }
-    }
-
-    private function sendEventSms($event, $sendSms)
-    {
-        if($event) {
-            $sendSms->sendText($event);
         }
     }
 }

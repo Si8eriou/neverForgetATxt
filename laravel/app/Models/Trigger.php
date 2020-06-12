@@ -5,6 +5,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Events;
+use App\Models\Contacts;
 
 
 
@@ -22,5 +23,9 @@ class Trigger extends Model
 
     public function event() {
         return $this->hasOne( Events::class, 'id', 'eventID');
+    }
+
+    public function contact() {
+        return $this->hasOne(Contacts::class, 'id', 'contactID');
     }
 }
