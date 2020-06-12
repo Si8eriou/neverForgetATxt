@@ -31,4 +31,9 @@ export class ContactEventsComponent implements OnInit {
   routeToEdit(eventID) {
     this.router.navigate(['editEvent'], {queryParams: {'evID': eventID}})
   }
+
+  async deleteEvent(triggerID) {
+    await this.eventsService.deleteEvent(triggerID);
+    location.reload();
+  }
 }
