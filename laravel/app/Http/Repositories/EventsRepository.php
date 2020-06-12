@@ -21,6 +21,7 @@ class EventsRepository
         $event->name = $request->get('name');
         $event->body = $request->get('body');
         $event->userID = $request->get('userID');
+        $event->repeat_type = $request->get('repeat_type');
 
         $event->save();
 
@@ -32,7 +33,10 @@ class EventsRepository
         return Trigger::where('contactID', $contactID)->with('event')->get();
     }
     public function getDefaultEvents() {
-
         return Events::where('userID', '0')->with('trigger')->get();
+    }
+
+    public function getEventRepeatType() {
+        return config('event_repeat_types');
     }
 }

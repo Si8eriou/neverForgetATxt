@@ -34,4 +34,15 @@ class TriggersRepository
 
         return Trigger::where('eventID', $event->id)->first();
     }
+
+    public function saveTriggerAfterSend($sentTrigger) {
+
+        $trigger = Trigger::where('eventID', $sentTrigger->event->id)->first();
+
+        $trigger->contactID = $sentTrigger->contactID;
+        $trigger->date = $sentTrigger->date;
+        $trigger->eventID = $sentTrigger->event->id;
+
+        $trigger->save();
+    }
 }
