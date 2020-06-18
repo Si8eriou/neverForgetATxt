@@ -18,12 +18,12 @@ class SendSms {
         $number .= $event->contact->cell;
 
 
-//        $message = $twilio->messages
-//            ->create($number, // to
-//                [
-//                    "body" => $messageBody,
-//                    "from" => env("TWILIO_NUMBER"),
-//                ]
-//            );
+        $message = $twilio->messages
+            ->create($number, // to
+                [
+                    "body" => $messageBody,
+                    "from" => env("TWILIO_NUMBER"),
+                ]
+            );
     }
 }
