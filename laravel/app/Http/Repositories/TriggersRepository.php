@@ -17,12 +17,13 @@ class TriggersRepository
 
         if (!$trigger) {
             $trigger = new Trigger;
+            $trigger->contactID = $request->get('contactID');
         }
 
-        $date = \DateTime::createFromFormat('D M d Y H:i:s e+', $request->get('date'));
 
-        $trigger->contactID = $request->get('contactID');
-        $trigger->date = $date;
+        $date = new Carbon();
+
+        $trigger->date = $date->format('Y-m-d');
         $trigger->eventID = $event->id;
 
         $trigger->save();

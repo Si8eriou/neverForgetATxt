@@ -1,15 +1,15 @@
 <mat-toolbar color="primary" class="center">
   <button mat-button routerLink="/">
 
-    <img src="/assets/img/mainLogo.png">
+    <img class="logoImageSize" src="/assets/img/jacobyLogo.png">
   </button>
   <span class="fill-remaining-space"></span>
   <button mat-raised-button mat-icon-button [routerLink]="['text']">
     <mat-icon>smartphone</mat-icon>
   </button>
-  <button mat-raised-button mat-icon-button [routerLink]="['sendSMS']">
-    <mat-icon>person</mat-icon>
-  </button>
+<!--  <button mat-raised-button mat-icon-button [routerLink]="['sendSMS']">-->
+<!--    <mat-icon>person</mat-icon>-->
+<!--  </button>-->
   <button mat-raised-button mat-icon-button (click)="logout()">
     <mat-icon>exit_to_app</mat-icon>
   </button>

@@ -13,14 +13,11 @@ class SentTriggerRepository
 
         $triggerSent = new SentTrigger();
 
-
-
         $triggerSent->eventID = $sentTrigger->eventID;
         $triggerSent->userID = $sentTrigger->event->userID;
         $triggerSent->contactID = $sentTrigger->contactID;
         $triggerSent->date = $sentTrigger->date;
 
         $triggerSent->save();
-
     }
 }

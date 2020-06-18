@@ -9,7 +9,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./contact-events.component.scss']
 })
 export class ContactEventsComponent implements OnInit {
-  public events: any;
+  public triggers = [];
   public contactID: any;
   public eventsToIterate: any;
 
@@ -25,7 +25,7 @@ export class ContactEventsComponent implements OnInit {
   }
 
   async getContactEvents() {
-    this.events = await this.eventsService.getContactEvents(this.contactID);
+    this.triggers = await this.eventsService.getContactEvents(this.contactID);
   }
 
   routeToEdit(eventID) {

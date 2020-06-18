@@ -24,8 +24,8 @@
 <div>
   <mat-form-field>
     <mat-label>Repeat Every:</mat-label>
-    <mat-select [(ngModel)]="eventRepeatType">
-      <mat-option *ngFor="let eventRepeatType of eventRepeatTypes" [value]="eventRepeatType.value">{{eventRepeatType.viewValue}}</mat-option>
+    <mat-select [(ngModel)]="typeEventRepeat">
+      <mat-option *ngFor="let eventRepeatType of eventRepeatTypes" [value]="typeEventRepeat ? typeEventRepeat : eventRepeatType.value">{{eventRepeatType.viewValue}}</mat-option>
     </mat-select>
   </mat-form-field>
 </div>
