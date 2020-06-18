@@ -26,7 +26,7 @@ class EventsController
                                            $userID) {
         $events = $eventsLibrary->getAllActiveUserEvents($userID, $request);
 
-        return response()->json(['events' => $events], 200, [], JSON_INVALID_UTF8_IGNORE);
+        return response()->json($events, 200, [], JSON_INVALID_UTF8_IGNORE);
     }
 
     public function getContactEvents(Request $request, EventsRepository $eventsRepository, $contactID) {

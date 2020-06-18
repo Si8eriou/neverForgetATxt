@@ -17,12 +17,12 @@ class TriggersRepository
 
         if (!$trigger) {
             $trigger = new Trigger;
+            $trigger->contactID = $request->get('contactID');
         }
 
 
         $date = new Carbon();
 
-        $trigger->contactID = $request->get('contactID');
         $trigger->date = $date->format('Y-m-d');
         $trigger->eventID = $event->id;
 

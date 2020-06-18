@@ -24,7 +24,7 @@ export class EventFormComponent implements OnInit {
   public eventDate: any;
   public userID: any;
   public contactID: any;
-  public eventRepeatType: any;
+  public typeEventRepeat: any;
 
   eventRepeatTypes: EventRepeatTypes[] = [
     {value: 1, viewValue: 'Day'},
@@ -57,7 +57,7 @@ export class EventFormComponent implements OnInit {
       this.eventName = this.eventToEdit.name ? this.eventToEdit.name : '';
       this.eventBody = this.eventToEdit.body ? this.eventToEdit.body : '';
       this.eventDate = this.eventToEdit.trigger.date ? this.eventToEdit.trigger.date : ''
-      this.eventRepeatType = this.eventToEdit.repeat_type ? this.eventToEdit.repeat_type : '';
+      this.typeEventRepeat = this.eventToEdit.repeat_type ? this.eventToEdit.repeat_type : '';
     }
   }
 
@@ -85,7 +85,7 @@ export class EventFormComponent implements OnInit {
       formData.append('date', this.eventDate ? this.eventDate : '');
       formData.append('contactID', this.contactID ? this.contactID : '');
       formData.append('userID', this.userID);
-      formData.append('repeat_type', this.eventRepeatType ? this.eventRepeatType : '');
+      formData.append('repeat_type', this.typeEventRepeat ? this.typeEventRepeat : '');
 
 
       let eventID = false;

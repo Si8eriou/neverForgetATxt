@@ -7,3 +7,11 @@
      Every toolbar row uses a flexbox row layout. */
   flex: 1 1 auto;
 }
+
+mat-toolbar {
+  height: 70px;
+}
+
+.logoImageSize {
+  height: 70px;
+}

@@ -1,5 +1,5 @@
-<h1 *ngIf="triggers.length">Events For {{'TODO'}}</h1>
-<h1 *ngIf="!triggers.length">No current events for {{'TODO'}}!</h1>
+<h1 *ngIf="triggers?.length">Events For {{'TODO'}}</h1>
+<h1 *ngIf="!triggers?.length">No current events for {{'TODO'}}!</h1>
 
 
 
@@ -14,17 +14,17 @@
   </div>
 </div>
 
-<table *ngIf="triggers.length" class="mat-elevation-z4">
+<table *ngIf="triggers?.length" class="mat-elevation-z4">
   <tr>
     <th>Name</th>
     <th>Date</th>
     <th></th>
   </tr>
-  <tr class="element-row" *ngFor="let trigger of triggers" (dblclick)="routeToEdit(trigger.id)">
-    <td>{{trigger.event.name}}</td>
-    <td>{{trigger.date}}</td>
+  <tr class="element-row" *ngFor="let trigger of triggers" (dblclick)="routeToEdit(trigger?.eventID)">
+    <td>{{trigger?.event?.name}}</td>
+    <td>{{trigger?.date}}</td>
     <td>
-      <button mat-raised-button mat-icon-button (click)="deleteEvent(trigger.id)">
+      <button mat-raised-button mat-icon-button (click)="deleteEvent(trigger?.id)">
         <mat-icon>delete_forever</mat-icon>
       </button>
     </td>

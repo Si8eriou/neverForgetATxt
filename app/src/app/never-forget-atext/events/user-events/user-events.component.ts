@@ -17,5 +17,6 @@ export class UserEventsComponent implements OnInit {
 
   async getAllActiveUserEvents() {
    this.events = await this.eventsService.getAllActiveUserEvents(sessionStorage.id);
+   console.log(this.events);
   }
 }
