@@ -29,9 +29,8 @@ class SendEventSms implements ShouldQueue
      */
     public function __construct(Carbon $date)
     {
-//        $this->date = $date;
+        $this->date = $date;
 
-        $this->date = new Carbon();
     }
 
     /**

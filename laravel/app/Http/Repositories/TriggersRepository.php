@@ -41,7 +41,7 @@ class TriggersRepository
         $trigger = Trigger::where('eventID', $sentTrigger->event->id)->first();
 
         $trigger->contactID = $sentTrigger->contactID;
-        $trigger->date = $sentTrigger->date;
+        $trigger->date = $sentTrigger->date->toDateString();
         $trigger->eventID = $sentTrigger->event->id;
 
         $trigger->save();
