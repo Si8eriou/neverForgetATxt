@@ -19,10 +19,11 @@ class TriggersRepository
             $trigger = new Trigger;
         }
 
-        $date = \DateTime::createFromFormat('D M d Y H:i:s e+', $request->get('date'));
+
+        $date = new Carbon();
 
         $trigger->contactID = $request->get('contactID');
-        $trigger->date = $date;
+        $trigger->date = $date->format('Y-m-d');
         $trigger->eventID = $event->id;
 
         $trigger->save();

@@ -19,7 +19,6 @@ interface EventRepeatTypes {
   styleUrls: ['./event-form.component.scss']
 })
 export class EventFormComponent implements OnInit {
-  date = new FormControl()
   public eventName: any;
   public eventBody: any;
   public eventDate: any;

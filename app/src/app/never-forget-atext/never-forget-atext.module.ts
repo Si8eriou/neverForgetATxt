@@ -10,7 +10,7 @@ import {MatTableModule} from "@angular/material/table";
 import {MatIconModule} from "@angular/material/icon";
 import {MatInputModule} from "@angular/material/input";
 import {CreateContactComponent} from "./contacts/create-contact/create-contact.component";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { EditContactComponent } from './contacts/edit-contact/edit-contact.component';
 import { ContactFormComponent } from './contacts/contact-form/contact-form.component';
 import { EditEventsComponent } from './events/edit-events/edit-events.component';
@@ -35,6 +35,7 @@ import {MatSelectModule} from "@angular/material/select";
         FormsModule,
         MatDatepickerModule,
         MatSelectModule,
+        ReactiveFormsModule,
     ]
 })
 export class NeverForgetATextModule { }

@@ -32,7 +32,7 @@ class EventsController
     public function getContactEvents(Request $request, EventsRepository $eventsRepository, $contactID) {
         $triggers = $eventsRepository->getContactEvents($contactID, $request);
 
-        return response()->json(['triggers' => $triggers], 200, [], JSON_INVALID_UTF8_IGNORE);
+        return response()->json($triggers, 200, [], JSON_INVALID_UTF8_IGNORE);
     }
 
     public function getDefaultEvents(Request $request, EventsRepository $eventsRepository) {

@@ -12,6 +12,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use App\Libraries\SendSms;
+use App\Libraries\SaveSentTrigger;
 
 class SendEventSms implements ShouldQueue
 {
@@ -28,7 +29,9 @@ class SendEventSms implements ShouldQueue
      */
     public function __construct(Carbon $date)
     {
-        $this->date = $date;
+//        $this->date = $date;
+
+        $this->date = new Carbon();
     }
 
     /**
@@ -39,10 +42,10 @@ class SendEventSms implements ShouldQueue
      */
     public function handle(SendSms $sendSms)
     {
-        $this->checkForEvents($this->date, $sendSms);
+        $this->checkForEvents($sendSms);
     }
 
-    private function checkForEvents($date, $sendSms)
+    private function checkForEvents($sendSms)
     {
         $this->triggers = Trigger::where('date', '=', $this->date->toDateString())->with('event', 'contact')->get();
 
@@ -53,7 +56,9 @@ class SendEventSms implements ShouldQueue
     {
         if($triggers) {
             foreach ($triggers as $trigger) {
+
                 $sendSms->sendText($trigger);
+                (new SaveSentTrigger)->saveSentTrigger($trigger);
             }
         }
     }
