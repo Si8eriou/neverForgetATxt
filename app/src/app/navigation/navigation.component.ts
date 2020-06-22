@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import {MediaMatcher} from '@angular/cdk/layout';
+import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
 
 
 @Component({
@@ -8,12 +9,23 @@ import {Router} from "@angular/router";
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent implements OnInit {
+  showFiller = false;
+  mobileQuery: MediaQueryList;
 
-  constructor(private router: Router) {
+  private _mobileQueryListener: () => void;
+
+
+  constructor(private router: Router, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
   ngOnInit(): void {
+  }
 
+  ngOnDestroy() {
+    this.mobileQuery.removeListener(this._mobileQueryListener);
   }
 
   public logout() {

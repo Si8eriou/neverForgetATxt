@@ -1,23 +1,39 @@
-<mat-toolbar color="primary" class="center">
-  <button mat-button routerLink="/">
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="center">
 
-    <img class="logoImageSize" src="/assets/img/jacobyLogo.png">
-  </button>
-  <span class="fill-remaining-space"></span>
-  <button mat-raised-button mat-icon-button [routerLink]="['text']">
-    <mat-icon>smartphone</mat-icon>
-  </button>
-<!--  <button mat-raised-button mat-icon-button [routerLink]="['sendSMS']">-->
-<!--    <mat-icon>person</mat-icon>-->
-<!--  </button>-->
-  <button mat-raised-button mat-icon-button (click)="logout()">
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <button mat-button routerLink="/">
+      <img class="logoImage" src="/assets/img/jacobyLogo.png">
+    </button>
+
+    <button mat-raised-button mat-icon-button [matMenuTriggerFor]="profileMenu">
+      <mat-icon>person</mat-icon>
+    </button>
+
+  </mat-toolbar>
+
+
+  <mat-sidenav-container class="example-sidenav-container"
+                         [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+      <mat-nav-list>
+        <button mat-list-item>test</button>
+        <button mat-list-item>yeet</button>
+      </mat-nav-list>
+    </mat-sidenav>
+  </mat-sidenav-container>
+
+</div>
+
+<mat-menu #profileMenu="matMenu">
+  <button mat-menu-item>Profile</button>
+  <button mat-menu-item>Settings</button>
+  <button mat-menu-item (click)="logout()">
+    Logout
     <mat-icon>exit_to_app</mat-icon>
   </button>
-</mat-toolbar>
-
-<mat-toolbar *ngIf="isMasterUser()" color="primary" class="center">
-  <span class="fill-remaining-space"></span>
-  <button mat-raised-button mat-icon-button [routerLink]="['defaultEvent']">
-    <mat-icon>today</mat-icon>
-  </button>
-</mat-toolbar>
+</mat-menu>
