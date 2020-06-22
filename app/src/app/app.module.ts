@@ -21,6 +21,8 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
 import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from "@angular/material/list";
 
 @NgModule({
   declarations: [
@@ -48,7 +50,8 @@ import {MatFormFieldModule} from "@angular/material/form-field";
     MatInputModule,
     FormsModule,
     MatFormFieldModule,
-
+    MatSidenavModule,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
