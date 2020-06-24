@@ -1,4 +1,4 @@
-<div>
+<div class="toolBar">
   <mat-toolbar color="primary">
 
     <button mat-icon-button (click)="sidenav.toggle()">
@@ -7,7 +7,7 @@
 
     <span class="alignContent"></span>
 
-    <button mat-button routerLink="/" class="">
+    <button mat-button routerLink="/">
       <img class="logoImage" src="/assets/img/jacobyLogo.png">
     </button>
 
@@ -36,14 +36,21 @@
 
       <a mat-list-item></a>
 
-      <a mat-list-item [routerLink]="''">Profile</a>
-      <a mat-list-item [routerLink]="''">Settings</a>
+      <a mat-list-item [matMenuTriggerFor]="profileMenu">
+        <mat-icon>person</mat-icon>
+        <span style="margin-left: 1em">Profile</span>
+      </a>
       <a mat-list-item [routerLink]="'/text'">Never Forget A Text</a>
+
+
+      <mat-menu #profileMenu="matMenu">
+        <button mat-list-item [routerLink]="">Settings</button>
+      </mat-menu>
 
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <div style="height: 88vh;">
+    <div style="height: 100vh;">
 
       <router-outlet></router-outlet>
     </div>

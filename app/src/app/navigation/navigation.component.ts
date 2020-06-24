@@ -8,12 +8,14 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent implements OnInit {
+  public user: any;
 
 
   constructor(private router: Router) {
   }
 
   ngOnInit(): void {
+    this.user = sessionStorage.id;
   }
 
   public logout() {
@@ -22,9 +24,7 @@ export class NavigationComponent implements OnInit {
   }
 
   public isMasterUser() {
-    let user = sessionStorage.id;
-
-    if (user == 0) {
+    if (this.user == 0) {
       return true;
     } else {
       return false;
