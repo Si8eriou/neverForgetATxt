@@ -20,12 +20,14 @@
   </mat-toolbar>
 
   <mat-menu #profileMenu="matMenu">
+    <span mat-menu-item>Hi, {{userName}}</span>
     <button mat-menu-item>Profile</button>
     <button mat-menu-item>Settings</button>
-    <button mat-menu-item (click)="logout()">
+    <button *ngIf="user" mat-menu-item (click)="logout()">
       Logout
       <mat-icon>exit_to_app</mat-icon>
     </button>
+    <button *ngIf="!user" mat-menu-item [routerLink]="'login'">Register/Login</button>
   </mat-menu>
 
 </div>
@@ -40,11 +42,16 @@
         <mat-icon>person</mat-icon>
         <span style="margin-left: 1em">Profile</span>
       </a>
-      <a mat-list-item [routerLink]="'/text'">Never Forget A Text</a>
+
+      <a mat-list-item [routerLink]="'/portfolio'">Portfolio</a>
+
+      <a mat-list-item [routerLink]="'/contact'">Resume</a>
+
+      <a mat-list-item [routerLink]="'/text'" [mat-menu-trigger-for]="neverForgetATextMenu">Never Forget A Text</a>
 
 
-      <mat-menu #profileMenu="matMenu">
-        <button mat-list-item [routerLink]="">Settings</button>
+      <mat-menu #neverForgetATextMenu="matMenu">
+        <button mat-menu-item routerLink="'/contacts'">Contacts</button>
       </mat-menu>
 
     </mat-nav-list>

@@ -4,6 +4,8 @@ import {AuthService} from "./utilities/services/neverForgetAText/auth.service";
 import {DefaultEventsComponent} from "./never-forget-atext/events/default-events/default-events.component";
 import {SendSmsService} from "./utilities/services/neverForgetAText/send-sms.service";
 import {SendSmsComponent} from "./send-sms/send-sms.component";
+import {ResumeComponent} from "./resume/resume.component";
+import {PortfolioComponent} from "./portfolio/portfolio.component";
 
 
 const routes: Routes = [
@@ -12,15 +14,17 @@ const routes: Routes = [
     loadChildren: './auth/auth.module#AuthModule',
   },
   {
+    path:'register',
+    loadChildren: './auth/auth.module#AuthModule'
+  },
+  {
     path: 'home',
     loadChildren: './home/home.module#HomeModule',
-    canActivate:[AuthService]
   },
   {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',
-    canActivate:[AuthService]
   },
   {
     path: 'text',
@@ -37,7 +41,14 @@ const routes: Routes = [
     path: 'sendSMS',
     component: SendSmsComponent,
     canActivate:[AuthService]
-
+  },
+  {
+    path: 'resume',
+    component: ResumeComponent,
+  },
+  {
+    path: 'portfolio',
+    component: PortfolioComponent
   },
 ];
 

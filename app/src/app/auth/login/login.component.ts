@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
       alert('No password entered');
     }
     else {
+      this.authService.canActivate();
       let formData = new FormData();
       formData.append('email', this.email ? this.email : '');
       formData.append('password', this.password ? this.password : '');
