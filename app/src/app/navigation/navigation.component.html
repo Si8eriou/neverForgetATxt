@@ -47,10 +47,13 @@
 
       <a mat-list-item [routerLink]="'/contact'">Resume</a>
 
-      <a mat-list-item [routerLink]="'/text'" [mat-menu-trigger-for]="neverForgetATextMenu" #trigger="matMenuTrigger" (mouseenter)="trigger.openMenu()" (mouseleave)="trigger.closeMenu()">Never Forget A Text</a>
+      <a mat-list-item [routerLink]="'/text'" [mat-menu-trigger-for]="neverForgetATextMenu" #trigger="matMenuTrigger" (mouseover)="trigger.openMenu()">Never Forget A Text
+      <mat-icon>keyboard_arrow_down</mat-icon>
+      </a>
 
 
-      <mat-menu #neverForgetATextMenu="matMenu">
+      <mat-menu #neverForgetATextMenu="matMenu" style="text-align: center">
+        <button mat-menu-item [routerLink]="'/text'">Menu</button>
         <button mat-menu-item [routerLink]="'/text/contacts'">Contacts</button>
       </mat-menu>
 
