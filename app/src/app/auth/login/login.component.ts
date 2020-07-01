@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   }
 
 
-  async submitForm(email, password) {
+  async submitForm() {
     if (!this.email) {
       alert('No email entered');
     }
@@ -39,20 +39,18 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem('user', this.userLogged.name);
         sessionStorage.setItem('id', this.userLogged.id);
         sessionStorage.setItem('remember_token', this.userLogged.remember_token);
-        this.router.navigate(['']);
+        await this.router.navigate(['']);
       }
       else {
         alert('Username or password do not match records')
       }
-
     }
-    // TODO:laravel middleware
 
     }
 
-  onKeydown(event, email, password) {
+  onKeydown(event) {
     if (event.key === "Enter") {
-      this.submitForm(email, password);
+      this.submitForm();
     }
   }
 }

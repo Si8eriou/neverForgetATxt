@@ -1,4 +1,45 @@
-h1, div {
-  text-align: center;
+#container-bild {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
 }
 
+/* picture in main-container */
+#img-bild {
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  filter: brightness(65%);
+}
+
+.header {
+  font-family: 'Krona One', sans-serif;
+  letter-spacing: 1px;
+  font-weight: bold;
+  font-size: 65px;
+  color: white;
+  text-align: center !important;
+}
+
+button {
+  padding: 1px 25px;
+  font-family: 'Almarai', sans-serif;
+  margin: .1em;
+  text-align: center !important;
+  color: white;
+  background-color: transparent;
+  font-size: 20px;
+  border: 1px solid white;
+}
+
+.verticalAlign {
+  padding-top: 200px;
+}
+
+.buttonTopMargin {
+  margin-top: 10px;
+}

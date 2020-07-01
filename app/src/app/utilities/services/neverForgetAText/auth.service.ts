@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {EventEmitter, Injectable, Output} from '@angular/core';
 import {environment} from "../../../../environments/environment";
 import {map, tap} from "rxjs/operators";
 import { HttpClient } from "@angular/common/http";
@@ -32,7 +32,7 @@ export class AuthService {
     return this.token;
   }
 
-  canActivate(): boolean {
+  public canActivate(): boolean {
     if (sessionStorage.getItem('id') == null) {
       this.router.navigate(['login']);
 
