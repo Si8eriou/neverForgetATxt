@@ -25,3 +25,12 @@ a:hover {
   top: 0; /* Sets the sticky toolbar to be on top */
   z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
 }
+
+.cdk-overlay-container{
+  left:200px;
+  top:200px;
+}
+.cdk-overlay-connected-position-bounding-box{
+  top:0 !important;
+
+}

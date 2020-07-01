@@ -34,7 +34,7 @@ export class AuthService {
 
   public canActivate(): boolean {
     if (sessionStorage.getItem('id') == null) {
-      this.router.navigate(['']);
+      this.router.navigate(['login']);
 
       return false;
     }
