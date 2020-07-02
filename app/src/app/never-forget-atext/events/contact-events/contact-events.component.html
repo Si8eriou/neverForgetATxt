@@ -1,9 +1,13 @@
-<h1 *ngIf="triggers?.length">Events For {{'TODO'}}</h1>
-<h1 *ngIf="!triggers?.length">No current events for {{'TODO'}}!</h1>
-
-
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Almarai&family=Krona+One&display=swap" rel="stylesheet">
+</head>
 
 <div>
+
+  <div id="container-bild">
+    <img src="assets/img/eventsBackground.jpg" id="img-bild">
+  </div>
+
   <div>
     <button mat-raised-button [routerLink]="['/newEvent']" [queryParams]="{'cid': contactID}" >
       Create new event

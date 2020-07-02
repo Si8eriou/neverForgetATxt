@@ -13,10 +13,7 @@
 mat-sidenav {
   width: 275px;
   height: auto;
-}
-
-a:hover {
-  background-color: orangered;
+  background-color: #212121;
 }
 
 .toolBar {
@@ -24,6 +21,7 @@ a:hover {
   position: -webkit-sticky; /* For macOS/iOS Safari */
   top: 0; /* Sets the sticky toolbar to be on top */
   z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+  color: #212121;
 }
 
 .cdk-overlay-container{
@@ -32,5 +30,12 @@ a:hover {
 }
 .cdk-overlay-connected-position-bounding-box{
   top:0 !important;
+}
 
+.whiteFont {
+  color: white;
+}
+
+.darkMenu {
+  background: #212121 !important;
 }
