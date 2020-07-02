@@ -20,7 +20,7 @@
   </mat-toolbar>
 
   <mat-menu #profileMenu="matMenu">
-    <span mat-menu-item>Hi, {{userName}}!</span>
+    <span mat-menu-item *ngIf="this.user">Hi, {{userName}}!</span>
     <button mat-menu-item>Profile</button>
     <button mat-menu-item>Settings</button>
     <button *ngIf="user" mat-menu-item (click)="logout()">
@@ -36,7 +36,7 @@
   <mat-sidenav #sidenav>
     <mat-nav-list>
 
-      <a mat-list-item>Hi, {{userName}}!</a>
+      <a mat-list-item *ngIf="this.user">Hi, {{userName}}!</a>
 
       <a mat-list-item [matMenuTriggerFor]="profileMenu">
         <mat-icon>person</mat-icon>
@@ -47,7 +47,8 @@
 
       <a mat-list-item [routerLink]="'/contact'">Resume</a>
 
-      <a mat-list-item [routerLink]="'/text'" [mat-menu-trigger-for]="neverForgetATextMenu" #trigger="matMenuTrigger" (mouseover)="trigger.openMenu()">Never Forget A Text
+      <a mat-list-item [routerLink]="'/text'" [mat-menu-trigger-for]="neverForgetATextMenu" #trigger="matMenuTrigger"
+         (mouseover)="trigger.openMenu()" disabled="{{!this.user}}">Never Forget A Text
       <mat-icon>keyboard_arrow_down</mat-icon>
       </a>
 

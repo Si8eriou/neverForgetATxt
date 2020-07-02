@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem('id', this.userLogged.id);
         sessionStorage.setItem('remember_token', this.userLogged.remember_token);
         await this.router.navigate(['']);
+        window.location.reload();
       }
       else {
         alert('Username or password do not match records')
