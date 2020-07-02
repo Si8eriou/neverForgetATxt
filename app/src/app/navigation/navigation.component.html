@@ -20,7 +20,7 @@
   </mat-toolbar>
 
   <mat-menu #profileMenu="matMenu">
-    <span mat-menu-item>Hi, {{userName}}!</span>
+    <span mat-menu-item *ngIf="this.user">Hi, {{userName}}!</span>
     <button mat-menu-item>Profile</button>
     <button mat-menu-item>Settings</button>
     <button *ngIf="user" mat-menu-item (click)="logout()">
@@ -32,29 +32,30 @@
 
 </div>
 
-<mat-sidenav-container>
+<mat-sidenav-container [class.mat-elevation-z2]="true">
   <mat-sidenav #sidenav>
     <mat-nav-list>
 
-      <a mat-list-item>Hi, {{userName}}!</a>
-
-      <a mat-list-item [matMenuTriggerFor]="profileMenu">
+      <a class="whiteFont" mat-list-item [matMenuTriggerFor]="profileMenu" [class.mat-elevation-z2]="true">
         <mat-icon>person</mat-icon>
-        <span style="margin-left: 1em">Profile</span>
+        <span style="margin-left: 2em" [routerLink]="'profile'">{{this.userName? this.userName :'Profile'}}</span>
+        <mat-icon>keyboard_arrow_down</mat-icon>
       </a>
 
-      <a mat-list-item [routerLink]="'/portfolio'">Portfolio</a>
+      <a class="whiteFont" mat-list-item [routerLink]="'/portfolio'" [class.mat-elevation-z2]="true">Portfolio</a>
 
-      <a mat-list-item [routerLink]="'/contact'">Resume</a>
+      <a class="whiteFont" mat-list-item [routerLink]="'resume'" [class.mat-elevation-z2]="true">Resume</a>
 
-      <a mat-list-item [routerLink]="'/text'" [mat-menu-trigger-for]="neverForgetATextMenu" #trigger="matMenuTrigger" (mouseover)="trigger.openMenu()">Never Forget A Text
+      <a class="whiteFont" mat-list-item [mat-menu-trigger-for]="neverForgetATextMenu" disabled="{{!this.user}}"
+         [class.mat-elevation-z2]="true">Never Forget A Text
       <mat-icon>keyboard_arrow_down</mat-icon>
       </a>
 
 
-      <mat-menu #neverForgetATextMenu="matMenu" style="text-align: center">
+      <mat-menu #neverForgetATextMenu="matMenu" class="mat-background-primary">
         <button mat-menu-item [routerLink]="'/text'">Menu</button>
         <button mat-menu-item [routerLink]="'/text/contacts'">Contacts</button>
+        <button mat-menu-item [routerLink]="'/text/UserEvents'">Events</button>
       </mat-menu>
 
     </mat-nav-list>

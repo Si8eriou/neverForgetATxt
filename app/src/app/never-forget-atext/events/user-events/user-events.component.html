@@ -1,5 +1,14 @@
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Almarai&family=Krona+One&display=swap" rel="stylesheet">
+</head>
+
 <div>
-  <div>
+
+  <div id="container-bild">
+    <img src="assets/img/eventsBackground.jpg" id="img-bild">
+  </div>
+
+  <div style="background-color: white">
     <table *ngIf="events">
       <tr>
         <td>ID</td>
@@ -18,5 +27,3 @@
     </table>
   </div>
 </div>
-
-<h1 *ngIf="!events"></h1>

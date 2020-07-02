@@ -1,32 +1,91 @@
-<h1>
-  Current Contacts
-</h1>
-<button mat-raised-button mat-icon-button [routerLink]="['/createContact']">
-  <mat-icon>person_add</mat-icon>
-</button>
+<!--<h1>-->
+<!--  Current Contacts-->
+<!--</h1>-->
+<!--<button mat-raised-button mat-icon-button [routerLink]="['/createContact']">-->
+<!--  <mat-icon>person_add</mat-icon>-->
+<!--</button>-->
 
 
-<table class="mat-elevation-z4 center">
-  <tr>
-    <ng-container>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </ng-container>
+<!--<table class="mat-elevation-z4 center">-->
+<!--  <tr>-->
+<!--    <ng-container>-->
+<!--      <th></th>-->
+<!--      <th></th>-->
+<!--      <th></th>-->
+<!--      <th></th>-->
+<!--    </ng-container>-->
+<!--  </tr>-->
+<!--  <tr *ngFor="let contacts of userContacts" class="element-row" (dblclick)="editContact(contacts.id)">-->
+<!--    <ng-container>-->
+<!--      <td>{{contacts.fname ? contacts.fname : ''}} {{contacts.lname ? contacts.lname : ''}}</td>-->
+<!--      <td>{{contacts.email ? contacts.email : ''}}</td>-->
+<!--      <td>{{contacts.cell ? contacts.cell : ''}}</td>-->
+<!--      <td>-->
+<!--        <button mat-raised-button mat-icon-button [routerLink]="['/contactEvents']" [queryParams]="{'cid': contacts.id}">-->
+<!--          <mat-icon>-->
+<!--            event-->
+<!--          </mat-icon>-->
+<!--        </button>-->
+<!--      </td>-->
+<!--    </ng-container>-->
+<!--  </tr>-->
+<!--</table>-->
+
+
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Almarai&family=Krona+One&display=swap" rel="stylesheet">
+</head>
+
+<div>
+
+  <div id="container-bild">
+    <img src="assets/img/contacts.jpg" id="img-bild">
+  </div>
+
+  <div>
+    <button>
+      WHAT THE SHIT
+    </button>
+  </div>
+
+</div>
+
+<table mat-table
+       [dataSource]="userContacts" multiTemplateDataRows
+       class="mat-elevation-z1">
+  <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
+    <th mat-header-cell class="headerCell borderRadius" *matHeaderCellDef> {{columnsToDisplayNames[column]}} </th>
+    <td mat-cell class="borderRadius" *matCellDef="let contact"> {{contact[column]}} </td>
+  </ng-container>
+
+  <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell class="borderRadius" *matCellDef="let contact" [attr.colspan]="columnsToDisplay.length">
+      <div class="example-element-detail"
+           [@detailExpand]="contact == expandedContact ? 'expanded' : 'collapsed'">
+        <div class="example-element-diagram">
+          <div class="example-element-position"> {{contact?.fname ? contact?.fname : ''}} {{contact?.lname ? contact?.lname : ''}} </div>
+          <!--          <div class="example-element-symbol"> {{contact.lname}} </div>-->
+          <div class="example-element-name"> {{contact?.email ? contact?.email : ''}} </div>
+          <div class="example-element-weight"> {{contact?.cell ? contact?.cell : ''}} </div>
+        </div>
+        <div class="example-element-description">
+          <button mat-raised-button mat-icon-button [routerLink]="['/contactEvents']" [queryParams]="{'cid': contact.id}">
+            <mat-icon>
+              event
+            </mat-icon>
+          </button>
+          <span class="example-element-description-attribution"></span>
+        </div>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row *matRowDef="let contact; columns: columnsToDisplay;"
+      class="example-element-row"
+      [class.example-expanded-row]="expandedContact === contact"
+      (click)="expandedContact = expandedContact === contact ? null : contact">
   </tr>
-  <tr *ngFor="let contacts of userContacts" class="element-row" (dblclick)="editContact(contacts.id)">
-    <ng-container>
-      <td>{{contacts.fname ? contacts.fname : ''}} {{contacts.lname ? contacts.lname : ''}}</td>
-      <td>{{contacts.email ? contacts.email : ''}}</td>
-      <td>{{contacts.cell ? contacts.cell : ''}}</td>
-      <td>
-        <button mat-raised-button mat-icon-button [routerLink]="['/contactEvents']" [queryParams]="{'cid': contacts.id}">
-          <mat-icon>
-            event
-          </mat-icon>
-        </button>
-      </td>
-    </ng-container>
-  </tr>
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
 </table>

@@ -30,5 +30,6 @@ export class NavigationComponent implements OnInit {
     sessionStorage.clear();
     this.authService.canActivate();
     this.router.navigate(['login']);
+    window.location.reload();
   }
 }

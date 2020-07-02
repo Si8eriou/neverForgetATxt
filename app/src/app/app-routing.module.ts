@@ -6,6 +6,10 @@ import {SendSmsService} from "./utilities/services/neverForgetAText/send-sms.ser
 import {SendSmsComponent} from "./send-sms/send-sms.component";
 import {ResumeComponent} from "./resume/resume.component";
 import {PortfolioComponent} from "./portfolio/portfolio.component";
+import {AuthComponent} from "./auth/auth/auth.component";
+import {AuthModule} from "./auth/auth.module";
+import {ProfileComponent} from "./auth/profile/profile.component";
+import {SettingsComponent} from "./auth/settings/settings.component";
 
 
 const routes: Routes = [
@@ -16,6 +20,14 @@ const routes: Routes = [
   {
     path:'register',
     loadChildren: './auth/auth.module#AuthModule'
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent
+  },
+  {
+    path: 'settings',
+    component: SettingsComponent
   },
   {
     path: 'home',
@@ -35,12 +47,6 @@ const routes: Routes = [
     path: 'defaultEvent',
     component: DefaultEventsComponent,
     canActivate:[AuthService]
-
-  },
-  {
-    path: 'sendSMS',
-    component: SendSmsComponent,
-    canActivate:[AuthService]
   },
   {
     path: 'resume',
@@ -49,7 +55,7 @@ const routes: Routes = [
   {
     path: 'portfolio',
     component: PortfolioComponent
-  },
+  }
 ];
 
 @NgModule({
