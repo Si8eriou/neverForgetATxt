@@ -11,7 +11,6 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatInputModule} from "@angular/material/input";
 import {CreateContactComponent} from "./contacts/create-contact/create-contact.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { EditContactComponent } from './contacts/edit-contact/edit-contact.component';
 import { ContactFormComponent } from './contacts/contact-form/contact-form.component';
 import { EditEventsComponent } from './events/edit-events/edit-events.component';
 import { NewEventComponent } from './events/new-event/new-event.component';
@@ -30,6 +29,7 @@ import {MatMenuModule} from "@angular/material/menu";
 import {MatStepperModule} from "@angular/material/stepper";
 import { EditContactDialogComponent } from './contacts/edit-contact-dialog/edit-contact-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import { CreateContactDialogComponent } from './contacts/create-contact-dialog/create-contact-dialog.component';
 
 
 @NgModule({
@@ -37,7 +37,6 @@ import {MatDialogModule} from "@angular/material/dialog";
     NeverForgetATextComponent,
     UserContactsComponent,
     CreateContactComponent,
-    EditContactComponent,
     ContactFormComponent,
     EditEventsComponent,
     NewEventComponent,
@@ -48,6 +47,7 @@ import {MatDialogModule} from "@angular/material/dialog";
     SentTriggerBubbleStyleComponent,
     SentTriggerSelectionListStyleComponent,
     EditContactDialogComponent,
+    CreateContactDialogComponent,
   ],
   exports: [
     SentTriggerBubbleStyleComponent,

@@ -13,8 +13,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./edit-contact-dialog.component.scss']
 })
 export class EditContactDialogComponent implements OnInit {
-  loginForm: FormGroup;
-  public contact;
+  contact: FormGroup;
 
   error_messages = {
     'fname': [

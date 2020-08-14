@@ -57,7 +57,10 @@
 
   <main class="center">
     <div *ngFor="let sent_trigger of getSentTriggers(contacts.selectedOptions.selected[0]?.value)">
-      {{sent_trigger}}
+      <div>
+        {{sent_trigger.event.body}}<br>
+        {{sent_trigger.event.created_at}}
+      </div><br>
     </div>
   </main>
 </section>

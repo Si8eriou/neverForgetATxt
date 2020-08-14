@@ -1,21 +1,19 @@
-import {Component, Input, OnInit} from '@angular/core';
-import { MatFormField } from "@angular/material/form-field";
+import { Component, OnInit } from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {DialogData} from "../user-contacts/user-contacts.component";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {ContactService} from "../../../utilities/services/neverForgetAText/contact.service";
 import {RouterModule} from "@angular/router";
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
-  selector: 'app-create-contact',
-  templateUrl: './create-contact.component.html',
-  styleUrls: ['./create-contact.component.scss']
+  selector: 'app-create-contact-dialog',
+  templateUrl: './create-contact-dialog.component.html',
+  styleUrls: ['./create-contact-dialog.component.scss']
 })
-export class CreateContactComponent implements OnInit {
+export class CreateContactDialogComponent implements OnInit {
   loginForm: FormGroup;
 
-  public userID: any;
-
-  @Input() contactToEdit: any;
 
   error_messages = {
     'fname': [
@@ -40,8 +38,10 @@ export class CreateContactComponent implements OnInit {
     ],
   }
 
-  constructor(private snackBar: MatSnackBar, private contactService: ContactService,
-              private router: RouterModule, public formBuilder: FormBuilder) {
+  constructor(private snackBar: MatSnackBar,
+              private contactService: ContactService,
+              private router: RouterModule,
+              public formBuilder: FormBuilder) {
 
     this.loginForm = this.formBuilder.group({
       fname: new FormControl('', Validators.compose([
@@ -67,32 +67,23 @@ export class CreateContactComponent implements OnInit {
   ngOnInit() {
   }
 
-  getCurrentUser() {
-    this.userID = sessionStorage.id;
-  }
-
-
   saveForm() {
-      let formData = new FormData();
+    let formData = new FormData();
 
-      formData.append('fname', this?.loginForm?.value?.fname);
-      formData.append('lname', this?.loginForm?.value?.lname);
-      formData.append('cell', this?.loginForm?.value?.email);
-      formData.append('email', this?.loginForm?.value?.cell);
-      formData.append('userID', this?.userID);
+    formData.append('fname', this?.loginForm?.value?.fname);
+    formData.append('lname', this?.loginForm?.value?.lname);
+    formData.append('cell', this?.loginForm?.value?.email);
+    formData.append('email', this?.loginForm?.value?.email);
+    formData.append('userID', sessionStorage?.id);
 
+    let contactID = false;
 
-      let contactID = false;
+    console.log(formData, contactID);
 
-      if (typeof this.contactToEdit === 'object') {
-        contactID = this.contactToEdit.id;
-      }
-
-      this.contactService.saveContact(formData, contactID);
-      this.snackBar.open('Saved', 'X', {
-        duration: 4000
-      });
-      // this.router.navigate(['']);
+    this.contactService.saveContact(formData, contactID);
+    this.snackBar.open('Saved', 'X', {
+      duration: 4000
+    });
   }
 
   canMoveForward(question) {
@@ -104,4 +95,5 @@ export class CreateContactComponent implements OnInit {
     }
     return true;
   }
+
 }

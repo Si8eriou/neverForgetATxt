@@ -4,6 +4,7 @@ import {Router} from "@angular/router";
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {EditContactDialogComponent} from "../edit-contact-dialog/edit-contact-dialog.component";
 import {MatDialog} from '@angular/material/dialog';
+import {CreateContactDialogComponent} from "../create-contact-dialog/create-contact-dialog.component";
 
 
 export interface DialogData {
@@ -27,7 +28,7 @@ export interface DialogData {
 
 export class UserContactsComponent implements OnInit {
   expandedContact: ContactElement | null;
-  columnsToDisplay = ['fname', 'email', 'cell'];
+  columnsToDisplay = ['fname', 'cell'];
   columnsToDisplayNames = {
     'fname' : 'Name',
     'cell' : 'Cell',
@@ -64,7 +65,7 @@ export class UserContactsComponent implements OnInit {
   }
 
   openCreateContactDialog() {
-    const dialogRef = this.dialog.open(EditContactDialogComponent, {
+    const dialogRef = this.dialog.open(CreateContactDialogComponent, {
       maxHeight: '90%',
       maxWidth: '90%',
       minHeight: '50%',
@@ -73,9 +74,6 @@ export class UserContactsComponent implements OnInit {
       width: 'auto',
       disableClose: true,
       hasBackdrop: true,
-      data: {
-        contact: contact
-      }
     });
   }
 

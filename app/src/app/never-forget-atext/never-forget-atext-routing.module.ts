@@ -6,7 +6,6 @@ import {CreateContactComponent} from "./contacts/create-contact/create-contact.c
 import {ContactEventsComponent} from "./events/contact-events/contact-events.component";
 import {NewEventComponent} from "./events/new-event/new-event.component";
 import {EditEventsComponent} from "./events/edit-events/edit-events.component";
-import {EditContactComponent} from "./contacts/edit-contact/edit-contact.component";
 import {DefaultEventsComponent} from "./events/default-events/default-events.component";
 import {UserEventsComponent} from "./events/user-events/user-events.component";
 import {SendSmsService} from "../utilities/services/neverForgetAText/send-sms.service";
@@ -39,10 +38,6 @@ const routes: Routes = [
   {
     path: 'editEvent',
     component: EditEventsComponent
-  },
-  {
-    path: 'editContact',
-    component: EditContactComponent
   },
   {
     path: 'default',

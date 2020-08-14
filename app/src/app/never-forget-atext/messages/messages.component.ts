@@ -29,7 +29,7 @@ export class MessagesComponent implements OnInit {
     console.log(contact);
 
     if (contact?.sent_triggers?.length > 0) {
-      return contact;
+      return contact.sent_triggers;
     }
   }
 }
