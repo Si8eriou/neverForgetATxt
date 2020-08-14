@@ -26,8 +26,6 @@ export class MessagesComponent implements OnInit {
   }
 
   getSentTriggers(contact) {
-    console.log(contact);
-
     if (contact?.sent_triggers?.length > 0) {
       return contact.sent_triggers;
     }
