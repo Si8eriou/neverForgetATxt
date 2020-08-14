@@ -1,19 +1,20 @@
 <div class="toolBar">
   <mat-toolbar color="primary">
 
-    <button mat-icon-button (click)="sidenav.toggle()">
+    <button mat-icon-button [disabled]="isUserLoggedIn()" (click)="sidenav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
 
     <span class="alignContent"></span>
 
-    <button mat-button routerLink="/">
+    <button mat-button [disabled]="isUserLoggedIn()">
       <img class="logoImage" src="/assets/img/mainLogo.jpeg">
     </button>
 
     <span class="alignContent"></span>
 
-    <button mat-raised-button mat-icon-button [matMenuTriggerFor]="profileMenu">
+    <button mat-raised-button mat-icon-button [matMenuTriggerFor]="profileMenu"
+            [disabled]="isUserLoggedIn()">
       <mat-icon>person</mat-icon>
     </button>
 

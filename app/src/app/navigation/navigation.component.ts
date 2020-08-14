@@ -26,6 +26,12 @@ export class NavigationComponent implements OnInit {
     this.user.unsubscribe;
 }
 
+isUserLoggedIn() {
+    if(!this.user) {
+      return true;
+    }
+}
+
   public logout() {
     sessionStorage.clear();
     this.authService.canActivate();
