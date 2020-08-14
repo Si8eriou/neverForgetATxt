@@ -19,12 +19,15 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix' => 'auth'], function() {
     Route::post('register', 'Auth\AuthController@saveNewUser');
     Route::post('userLogin', 'Auth\AuthController@userLogin');
+    Route::get('checkIfEmailUsed', 'Auth\AuthController@checkIfEmailUsed');
+    Route::get('approvePasswordChange/{oldPassword?}/{userID?}', 'Auth\AuthController@approvePasswordChange');
 });
 
 Route::group(['prefix' => 'contact'], function() {
     Route::post('/{contactID?}', 'Contact\ContactController@saveContact');
     Route::get('/getUserContacts/{userID}', 'Contact\ContactController@getUserContacts');
     Route::get('/getContact/{contactID}', 'Contact\ContactController@getContact');
+    Route::get('/getContactsWithMessages/{userID}', 'Contact\ContactController@getContactsWithMessages');
 });
 
 Route::group(['prefix' => 'event'], function() {
@@ -35,6 +38,15 @@ Route::group(['prefix' => 'event'], function() {
     Route::get('/getEventRepeatTypes', 'Events\EventController@getEventRepeatType');
     Route::delete('/deleteEvent/{triggerID}',  'Events\EventsController@deleteEvent');
     Route::post('/saveEvent/{eventID?}',  'Events\EventsController@saveEvent');
+});
+
+Route::group(['prefix' => 'profile'], function() {
+    Route::get('{userID?}', 'Profile\ProfileController@getUserProfile');
+    Route::post('updateProfile', 'Profile\ProfileController@updatProfile');
+});
+
+Route::group(['prefix' => 'setting'], function() {
+   Route::get('{userID', 'Setting\SettingController@getUserSettings');
 });
 
 Route::group(['prefix' => 'sendSMS'], function() {

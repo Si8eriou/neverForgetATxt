@@ -11,7 +11,6 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatInputModule} from "@angular/material/input";
 import {CreateContactComponent} from "./contacts/create-contact/create-contact.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { EditContactComponent } from './contacts/edit-contact/edit-contact.component';
 import { ContactFormComponent } from './contacts/contact-form/contact-form.component';
 import { EditEventsComponent } from './events/edit-events/edit-events.component';
 import { NewEventComponent } from './events/new-event/new-event.component';
@@ -21,21 +20,56 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import { UserEventsComponent } from './events/user-events/user-events.component';
 import { DefaultEventsComponent } from './events/default-events/default-events.component';
 import {MatSelectModule} from "@angular/material/select";
+import {MatGridListModule} from "@angular/material/grid-list";
+import {MatListModule} from "@angular/material/list";
+import {MatExpansionModule} from "@angular/material/expansion";
+import {SentTriggerSelectionListStyleComponent} from "./messages/sent-trigger-selection-list-style/sent-trigger-selection-list-style.component";
+import {SentTriggerBubbleStyleComponent} from "./messages/sent-trigger-bubble-style/sent-trigger-bubble-style.component";
+import {MatMenuModule} from "@angular/material/menu";
+import {MatStepperModule} from "@angular/material/stepper";
+import { EditContactDialogComponent } from './contacts/edit-contact-dialog/edit-contact-dialog.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import { CreateContactDialogComponent } from './contacts/create-contact-dialog/create-contact-dialog.component';
 
 
 @NgModule({
-  declarations: [NeverForgetATextComponent, UserContactsComponent, CreateContactComponent, EditContactComponent, ContactFormComponent, EditEventsComponent, NewEventComponent, EventFormComponent, ContactEventsComponent, UserEventsComponent, DefaultEventsComponent,],
-    imports: [
-        CommonModule,
-        NeverForgetATextRoutingModule,
-        MatButtonModule,
-        MatTableModule,
-        MatIconModule,
-        MatInputModule,
-        FormsModule,
-        MatDatepickerModule,
-        MatSelectModule,
-        ReactiveFormsModule,
-    ]
+  declarations: [
+    NeverForgetATextComponent,
+    UserContactsComponent,
+    CreateContactComponent,
+    ContactFormComponent,
+    EditEventsComponent,
+    NewEventComponent,
+    EventFormComponent,
+    ContactEventsComponent,
+    UserEventsComponent,
+    DefaultEventsComponent,
+    SentTriggerBubbleStyleComponent,
+    SentTriggerSelectionListStyleComponent,
+    EditContactDialogComponent,
+    CreateContactDialogComponent,
+  ],
+  exports: [
+    SentTriggerBubbleStyleComponent,
+    SentTriggerSelectionListStyleComponent
+  ],
+  imports: [
+    CommonModule,
+    NeverForgetATextRoutingModule,
+    MatButtonModule,
+    MatTableModule,
+    MatIconModule,
+    MatInputModule,
+    FormsModule,
+    MatDatepickerModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    MatGridListModule,
+    MatListModule,
+    MatExpansionModule,
+    MatMenuModule,
+    MatStepperModule,
+    MatDialogModule,
+  ]
 })
 export class NeverForgetATextModule { }

@@ -2,15 +2,11 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {AuthService} from "./utilities/services/neverForgetAText/auth.service";
 import {DefaultEventsComponent} from "./never-forget-atext/events/default-events/default-events.component";
-import {SendSmsService} from "./utilities/services/neverForgetAText/send-sms.service";
-import {SendSmsComponent} from "./send-sms/send-sms.component";
 import {ResumeComponent} from "./resume/resume.component";
 import {PortfolioComponent} from "./portfolio/portfolio.component";
-import {AuthComponent} from "./auth/auth/auth.component";
-import {AuthModule} from "./auth/auth.module";
-import {ProfileComponent} from "./auth/profile/profile.component";
 import {SettingsComponent} from "./auth/settings/settings.component";
-
+import {MessagesComponent} from "./never-forget-atext/messages/messages.component";
+import {ProfileModule} from "./profile/profile.module";
 
 const routes: Routes = [
   {
@@ -23,19 +19,16 @@ const routes: Routes = [
   },
   {
     path: 'profile',
-    component: ProfileComponent
+    loadChildren: './profile/profile.module#ProfileModule'
   },
   {
     path: 'settings',
-    component: SettingsComponent
-  },
-  {
-    path: 'home',
-    loadChildren: './home/home.module#HomeModule',
+    component: SettingsComponent,
+    canActivate:[AuthService]
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'text',
     pathMatch: 'full',
   },
   {
@@ -55,7 +48,12 @@ const routes: Routes = [
   {
     path: 'portfolio',
     component: PortfolioComponent
-  }
+  },
+  {
+    path: 'messages',
+    component: MessagesComponent,
+    canActivate:[AuthService]
+  },
 ];
 
 @NgModule({

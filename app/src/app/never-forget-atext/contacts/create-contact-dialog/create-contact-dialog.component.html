@@ -1,0 +1,130 @@
+<mat-dialog-content>
+  <mat-vertical-stepper class="stepper mat-elevation-z" #stepper>
+    <mat-step [stepControl]="loginForm['fname']">
+      <form [formGroup]="loginForm">
+        <ng-template matStepLabel>Contact Name</ng-template>
+        <ng-container *ngFor="let error of error_messages.fname">
+          <div class="error-message" *ngIf="loginForm.get('fname').hasError(error.type) && (loginForm.get('fname').dirty || loginForm.get('fname').touched)">
+            {{ error.message }}
+          </div>
+        </ng-container>
+
+        <mat-form-field appearance="fill">
+          <mat-label>First Name</mat-label>
+          <input matInput placeholder="First name" formControlName="fname" required>
+        </mat-form-field>
+      </form>
+
+      <form [formGroup]="loginForm">
+        <ng-template matStepLabel>Last Name</ng-template>
+        <ng-container *ngFor="let error of error_messages.lname">
+          <div class="error-message" *ngIf="loginForm.get('lname').hasError(error.type) && (loginForm.get('lname').dirty || loginForm.get('lname').touched)">
+            {{ error.message }}
+          </div>
+        </ng-container>
+        <mat-form-field appearance="fill">
+          <mat-label>Last Name</mat-label>
+          <input matInput placeholder="Last name" formControlName="lname" required>
+        </mat-form-field>
+        <div *ngIf="canMoveForward('lname') && canMoveForward('fname')">
+          <button mat-raised-button matStepperPrevious>
+            Back
+          </button>
+          <button mat-raised-button matStepperNext>
+            Next
+          </button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="loginForm['email']">
+      <form [formGroup]="loginForm">
+        <ng-template matStepLabel>Contact Info</ng-template>
+        <ng-container *ngFor="let error of error_messages.email">
+          <div class="error-message" *ngIf="loginForm.get('email').hasError(error.type) &&
+    (loginForm.get('email').dirty || loginForm.get('email').touched)">
+            {{ error.message }}
+          </div>
+        </ng-container>
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email"
+                 required>
+        </mat-form-field>
+      </form>
+
+      <form [formGroup]="loginForm">
+        <ng-template matStepLabel></ng-template>
+        <ng-container *ngFor="let error of error_messages.cell">
+          <div class="error-message" *ngIf="loginForm.get('cell').hasError(error.type) &&
+    (loginForm.get('cell').dirty || loginForm.get('cell').touched)">
+            {{ error.message }}
+          </div>
+        </ng-container>
+        <mat-form-field appearance="fill">
+          <mat-label>Cell</mat-label>
+          <span matPrefix>+1 &nbsp;</span>
+          <input type="tel" matInput formControlName="cell" placeholder="555-555-1234"
+                 required>
+          <mat-icon matSuffix>mode_edit</mat-icon>
+        </mat-form-field>
+        <div *ngIf="canMoveForward('cell') && canMoveForward('email')">
+          <button mat-raised-button matStepperPrevious>
+            Back
+          </button>
+          <button mat-raised-button matStepperNext>
+            Next
+          </button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>Review Contact Info</ng-template>
+      <div>
+        <p>
+          <mat-form-field appearance="fill">
+            <input matInput disabled>
+            {{loginForm?.value?.fname}}
+            <mat-hint>First Name</mat-hint>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field appearance="fill">
+            <input matInput disabled>
+            {{loginForm?.value?.lname}}
+            <mat-hint>Last Name</mat-hint>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field appearance="fill">
+            <input matInput disabled>
+            {{loginForm?.value?.email}}
+            <mat-hint>E-mail</mat-hint>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field appearance="fill">
+            <input matInput disabled>
+            {{loginForm?.value?.cell}}
+            <mat-hint>Cell Phone</mat-hint>
+          </mat-form-field>
+        </p>
+      </div>
+    </mat-step>
+  </mat-vertical-stepper>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="center">
+  <button mat-raised-button [mat-dialog-close]
+  >
+    Cancel
+  </button>
+
+  <button mat-raised-button [mat-dialog-close]
+          [disabled]="!loginForm.valid" (click)="saveForm()"
+  >
+    Save
+  </button>
+</mat-dialog-actions>

@@ -42,4 +42,8 @@ class AuthRepository
             return false;
         }
     }
+
+    public function checkIfEmailUsed($email) {
+        return User::where('email', $email)->first();
+    }
 }

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://jacoby.test/api'
+  apiUrl: 'http://neverforgetatext.test/api'
 };
 
 /*

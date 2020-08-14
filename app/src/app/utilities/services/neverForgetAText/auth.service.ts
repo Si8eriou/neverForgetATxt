@@ -28,6 +28,21 @@ export class AuthService {
       map((response:any) => response.user)).toPromise();
   }
 
+  public checkIfEmailUsed(email) {
+    const url = `${environment.apiUrl}/auth/checkIfEmailUsed`;
+
+    return this.http.get(url, email).pipe(
+      map((response:any) => response.email)).toPromise();
+  }
+
+  public approvePasswordChange(oldPassword, userID) {
+
+    const url = `${environment.apiUrl}/auth/approvePasswordChange/${oldPassword}/${userID}`;
+
+    return this.http.get(url, oldPassword).pipe(
+      map((response:any) => response)).toPromise();
+  }
+
   public getToken() {
     return this.token;
   }

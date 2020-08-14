@@ -2,6 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import {ContactService} from "../../../utilities/services/neverForgetAText/contact.service";
 import {Router} from "@angular/router";
 import {animate, state, style, transition, trigger} from "@angular/animations";
+import {EditContactDialogComponent} from "../edit-contact-dialog/edit-contact-dialog.component";
+import {MatDialog} from '@angular/material/dialog';
+import {CreateContactDialogComponent} from "../create-contact-dialog/create-contact-dialog.component";
+
+
+export interface DialogData {
+  contactToEditData: any;
+}
+
 
 @Component({
   selector: 'app-user-contacts',
@@ -19,16 +28,17 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
 
 export class UserContactsComponent implements OnInit {
   expandedContact: ContactElement | null;
-  columnsToDisplay = ['fname', 'email', 'cell'];
+  columnsToDisplay = ['fname', 'cell'];
   columnsToDisplayNames = {
     'fname' : 'Name',
-    'email' : 'E-Mail',
     'cell' : 'Cell',
   }
 
   public userContacts: any;
 
-  constructor(private contactService: ContactService, private router: Router) { }
+  constructor(private contactService: ContactService,
+              private router: Router,
+              public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getUserContacts();
@@ -38,14 +48,38 @@ export class UserContactsComponent implements OnInit {
     this.userContacts = await this.contactService.getUserContacts(sessionStorage.id);
   }
 
-  editContact(cid) {
-    this.router.navigate(['editContact'], {queryParams: {'cid': cid}})
+  openEditContactDialog(contact) {
+    const dialogRef = this.dialog.open(EditContactDialogComponent, {
+      maxHeight: '90%',
+      maxWidth: '90%',
+      minHeight: '50%',
+      minWidth: '50%',
+      height: 'auto',
+      width: 'auto',
+      disableClose: true,
+      hasBackdrop: true,
+      data: {
+        contact: contact
+      }
+    });
+  }
+
+  openCreateContactDialog() {
+    const dialogRef = this.dialog.open(CreateContactDialogComponent, {
+      maxHeight: '90%',
+      maxWidth: '90%',
+      minHeight: '50%',
+      minWidth: '50%',
+      height: 'auto',
+      width: 'auto',
+      disableClose: true,
+      hasBackdrop: true,
+    });
   }
 
 }
 
 export interface ContactElement {
   name: string;
-  email: string;
   number: number;
 }

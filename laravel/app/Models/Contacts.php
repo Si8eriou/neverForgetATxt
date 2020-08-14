@@ -26,4 +26,12 @@ class Contacts extends Model
     public function events() {
         return $this->hasMany(Events::class, 'contactID', 'id');
     }
+
+    public function sentTriggers() {
+        return $this->hasMany(SentTrigger::class, 'contactID', 'id');
+    }
+
+    public function triggers() {
+        return $this->hasMany(Trigger::class,'contactID', 'id');
+    }
 }

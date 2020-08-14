@@ -1,21 +1,13 @@
-table {
-  margin-top: 8em !important;
-  border-spacing: 0;
-  border-collapse: collapse;
-  margin-bottom: 7em;
-  margin-left:auto;
-  margin-right:auto;
+.stepper {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 80% !important;
 }
 
 .centerHeading {
   margin: 1em;
   text-align: center;
 }
-
-.button {
-  text-align: center;
-}
-
 
 mat-form-field {
   width: 300px !important;
@@ -34,5 +26,9 @@ mat-form-field {
 
 ::ng-deep.mat-form-field-ripple {
   /*change color of underline when focused*/
-  background-color: rebeccapurple !important;;
+  background-color: rebeccapurple !important;
+}
+
+.error-message {
+  color: red;
 }
