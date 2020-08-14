@@ -10,7 +10,7 @@ class SentTrigger extends Model
 {
     protected $table = 'sent_trigger_table';
 
-    protected $primarKey = 'id';
+    protected $primaryKey = 'id';
 
     public $timestamps = true;
 
@@ -18,4 +18,7 @@ class SentTrigger extends Model
         'eventID', 'userID', 'contactID', 'date'
     ];
 
+    public function event() {
+        return $this->hasOne(Events::class, 'id', 'eventID');
+    }
 }

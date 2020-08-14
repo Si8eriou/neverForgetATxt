@@ -1,4 +1,58 @@
-h1 {
+.stepper {
+  margin-top: 50px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 80% !important;
+  border-radius: 30px;
+}
+
+#container-bild {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* picture in main-container */
+#img-bild {
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  filter: brightness(45%);
+}
+
+.centerHeading {
+  margin: 1em;
   text-align: center;
-  margin-bottom: 4em;
+}
+
+mat-form-field {
+  width: 300px !important;
+  margin: 2em;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: rebeccapurple !important;
+}
+
+::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: rebeccapurple !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color: rebeccapurple !important;
+}
+
+.error-message {
+  color: red;
+}
+
+.borderRadius {
+  border-radius: 30px;
 }

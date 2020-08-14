@@ -14,7 +14,6 @@ import {IconsModule} from "./icons/icons.module";
 import {AuthModule} from "./auth/auth.module";
 import { HttpClientModule } from '@angular/common/http';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {HomeModule} from "./home/home.module";
 import {MatNativeDateModule} from "@angular/material/core";
 import { SendSmsComponent } from './send-sms/send-sms.component';
 import {MatDatepickerModule} from "@angular/material/datepicker";
@@ -25,6 +24,11 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from "@angular/material/list";
 import { ResumeComponent } from './resume/resume.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
+import {MessagesComponent} from "./never-forget-atext/messages/messages.component";
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import {MatCardModule} from "@angular/material/card";
+import { ProfileComponent } from './profile/profile/profile.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -33,6 +37,8 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
     SendSmsComponent,
     ResumeComponent,
     PortfolioComponent,
+    MessagesComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +54,6 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
     AuthModule,
     HttpClientModule,
     MatSnackBarModule,
-    HomeModule,
     MatDatepickerModule,
     MatNativeDateModule,
     MatInputModule,
@@ -56,6 +61,9 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
     MatFormFieldModule,
     MatSidenavModule,
     MatListModule,
+    MatSlideToggleModule,
+    MatCardModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

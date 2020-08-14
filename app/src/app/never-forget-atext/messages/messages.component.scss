@@ -1,0 +1,76 @@
+#page {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 150px;
+  display: grid;
+  grid-template-areas: "nav head"
+                       "nav  main"
+                       "nav  main";
+  grid-template-rows: 50px 1fr 30px;
+  grid-template-columns: 250px 1fr;
+  width: 80%;
+  height: auto;
+  min-height: 600px;
+  background-color: whitesmoke;
+}
+
+
+#container-bild {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* picture in main-container */
+#img-bild {
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  filter: brightness(65%);
+}
+
+
+#page > header {
+  grid-area: head;
+  border-bottom: grey solid 1px;
+  margin-top: 8px;
+}
+
+#page > nav {
+  grid-area: nav;
+  margin-left: 2px;
+  border-right: grey solid 1px;
+}
+
+#page > main {
+  grid-area: main;
+  margin-left: 25px;
+  margin-top: 50px;
+  margin-right: 25px;
+}
+
+.messagesHeader {
+  text-align: center;
+  font-size: 18px;
+}
+
+.contactNames {
+  text-align: left;
+  font-size: 14px;
+  margin-right: 5px;
+}
+
+.contact {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 100%;
+}
+
+.headerContactSelectedName {
+  font-size: 18px;
+}
+

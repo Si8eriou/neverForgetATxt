@@ -13,7 +13,7 @@ class Trigger extends Model
 {
     protected $table = 'trigger';
 
-    protected $primarKey = 'id';
+    protected $primaryKey = 'id';
 
     public $timestamps = true;
 

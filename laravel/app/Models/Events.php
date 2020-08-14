@@ -10,7 +10,7 @@ class Events extends Model
 {
     protected $table = 'events';
 
-    protected $primarKey = 'id';
+    protected $primaryKey = 'id';
 
     public $timestamps = true;
 

@@ -47,4 +47,8 @@ class User extends Authenticatable
     public function setPasswordAttribute($value) {
         $this->attributes['password'] = encrypt($value);
     }
+
+    public function setting() {
+        return $this->hasOne(Setting::class, 'userID', 'id');
+    }
 }

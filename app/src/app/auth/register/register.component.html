@@ -1,48 +1,120 @@
 <h1 class="centerHeading">User Register</h1>
 
-<table class="mat-elevation-z4">
-  <div>
-    <p>
-      <mat-form-field>
-        <mat-label>First Name</mat-label>
-        <label>
-          <input matInput [(ngModel)]="name" required="required">
-        </label>
-      </mat-form-field>
-    </p>
-    <p>
-      <mat-form-field>
-        <mat-label>E-Mail</mat-label>
-        <label>
-          <input matInput [(ngModel)]="email" required="required" type="email">
-        </label>
-      </mat-form-field>
-    </p>
-    <p>
-      <mat-form-field>
-        <mat-label>Password</mat-label>
-        <label>
-          <input matInput [(ngModel)]="password" required="required" type="password">
-        </label>
-      </mat-form-field>
-    </p>
-    <p>
-      <mat-form-field>
-        <mat-label>Re-enter Password</mat-label>
-        <label>
-          <input matInput [(ngModel)]="rePassword" required="required" type="password">
-        </label>
-      </mat-form-field>
-    </p>
+<mat-vertical-stepper #stepper class="mat-elevation-z4 stepper">
+  <mat-step [stepControl]="loginForm['fname']">
+    <form [formGroup]="loginForm">
+      <ng-template matStepLabel>First Name</ng-template>
+      <ng-container *ngFor="let error of error_messages.fname">
+        <div class="error-message" *ngIf="loginForm.get('fname').hasError(error.type) && (loginForm.get('fname').dirty || loginForm.get('fname').touched)">
+          {{ error.message }}
+        </div>
+      </ng-container>
 
-    <div class="button">
-      <div class="button">
-        <p>
-          <button color='primary' mat-raised-button (click)="submitForm()">
-            Submit
-          </button>
-        </p>
+      <mat-form-field appearance="fill">
+        <mat-label>First Name</mat-label>
+        <input matInput placeholder="First name" formControlName="fname" required>
+      </mat-form-field>
+    </form>
+
+    <form [formGroup]="loginForm">
+      <ng-template matStepLabel>Last Name</ng-template>
+      <ng-container *ngFor="let error of error_messages.lname">
+        <div class="error-message" *ngIf="loginForm.get('lname').hasError(error.type) && (loginForm.get('lname').dirty || loginForm.get('lname').touched)">
+          {{ error.message }}
+        </div>
+      </ng-container>
+      <mat-form-field appearance="fill">
+        <mat-label>Last Name</mat-label>
+        <input matInput placeholder="Last name" formControlName="lname" required>
+      </mat-form-field>
+      <div *ngIf="canMoveForward('lname') && canMoveForward('fname')">
+        <button mat-raised-button matStepperPrevious>
+          Back
+        </button>
+        <button mat-raised-button matStepperNext>
+          Next
+        </button>
       </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="loginForm['email']">
+    <form [formGroup]="loginForm">
+      <ng-template matStepLabel>Email</ng-template>
+      <ng-container *ngFor="let error of error_messages.email">
+        <div class="error-message" *ngIf="loginForm.get('email').hasError(error.type) &&
+    (loginForm.get('email').dirty || loginForm.get('email').touched)">
+          {{ error.message }}
+        </div>
+      </ng-container>
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email"
+               required>
+      </mat-form-field>
+      <div *ngIf="canMoveForward('email')">
+        <button mat-raised-button matStepperPrevious>
+          Back
+        </button>
+        <button mat-raised-button matStepperNext (click)="checkEmail()">
+          Next
+        </button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="loginForm['password']">
+    <!-- #enddocregion optional -->
+    <form [formGroup]="loginForm">
+      <ng-template matStepLabel>Password</ng-template>
+      <ng-container *ngFor="let error of error_messages.password">
+        <div class="error-message" *ngIf="loginForm.get('password').hasError(error.type) && (loginForm.get('password').dirty || loginForm.get('password').touched)">
+          {{ error.message }}
+        </div>
+      </ng-container>
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password"
+               required type="password">
+      </mat-form-field>
+    </form>
+
+    <form [formGroup]="loginForm">
+      <ng-template matStepLabel>Confirm Password</ng-template>
+      <ng-container *ngFor="let error of error_messages.confirmpassword">
+        <div class="error-message" *ngIf="loginForm.get('confirmpassword').hasError(error.type) && (loginForm.get('confirmpassword').dirty || loginForm.get('confirmpassword').touched)">
+          {{ error.message }}
+        </div>
+      </ng-container>
+      <mat-form-field appearance="fill">
+        <mat-label>Confirm Password</mat-label>
+        <input matInput formControlName="confirmpassword"
+               required type="password">
+      </mat-form-field>
+
+      <div *ngIf="canMoveForward('confirmpassword')">
+        <button mat-raised-button matStepperPrevious>
+          Back
+        </button>
+        <button mat-raised-button matStepperNext>
+          Next
+        </button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>Review Info</ng-template>
+    <div>Hello</div>
+    <div>
+      <button mat-raised-button matStepperPrevious>
+        Back
+      </button>
+      <button mat-raised-button
+              [disabled]="!loginForm.valid"
+              (click)="submitForm()">
+        Sign up
+      </button>
     </div>
-  </div>
-</table>
+  </mat-step>
+</mat-vertical-stepper>

@@ -29,4 +29,10 @@ class ContactController extends Controller
 
         return response()->json(['contact' => $contact], 200, [], JSON_INVALID_UTF8_IGNORE);
     }
+
+    public function getContactsWithMessages(Request $request, $userID, ContactsRepository $contactsRepository) {
+        $contacts = $contactsRepository->getContactsWithMessages($userID);
+
+        return response()->json(['contacts' => $contacts], 200, [], JSON_INVALID_UTF8_IGNORE);
+    }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Repositories;
 
 use App\Http\Controllers\Controller;
 use App\Models\Contacts;
+use App\Models\Trigger;
 use Illuminate\Http\Request;
 
 
@@ -41,4 +42,12 @@ class ContactsRepository
         return $contact;
     }
 
+    public function getContactsWithMessages($userID) {
+        $contacts = Contacts::where('userID', $userID)
+            ->with('sentTriggers', 'sentTriggers.event', 'triggers')
+            ->orderBy('date')
+            ->get();
+
+        return $contacts;
+    }
 }

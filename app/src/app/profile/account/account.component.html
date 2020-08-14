@@ -1,0 +1,62 @@
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Almarai&family=Krona+One&display=swap" rel="stylesheet">
+</head>
+
+
+<div>
+  <div id="container-bild">
+    <img src="assets/img/account.jpeg" id="img-bild">
+  </div>
+
+  <div>
+    <button>
+    </button>
+  </div>
+
+  <div class="mat-elevation-z4 form">
+    <form [formGroup]="loginForm" class="topMargin">
+      <ng-container *ngFor="let error of error_messages.fname">
+        <div class="error-message" *ngIf="loginForm.get('fname').hasError(error.type) && (loginForm.get('fname').dirty || loginForm.get('fname').touched)">
+          {{ error.message }}
+        </div>
+      </ng-container>
+
+      <mat-form-field appearance="fill">
+        <mat-label>First Name</mat-label>
+        <input matInput [(ngModel)]="loginForm['fname']" placeholder="First name"
+               formControlName="fname" required [value]="loginForm['fname']">
+      </mat-form-field>
+    </form>
+
+    <form [formGroup]="loginForm">
+      <ng-container *ngFor="let error of error_messages.email">
+        <div class="error-message" *ngIf="loginForm.get('email').hasError(error.type) && (loginForm.get('email').dirty || loginForm.get('email').touched)">
+          {{ error.message }}
+        </div>
+      </ng-container>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput [value]="loginForm['email']" [(ngModel)]="loginForm['email']"
+               placeholder="Email" formControlName="email" required>
+      </mat-form-field>
+    </form>
+
+    <section>
+      <label>
+        <button mat-raised-button class="buttonMargin" (click)="openDialog()"
+                ngDefaultControl>
+          Change Password
+        </button>
+      </label>
+      <label>
+        <button mat-raised-button class="buttonMargin" (click)="saveProfile()"
+                ngDefaultControl>
+          Update
+        </button>
+      </label>
+    </section>
+
+
+  </div>
+</div>

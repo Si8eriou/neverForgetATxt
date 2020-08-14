@@ -35,4 +35,11 @@ export class ContactService {
     return this.http.get(url).pipe(
       map((response: any) => response.contact)).toPromise();
   }
+
+  public getContactsWithMessages(userID) {
+    let url = `${environment.apiUrl}/contact/getContactsWithMessages/${userID}`;
+
+    return this.http.get(url).pipe(
+      map((response: any) => response.contacts)).toPromise();
+  }
 }

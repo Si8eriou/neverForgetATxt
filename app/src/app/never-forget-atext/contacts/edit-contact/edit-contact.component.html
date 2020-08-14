@@ -1,3 +1,39 @@
-<h1>edit contact</h1>
 
-<app-contact-form *ngIf="contactToEdit" [contactToEdit]="contactToEdit"></app-contact-form>
+<div>
+  <div class="centerInputs">
+    <mat-form-field class="line-width" appearance="fill">
+      <mat-label>First Name</mat-label>
+      <input matInput required [(ngModel)]="fName">
+    </mat-form-field>
+  </div>
+
+  <div class="centerInputs">
+    <mat-form-field class="line-width" appearance="fill">
+      <mat-label>Last Name</mat-label>
+      <input matInput required [(ngModel)]="lName">
+    </mat-form-field>
+  </div>
+
+  <div class="centerInputs">
+    <mat-form-field class="line-width" appearance="fill">
+      <mat-label>Cell Number</mat-label>
+      <input matInput required [(ngModel)]="cell">
+    </mat-form-field>
+  </div>
+
+  <div class="centerInputs">
+    <mat-form-field class="line-width" appearance="fill">
+      <mat-label>Email Address</mat-label>
+      <input matInput required [(ngModel)]="email">
+    </mat-form-field>
+  </div>
+
+
+  <div class="centerInputs">
+    <button mat-raised-button color="primary" (click)="saveForm()">Save
+      <mat-icon>save</mat-icon>
+    </button>
+  </div>
+</div>
+
+

@@ -1,0 +1,71 @@
+<mat-dialog-content class="form">
+
+  <form [formGroup]="contact">
+    <mat-form-field class="line-width" appearance="fill">
+      <mat-label>First Name</mat-label>
+      <input matInput [(ngModel)]="contact['fname']" placeholder="First name"
+             formControlName="fname" required [value]="contact['fname']">
+    </mat-form-field>
+
+    <ng-container *ngFor="let error of error_messages.fname">
+      <div class="error-message" *ngIf="contact.get('fname').hasError(error.type) && (contact.get('fname').dirty || contact.get('fname').touched)">
+        {{ error.message }}
+      </div>
+    </ng-container>
+  </form>
+
+  <form [formGroup]="contact">
+    <mat-form-field class="line-width" appearance="fill">
+      <mat-label>Last Name</mat-label>
+      <input matInput [(ngModel)]="contact['lname']" placeholder="Last name"
+             formControlName="lname" required [value]="contact['lname']">
+    </mat-form-field>
+
+    <ng-container *ngFor="let error of error_messages.lname">
+      <div class="error-message" *ngIf="contact.get('lname').hasError(error.type) && (contact.get('lname').dirty || contact.get('lname').touched)">
+        {{ error.message }}
+      </div>
+    </ng-container>
+  </form>
+
+  <form [formGroup]="contact">
+    <mat-form-field class="line-width" appearance="fill">
+      <mat-label>Telephone</mat-label>
+      <span matPrefix>+1 &nbsp;</span>
+      <input required type="tel" matInput [(ngModel)]="contact['cell']" formControlName="cell"
+             placeholder="555-555-1234" [value]="contact['cell']">
+      <mat-icon matSuffix>mode_edit</mat-icon>
+    </mat-form-field>
+
+    <ng-container *ngFor="let error of error_messages.email">
+      <div class="error-message" *ngIf="contact.get('cell').hasError(error.type) && (contact.get('cell').dirty || contact.get('cell').touched)">
+        {{ error.message }}
+      </div>
+    </ng-container>
+  </form>
+
+  <form [formGroup]="contact">
+    <mat-form-field class="line-width" appearance="fill">
+      <mat-label>E-Mail</mat-label>
+      <input matInput [(ngModel)]="contact['email']" placeholder="ex. hunsakerjacoby@gmail.com"
+             formControlName="email" required [value]="contact['email']">
+    </mat-form-field>
+
+    <ng-container *ngFor="let error of error_messages.email">
+      <div class="error-message" *ngIf="contact.get('email').hasError(error.type) && (contact.get('email').dirty || contact.get('email').touched)">
+        {{ error.message }}
+      </div>
+    </ng-container>
+  </form>
+</mat-dialog-content>
+
+
+<mat-dialog-actions align="center">
+  <button mat-raised-button color="primary" [mat-dialog-close]>
+    <mat-icon>cancel</mat-icon> Cancel
+  </button>
+  <button mat-raised-button color="primary" (click)="saveContact()"
+          [mat-dialog-close]>
+    <mat-icon>save</mat-icon> Save
+  </button>
+</mat-dialog-actions>

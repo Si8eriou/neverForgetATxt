@@ -11,6 +11,7 @@ import {DefaultEventsComponent} from "./events/default-events/default-events.com
 import {UserEventsComponent} from "./events/user-events/user-events.component";
 import {SendSmsService} from "../utilities/services/neverForgetAText/send-sms.service";
 import {SendSmsComponent} from "../send-sms/send-sms.component";
+import {MessagesComponent} from "./messages/messages.component";
 
 
 
@@ -51,6 +52,10 @@ const routes: Routes = [
     path: 'UserEvents',
     component: UserEventsComponent
   },
+  {
+    path: 'messages',
+    component: MessagesComponent
+  }
 ];
 
 @NgModule({

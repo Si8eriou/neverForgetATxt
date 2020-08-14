@@ -8,7 +8,7 @@
     <span class="alignContent"></span>
 
     <button mat-button routerLink="/">
-      <img class="logoImage" src="/assets/img/jacobyLogo.png">
+      <img class="logoImage" src="/assets/img/mainLogo.jpeg">
     </button>
 
     <span class="alignContent"></span>
@@ -42,10 +42,6 @@
         <mat-icon>keyboard_arrow_down</mat-icon>
       </a>
 
-      <a class="whiteFont" mat-list-item [routerLink]="'/portfolio'" [class.mat-elevation-z2]="true">Portfolio</a>
-
-      <a class="whiteFont" mat-list-item [routerLink]="'resume'" [class.mat-elevation-z2]="true">Resume</a>
-
       <a class="whiteFont" mat-list-item [mat-menu-trigger-for]="neverForgetATextMenu" disabled="{{!this.user}}"
          [class.mat-elevation-z2]="true">Never Forget A Text
       <mat-icon>keyboard_arrow_down</mat-icon>
@@ -55,7 +51,7 @@
       <mat-menu #neverForgetATextMenu="matMenu" class="mat-background-primary">
         <button mat-menu-item [routerLink]="'/text'">Menu</button>
         <button mat-menu-item [routerLink]="'/text/contacts'">Contacts</button>
-        <button mat-menu-item [routerLink]="'/text/UserEvents'">Events</button>
+        <button mat-menu-item [routerLink]="'/messages'">Messages</button>
       </mat-menu>
 
     </mat-nav-list>
