@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ContactService} from "../../../utilities/services/neverForgetAText/contact.service";
+import {ContactElement} from "../../contacts/user-contacts/user-contacts.component";
 
 @Component({
   selector: 'app-sent-trigger-selection-list-style',
@@ -7,19 +8,21 @@ import {ContactService} from "../../../utilities/services/neverForgetAText/conta
   styleUrls: ['./sent-trigger-selection-list-style.component.scss']
 })
 export class SentTriggerSelectionListStyleComponent implements OnInit {
-  public usersAndMessages: any;
+  expandedContact: ContactElement | null;
+  columnsToDisplay = ['name', 'Date'];
+  columnsToDisplayNames = {
+    'name' : 'Name',
+    'date' : 'Date',
+  }
+
   panelOpenState = false;
+  @Input() contactTriggers;
 
 
   constructor(private contactService: ContactService) { }
 
   ngOnInit(): void {
-    this.getContactsWithMessages()
-  }
-
-  async getContactsWithMessages() {
-    this.usersAndMessages = await this.contactService.getContactsWithMessages(sessionStorage.id);
-    console.log(this.usersAndMessages);
+    console.log(this.contactTriggers);
   }
 
   fixDate(epochTime) {

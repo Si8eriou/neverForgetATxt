@@ -18,7 +18,7 @@
 <section id="page" class="mat-elevation-z4">
   <header class="center"
           *ngIf="contacts?.selectedOptions?.selected[0]?.value">
-    <button mat-icon-button [matMenuTriggerFor]="contactMenu">
+    <button mat-icon-button [matMenuTriggerFor]="contactMenu" [matMenuTriggerData]="{contact: contacts?.selectedOptions?.selected[0]?.value}">
       <mat-icon>more_vert</mat-icon>
     </button>
 
@@ -27,6 +27,7 @@
     </span>
 
   </header>
+
   <nav class="center messagesHeader">
     <div>
       <button mat-raised-button>
@@ -56,16 +57,16 @@
   </nav>
 
   <main class="center">
-    <div *ngFor="let sent_trigger of getSentTriggers(contacts.selectedOptions.selected[0]?.value)">
-      <div>
-        {{sent_trigger.event.body}}<br>
-        {{sent_trigger.event.created_at}}
-      </div><br>
-    </div>
+    <app-sent-trigger-selection-list-style
+      [contactTriggers]="contacts.selectedOptions.selected[0]?.value?.sent_triggers"
+    >
+    </app-sent-trigger-selection-list-style>
   </main>
 </section>
 
 <mat-menu #contactMenu="matMenu">
-  <button mat-menu-item>Edit Contact</button>
-  <button mat-menu-item>Delete Messages</button>
+  <ng-template let-contact="contact" matMenuContent>
+    <button mat-menu-item (click)="openEditContactDialog(contact)">Edit Contact</button>
+    <button mat-menu-item>Delete Messages</button>
+  </ng-template>
 </mat-menu>
