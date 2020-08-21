@@ -49,9 +49,8 @@
 
 #page > main {
   grid-area: main;
-  margin-left: 25px;
   margin-top: 50px;
-  margin-right: 25px;
+  position: relative
 }
 
 .messagesHeader {
@@ -73,5 +72,19 @@
 
 .headerContactSelectedName {
   font-size: 18px;
+}
+
+.inputDiv {
+  background-color: black;
+  height: 25px;
+  bottom: 0;
+  width: 100%;
+  position: absolute;
+}
+
+.messageInput {
+  height: 100%;
+  width: 100%;
+  background: grey;
 }
 

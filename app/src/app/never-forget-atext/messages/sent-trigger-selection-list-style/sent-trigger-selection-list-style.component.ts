@@ -8,12 +8,6 @@ import {ContactElement} from "../../contacts/user-contacts/user-contacts.compone
   styleUrls: ['./sent-trigger-selection-list-style.component.scss']
 })
 export class SentTriggerSelectionListStyleComponent implements OnInit {
-  expandedContact: ContactElement | null;
-  columnsToDisplay = ['name', 'Date'];
-  columnsToDisplayNames = {
-    'name' : 'Name',
-    'date' : 'Date',
-  }
 
   panelOpenState = false;
   @Input() contactTriggers;

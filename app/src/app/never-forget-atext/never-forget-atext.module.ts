@@ -30,6 +30,7 @@ import {MatStepperModule} from "@angular/material/stepper";
 import { EditContactDialogComponent } from './contacts/edit-contact-dialog/edit-contact-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import { CreateContactDialogComponent } from './contacts/create-contact-dialog/create-contact-dialog.component';
+import { BubbleComponent } from './messages/sent-trigger-bubble-style/bubble/bubble.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { CreateContactDialogComponent } from './contacts/create-contact-dialog/c
     SentTriggerSelectionListStyleComponent,
     EditContactDialogComponent,
     CreateContactDialogComponent,
+    BubbleComponent,
   ],
   exports: [
     SentTriggerBubbleStyleComponent,

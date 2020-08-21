@@ -44,7 +44,7 @@
       <mat-form-field>
         <mat-label>Search</mat-label>
         <input matInput class="form-control" type="text" name="search"
-               autocomplete="off" placeholder="ex. pizza" disabled>
+               autocomplete="off" placeholder="ex. Jacoby" disabled>
       </mat-form-field>
       <mat-icon>edit</mat-icon>
     </div>
@@ -57,10 +57,16 @@
   </nav>
 
   <main class="center">
-    <app-sent-trigger-selection-list-style
+    <app-sent-trigger-bubble-style
       [contactTriggers]="contacts.selectedOptions.selected[0]?.value?.sent_triggers"
     >
-    </app-sent-trigger-selection-list-style>
+    </app-sent-trigger-bubble-style>
+
+    <div class="inputDiv">
+      <input matInput type="text" name="message" autocomplete="off"
+             placeholder="Message" class="messageInput"
+      >
+    </div>
   </main>
 </section>
 
