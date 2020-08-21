@@ -3,19 +3,21 @@
 
 namespace App\Models;
 
-
 use Illuminate\Database\Eloquent\Model;
-
-class SentTrigger extends Model
+class Message extends Model
 {
-    protected $table = 'sent_trigger_table';
+    protected $table = 'messages';
 
     protected $primaryKey = 'id';
 
     public $timestamps = true;
 
     protected $fillable = [
-        'eventID', 'userID', 'contactID', 'date'
+        'eventID',
+        'userID',
+        'contactID',
+        'type',
+        'body',
     ];
 
     public function event() {
