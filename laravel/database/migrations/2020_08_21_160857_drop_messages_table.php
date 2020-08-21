@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class DropSentTriggerTable extends Migration
+class DropMessagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class DropSentTriggerTable extends Migration
      */
     public function up()
     {
-        Schema::drop('sent_trigger_table');
+        Schema::drop('messages');
     }
 
     /**
@@ -23,7 +23,7 @@ class DropSentTriggerTable extends Migration
      */
     public function down()
     {
-        Schema::table('sent_trigger_table', function (Blueprint $table) {
+        Schema::table('messages', function (Blueprint $table) {
             //
         });
     }
