@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="database.sqlite">
-  <database-model serializer="dbm" dbms="SQLITE" family-id="SQLITE" format-version="4.18">
+  <database-model serializer="dbm" dbms="SQLITE" family-id="SQLITE" format-version="4.19">
     <root id="1">
       <ServerVersion>3.25.1</ServerVersion>
     </root>
@@ -29,7 +29,7 @@
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
+      <SequenceIdentity>null</SequenceIdentity>
     </column>
     <column id="18" parent="6" name="userID">
       <Position>2</Position>
@@ -68,7 +68,7 @@
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
+      <SequenceIdentity>null</SequenceIdentity>
     </column>
     <column id="27" parent="7" name="name">
       <Position>2</Position>
@@ -105,7 +105,7 @@
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
+      <SequenceIdentity>null</SequenceIdentity>
     </column>
     <column id="35" parent="8" name="connection">
       <Position>2</Position>
@@ -141,7 +141,7 @@
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
+      <SequenceIdentity>null</SequenceIdentity>
     </column>
     <column id="42" parent="9" name="migration">
       <Position>2</Position>
@@ -179,7 +179,7 @@
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
+      <SequenceIdentity>null</SequenceIdentity>
     </column>
     <column id="50" parent="11" name="eventID">
       <Position>2</Position>
@@ -206,10 +206,10 @@
       <DataType>DATETIME|0s</DataType>
       <DefaultExpression>NULL</DefaultExpression>
     </column>
-    <column id="55" parent="11" name="date">
+    <column id="55" parent="11" name="type">
       <Position>7</Position>
-      <DataType>DATETIME|0s</DataType>
-      <NotNull>1</NotNull>
+      <DataType>INTEGER|0s</DataType>
+      <DefaultExpression>NULL</DefaultExpression>
     </column>
     <key id="56" parent="11">
       <ColNames>id</ColNames>
@@ -217,28 +217,31 @@
     </key>
     <column id="57" parent="12" name="id">
       <Position>1</Position>
-      <DataType>integer|0s</DataType>
+      <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
+      <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="58" parent="12" name="dark_mode">
+    <column id="58" parent="12" name="created_at">
       <Position>2</Position>
-      <DataType>tinyint(1)|0s</DataType>
-      <NotNull>1</NotNull>
+      <DataType>DATETIME|0s</DataType>
+      <DefaultExpression>NULL</DefaultExpression>
     </column>
-    <column id="59" parent="12" name="created_at">
+    <column id="59" parent="12" name="updated_at">
       <Position>3</Position>
-      <DataType>datetime|0s</DataType>
+      <DataType>DATETIME|0s</DataType>
+      <DefaultExpression>NULL</DefaultExpression>
     </column>
-    <column id="60" parent="12" name="updated_at">
+    <column id="60" parent="12" name="userID">
       <Position>4</Position>
-      <DataType>datetime|0s</DataType>
-    </column>
-    <column id="61" parent="12" name="userID">
-      <Position>5</Position>
-      <DataType>integer|0s</DataType>
+      <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
-      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <column id="61" parent="12" name="dark_mode">
+      <Position>5</Position>
+      <DataType>BOOLEAN|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
     </column>
     <key id="62" parent="12">
       <ColNames>id</ColNames>
@@ -274,7 +277,7 @@
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
+      <SequenceIdentity>null</SequenceIdentity>
     </column>
     <column id="71" parent="15" name="contactID">
       <Position>2</Position>
@@ -309,7 +312,7 @@
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
+      <SequenceIdentity>null</SequenceIdentity>
     </column>
     <column id="78" parent="16" name="name">
       <Position>2</Position>
