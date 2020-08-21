@@ -5,18 +5,17 @@ namespace App\Http\Repositories;
 
 
 
-use App\Models\SentTrigger;
+use App\Models\Message;
 
 class SentTriggerRepository
 {
     public function saveSentTrigger($sentTrigger) {
 
-        $triggerSent = new SentTrigger();
+        $triggerSent = new Message();
 
         $triggerSent->eventID = $sentTrigger->eventID;
         $triggerSent->userID = $sentTrigger->event->userID;
         $triggerSent->contactID = $sentTrigger->contactID;
-        $triggerSent->date = $sentTrigger->date;
 
         $triggerSent->save();
     }
