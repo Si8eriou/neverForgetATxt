@@ -17,10 +17,10 @@ class CreateMessageTable extends Migration
             $table->id();
             $table->foreignId( 'user_id')->nullable();
             $table->foreignId( 'contact_id')->nullable();
-            $table->addColumn('string', 'body')->nullable();
-            $table->addColumn('integer', 'type')->nullable();
+            $table->longText('body')->nullable();
+            $table->integer( 'type')->nullable();
             $table->foreignId( 'event_id')->nullable();
-            $table->addColumn('dateTime', 'date')->nullable();
+            $table->dateTime( 'date', 0)->nullable();
 
             $table->timestamps();
         });
