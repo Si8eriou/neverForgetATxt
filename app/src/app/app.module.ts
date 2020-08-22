@@ -15,7 +15,6 @@ import {AuthModule} from "./auth/auth.module";
 import { HttpClientModule } from '@angular/common/http';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatNativeDateModule} from "@angular/material/core";
-import { SendSmsComponent } from './send-sms/send-sms.component';
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
@@ -34,7 +33,6 @@ import {MatDialogModule} from "@angular/material/dialog";
   declarations: [
     AppComponent,
     NavigationComponent,
-    SendSmsComponent,
     ResumeComponent,
     PortfolioComponent,
     MessagesComponent,
