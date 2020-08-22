@@ -15,11 +15,11 @@ class CreateMessageTable extends Migration
     {
         Schema::create('message', function (Blueprint $table) {
             $table->id();
-            $table->addColumn('foreignId', 'user_id')->nullable();
-            $table->addColumn('foreignId', 'contact_id')->nullable();
+            $table->foreignId( 'user_id')->nullable();
+            $table->foreignId( 'contact_id')->nullable();
             $table->addColumn('string', 'body')->nullable();
             $table->addColumn('integer', 'type')->nullable();
-            $table->addColumn('foreignId', 'event_id')->nullable();
+            $table->foreignId( 'event_id')->nullable();
             $table->addColumn('dateTime', 'date')->nullable();
 
             $table->timestamps();
