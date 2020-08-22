@@ -10,6 +10,11 @@ import {ProfileModule} from "./profile/profile.module";
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'text',
+    pathMatch: 'full',
+  },
+  {
     path: 'login',
     loadChildren: './auth/auth.module#AuthModule',
   },
@@ -25,11 +30,6 @@ const routes: Routes = [
     path: 'settings',
     component: SettingsComponent,
     canActivate:[AuthService]
-  },
-  {
-    path: '',
-    redirectTo: 'text',
-    pathMatch: 'full',
   },
   {
     path: 'text',

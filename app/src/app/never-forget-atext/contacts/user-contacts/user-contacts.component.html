@@ -57,7 +57,7 @@
     <mat-menu #contactMenu="matMenu">
       <ng-template let-contact="contact" matMenuContent>
         <button mat-menu-item (click)="openEditContactDialog(contact)">Edit Contact</button>
-        <button mat-menu-item>Delete Messages</button>
+        <button mat-menu-item [routerLink]="['/messages']">Go to Messages</button>
       </ng-template>
     </mat-menu>
   </div>
