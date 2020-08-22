@@ -1,7 +1,7 @@
 #page {
   margin-left: auto;
   margin-right: auto;
-  margin-top: 150px;
+  margin-top: 50px;
   display: grid;
   grid-template-areas: "nav head"
                        "nav  main"
@@ -12,6 +12,8 @@
   height: auto;
   min-height: 600px;
   background-color: whitesmoke;
+  border-radius: 30px;
+  max-height: 80%;
 }
 
 
@@ -48,9 +50,7 @@
 
 #page > main {
   grid-area: main;
-  margin-left: 25px;
-  margin-top: 50px;
-  margin-right: 25px;
+  position: relative
 }
 
 .messagesHeader {
@@ -72,5 +72,20 @@
 
 .headerContactSelectedName {
   font-size: 18px;
+}
+
+.inputDiv {
+  height: 40px;
+  bottom: 0;
+  width: 100%;
+  position: relative;
+}
+
+.messageInput {
+  padding-left: 10px;
+  height: 100%;
+  width: 99%;
+  background: grey;
+  border-radius: 8px;
 }
 
