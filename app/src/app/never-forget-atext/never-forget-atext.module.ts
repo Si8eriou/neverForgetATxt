@@ -23,14 +23,13 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {MatListModule} from "@angular/material/list";
 import {MatExpansionModule} from "@angular/material/expansion";
-import {SentTriggerSelectionListStyleComponent} from "./messages/sent-trigger-selection-list-style/sent-trigger-selection-list-style.component";
-import {SentTriggerBubbleStyleComponent} from "./messages/sent-trigger-bubble-style/sent-trigger-bubble-style.component";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatStepperModule} from "@angular/material/stepper";
 import { EditContactDialogComponent } from './contacts/edit-contact-dialog/edit-contact-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import { CreateContactDialogComponent } from './contacts/create-contact-dialog/create-contact-dialog.component';
-import { BubbleComponent } from './messages/sent-trigger-bubble-style/bubble/bubble.component';
+import { BubbleComponent } from './messages/bubble-style-messages/bubble/bubble.component';
+import { BubbleStyleMessagesComponent } from './messages/bubble-style-messages/bubble-style-messages.component';
 
 
 @NgModule({
@@ -45,15 +44,13 @@ import { BubbleComponent } from './messages/sent-trigger-bubble-style/bubble/bub
     ContactEventsComponent,
     UserEventsComponent,
     DefaultEventsComponent,
-    SentTriggerBubbleStyleComponent,
-    SentTriggerSelectionListStyleComponent,
     EditContactDialogComponent,
     CreateContactDialogComponent,
     BubbleComponent,
+    BubbleStyleMessagesComponent,
   ],
   exports: [
-    SentTriggerBubbleStyleComponent,
-    SentTriggerSelectionListStyleComponent
+    BubbleStyleMessagesComponent
   ],
   imports: [
     CommonModule,

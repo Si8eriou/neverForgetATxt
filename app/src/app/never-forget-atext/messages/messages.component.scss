@@ -1,7 +1,7 @@
 #page {
   margin-left: auto;
   margin-right: auto;
-  margin-top: 150px;
+  margin-top: 50px;
   display: grid;
   grid-template-areas: "nav head"
                        "nav  main"
@@ -13,6 +13,7 @@
   min-height: 600px;
   background-color: whitesmoke;
   border-radius: 30px;
+  max-height: 80%;
 }
 
 
@@ -49,7 +50,6 @@
 
 #page > main {
   grid-area: main;
-  margin-top: 50px;
   position: relative
 }
 
@@ -75,16 +75,17 @@
 }
 
 .inputDiv {
-  background-color: black;
-  height: 25px;
+  height: 40px;
   bottom: 0;
   width: 100%;
-  position: absolute;
+  position: relative;
 }
 
 .messageInput {
+  padding-left: 10px;
   height: 100%;
-  width: 100%;
+  width: 99%;
   background: grey;
+  border-radius: 8px;
 }
 

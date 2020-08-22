@@ -29,6 +29,7 @@ export class MessagesComponent implements OnInit {
 
   async getContactsWithMessages() {
     this.usersAndMessages = await this.contactService.getContactsWithMessages(sessionStorage.id);
+    console.log(this.usersAndMessages);
   }
 
   openEditContactDialog(contact) {

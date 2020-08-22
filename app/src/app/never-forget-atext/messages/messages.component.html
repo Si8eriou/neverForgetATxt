@@ -56,17 +56,20 @@
     </mat-selection-list>
   </nav>
 
-  <main class="center">
-    <app-sent-trigger-bubble-style
-      [contactTriggers]="contacts.selectedOptions.selected[0]?.value?.sent_triggers"
-    >
-    </app-sent-trigger-bubble-style>
+  <main class="center" style="overflow: scroll; overflow-x: hidden;">
+    <div>
+      <app-bubble-style-messages *ngIf="contacts.selectedOptions.selected[0]?.value?.messages"
+                                 [messages]="contacts.selectedOptions.selected[0]?.value?.messages"
+      >
+      </app-bubble-style-messages>
+    </div>
 
-    <div class="inputDiv">
+    <mat-form-field class="inputDiv">
       <input matInput type="text" name="message" autocomplete="off"
              placeholder="Message" class="messageInput"
       >
-    </div>
+      <mat-icon style="align-items: center">edit</mat-icon>
+    </mat-form-field>
   </main>
 </section>
 
