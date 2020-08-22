@@ -1,0 +1,61 @@
+<div class="tableDiv">
+  <button mat-raised-button color="primary" class="buttonMargin"
+          >
+    <mat-icon>
+      add_circle
+    </mat-icon>
+    Create Event
+  </button>
+
+  <table mat-table
+         [dataSource]="contactEvents" multiTemplateDataRows
+         class="mat-elevation-z1">
+    <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
+      <th mat-header-cell class="headerCell borderRadius" *matHeaderCellDef> {{columnsToDisplayNames[column]}} </th>
+      <td mat-cell class="borderRadius" *matCellDef="let event"> {{event[column]}} </td>
+    </ng-container>
+
+    <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+    <ng-container matColumnDef="expandedDetail">
+      <td mat-cell class="borderRadius" *matCellDef="let event" [attr.colspan]="columnsToDisplay.length">
+        <div class="example-element-detail"
+             [@detailExpand]="event == expandedEvent ? 'expanded' : 'collapsed'">
+          <div class="example-element-diagram">
+            <div class="example-element-position">
+              <button mat-icon-button [matMenuTriggerFor]="eventMenu" [matMenuTriggerData]="{event: event}">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              {{event?.event.repeat_type ? event?.event.repeat_type : ''}}
+            </div>
+            <div class="example-element-name"> {{event?.event.body ? event?.event.body : ''}} </div>
+          </div>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let event; columns: columnsToDisplay;"
+        class="example-element-row"
+        [class.example-expanded-row]="expandedEvent === event"
+        (click)="expandedEvent = expandedEvent === event ? null : event">
+    </tr>
+    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+  </table>
+
+  <button mat-raised-button color="primary"
+          mat-dialog-close
+  >
+    Close
+  </button>
+
+  <mat-menu #eventMenu="matMenu">
+    <ng-template let-event="event" matMenuContent>
+      <button mat-menu-item [routerLink]="['/editEvent']" [queryParams]="{'evID': event.eventID}"
+              mat-dialog-close
+      >
+        Edit Event
+      </button>
+    </ng-template>
+  </mat-menu>
+</div>
+
