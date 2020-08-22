@@ -43,9 +43,13 @@ class ContactsRepository
     }
 
     public function getContactsWithMessages($userID) {
+        //TODO: Write this so it doesnt return all contacts. Only contacts with messages
+
         $contacts = Contacts::where('userID', $userID)
-            ->with('sentTriggers', 'sentTriggers.event', 'triggers')
-            ->orderBy('date')
+            ->whereHas('messages')
+            ->with(['messages' => function ($query) {
+                $query->orderBy('created_at', 'desc');
+            }])
             ->get();
 
         return $contacts;

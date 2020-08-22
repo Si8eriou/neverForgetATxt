@@ -18,7 +18,7 @@
 <section id="page" class="mat-elevation-z4">
   <header class="center"
           *ngIf="contacts?.selectedOptions?.selected[0]?.value">
-    <button mat-icon-button [matMenuTriggerFor]="contactMenu">
+    <button mat-icon-button [matMenuTriggerFor]="contactMenu" [matMenuTriggerData]="{contact: contacts?.selectedOptions?.selected[0]?.value}">
       <mat-icon>more_vert</mat-icon>
     </button>
 
@@ -27,6 +27,7 @@
     </span>
 
   </header>
+
   <nav class="center messagesHeader">
     <div>
       <button mat-raised-button>
@@ -43,7 +44,7 @@
       <mat-form-field>
         <mat-label>Search</mat-label>
         <input matInput class="form-control" type="text" name="search"
-               autocomplete="off" placeholder="ex. pizza" disabled>
+               autocomplete="off" placeholder="ex. Jacoby" disabled>
       </mat-form-field>
       <mat-icon>edit</mat-icon>
     </div>
@@ -55,17 +56,26 @@
     </mat-selection-list>
   </nav>
 
-  <main class="center">
-    <div *ngFor="let sent_trigger of getSentTriggers(contacts.selectedOptions.selected[0]?.value)">
-      <div>
-        {{sent_trigger.event.body}}<br>
-        {{sent_trigger.event.created_at}}
-      </div><br>
+  <main class="center" style="overflow: scroll; overflow-x: hidden;">
+    <div>
+      <app-bubble-style-messages *ngIf="contacts.selectedOptions.selected[0]?.value?.messages"
+                                 [messages]="contacts.selectedOptions.selected[0]?.value?.messages"
+      >
+      </app-bubble-style-messages>
     </div>
+
+    <mat-form-field class="inputDiv">
+      <input matInput type="text" name="message" autocomplete="off"
+             placeholder="Message" class="messageInput"
+      >
+      <mat-icon style="align-items: center">edit</mat-icon>
+    </mat-form-field>
   </main>
 </section>
 
 <mat-menu #contactMenu="matMenu">
-  <button mat-menu-item>Edit Contact</button>
-  <button mat-menu-item>Delete Messages</button>
+  <ng-template let-contact="contact" matMenuContent>
+    <button mat-menu-item (click)="openEditContactDialog(contact)">Edit Contact</button>
+    <button mat-menu-item>Delete Messages</button>
+  </ng-template>
 </mat-menu>
