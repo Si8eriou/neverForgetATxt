@@ -3,6 +3,8 @@ import {ThemePalette} from "@angular/material/core";
 import {ContactService} from "../../utilities/services/neverForgetAText/contact.service";
 import {EditContactDialogComponent} from "../contacts/edit-contact-dialog/edit-contact-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
+import {SendSmsService} from "../../utilities/services/neverForgetAText/send-sms.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-messages',
@@ -15,11 +17,14 @@ export class MessagesComponent implements OnInit {
   color: ThemePalette = 'primary';
   public usersAndMessages: any;
   panelOpenState = false;
+  public messageToSend: any;
 
 
   constructor(
     private contactService: ContactService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public sendSmsService: SendSmsService,
+    private snackBar: MatSnackBar,
     ) { }
 
   ngOnInit(): void {
@@ -29,7 +34,6 @@ export class MessagesComponent implements OnInit {
 
   async getContactsWithMessages() {
     this.usersAndMessages = await this.contactService.getContactsWithMessages(sessionStorage.id);
-    console.log(this.usersAndMessages);
   }
 
   openEditContactDialog(contact) {
@@ -48,7 +52,12 @@ export class MessagesComponent implements OnInit {
     });
   }
 
-  logthis(test) {
-    console.log(test);
+  async sendSms(contact) {
+
+    let messageSent = await this.sendSmsService.sendSms(this.messageToSend, contact.cell);
+
+    this.snackBar.open('Message Sent', 'X', {
+      duration: 4000
+    });
   }
 }

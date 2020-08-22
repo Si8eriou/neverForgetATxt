@@ -6,17 +6,22 @@ namespace App\Http\Repositories;
 
 
 use App\Models\Message;
+use Carbon\Carbon;
 
 class SentTriggerRepository
 {
     public function saveSentTrigger($sentTrigger) {
+        $SENT_MESSAGE = 0;
 
-        $triggerSent = new Message();
+        $message = new Message();
 
-        $triggerSent->eventID = $sentTrigger->eventID;
-        $triggerSent->userID = $sentTrigger->event->userID;
-        $triggerSent->contactID = $sentTrigger->contactID;
+        $message->event_id = $sentTrigger->eventID;
+        $message->user_id = $sentTrigger->event->userID;
+        $message->contact_id = $sentTrigger->contactID;
+        $message->body = $sentTrigger->event->body;
+        $message->type = $SENT_MESSAGE;
+        $message->date = new Carbon();
 
-        $triggerSent->save();
+        $message->save();
     }
 }

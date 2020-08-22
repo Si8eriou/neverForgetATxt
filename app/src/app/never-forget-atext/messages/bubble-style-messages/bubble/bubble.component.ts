@@ -11,7 +11,6 @@ export class BubbleComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.message);
   }
 
 }

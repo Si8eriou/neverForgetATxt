@@ -1,19 +1,19 @@
 <div class="container">
-  <div *ngIf="message.type === '1'" class="message-blue">
+  <div *ngIf="message?.type === '1'" class="message-blue">
     <p class="message-content">
-      {{message.body}}
+      {{message?.body}}
     </p>
     <div class="message-timestamp-left">
-      {{message.created_at}}
+      {{message?.created_at}}
     </div>
   </div>
 
   <div *ngIf="message.type === '0'" class="message-orange">
     <p class="message-content">
-      {{message.body}}
+      {{message?.body}}
     </p>
     <div class="message-timestamp-right">
-      {{message.created_at}}
+      {{message?.created_at}}
     </div>
   </div>
 </div>

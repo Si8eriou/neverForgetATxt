@@ -17,7 +17,8 @@ export class ContactFormComponent implements OnInit {
 
   @Input() contactToEdit: any;
 
-  constructor(private snackBar: MatSnackBar, private contactService: ContactService,
+  constructor( private snackBar: MatSnackBar,
+              private contactService: ContactService,
               private router: RouterModule) { }
 
   ngOnInit() {
