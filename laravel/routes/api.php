@@ -49,8 +49,8 @@ Route::group(['prefix' => 'setting'], function() {
    Route::get('{userID', 'Setting\SettingController@getUserSettings');
 });
 
-Route::group(['prefix' => 'sendSMS'], function() {
-    Route::post('', 'SMS\SMSController@sendSMS');
+Route::group(['prefix' => 'sendSms'], function() {
+    Route::post('/{cell}', 'SMS\SendSmsController@sendSms');
 });
 
 Route::get('test', function () {

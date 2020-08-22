@@ -57,25 +57,34 @@
   </nav>
 
   <main class="center" style="overflow: scroll; overflow-x: hidden;">
-    <div>
+    <div id="messages">
       <app-bubble-style-messages *ngIf="contacts.selectedOptions.selected[0]?.value?.messages"
                                  [messages]="contacts.selectedOptions.selected[0]?.value?.messages"
       >
       </app-bubble-style-messages>
     </div>
+  </main>
 
-    <mat-form-field class="inputDiv">
+  <footer>
+    <mat-form-field id="input" class="inputDiv">
       <input matInput type="text" name="message" autocomplete="off"
-             placeholder="Message" class="messageInput"
+             placeholder="Message" class="messageInput" [(ngModel)]="messageToSend"
       >
       <mat-icon style="align-items: center">edit</mat-icon>
     </mat-form-field>
-  </main>
+    <button (click)="sendSms(contacts.selectedOptions.selected[0]?.value)">
+      Send IT
+    </button>
+  </footer>
 </section>
 
 <mat-menu #contactMenu="matMenu">
   <ng-template let-contact="contact" matMenuContent>
     <button mat-menu-item (click)="openEditContactDialog(contact)">Edit Contact</button>
+    <button mat-menu-item [routerLink]="['/contactEvents']" [queryParams]="{'cid': contact?.id}"
+    >
+      Events
+    </button>
     <button mat-menu-item>Delete Messages</button>
   </ng-template>
 </mat-menu>

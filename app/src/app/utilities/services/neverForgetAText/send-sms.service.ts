@@ -11,8 +11,8 @@ export class SendSmsService {
 
   constructor(private http: HttpClient, public router: Router) { }
 
-  public sendSMS(body) {
-    let url = `${environment.apiUrl}/sendSMS`;
+  public sendSms(body, cell) {
+    let url = `${environment.apiUrl}/sendSms/${cell}`;
 
     return this.http.post(url, body).pipe(
       map((response: any) => response)).toPromise();
