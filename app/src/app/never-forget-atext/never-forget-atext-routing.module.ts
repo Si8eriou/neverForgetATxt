@@ -8,8 +8,6 @@ import {NewEventComponent} from "./events/new-event/new-event.component";
 import {EditEventsComponent} from "./events/edit-events/edit-events.component";
 import {DefaultEventsComponent} from "./events/default-events/default-events.component";
 import {UserEventsComponent} from "./events/user-events/user-events.component";
-import {SendSmsService} from "../utilities/services/neverForgetAText/send-sms.service";
-import {SendSmsComponent} from "../send-sms/send-sms.component";
 import {MessagesComponent} from "./messages/messages.component";
 
 
