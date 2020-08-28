@@ -18,6 +18,7 @@ export class MessagesComponent implements OnInit {
   public usersAndMessages: any;
   panelOpenState = false;
   public messageToSend: any;
+  public contacts: any;
 
 
   constructor(
@@ -29,7 +30,7 @@ export class MessagesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getContactsWithMessages()
-
+    this.getUserContacts();
   }
 
   async getContactsWithMessages() {
@@ -52,10 +53,14 @@ export class MessagesComponent implements OnInit {
     });
   }
 
+  async getUserContacts() {
+    this.contacts = await this.contactService.getUserContacts(sessionStorage.id);
+
+    console.log(this.contacts);
+  }
+
   async sendSms(contact) {
-
     let messageSent = await this.sendSmsService.sendSms(this.messageToSend, contact.cell);
-
     this.snackBar.open('Message Sent', 'X', {
       duration: 4000
     });

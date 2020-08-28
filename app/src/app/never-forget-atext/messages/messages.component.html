@@ -26,6 +26,11 @@
       {{contacts?.selectedOptions?.selected[0]?.value?.fname}} {{contacts?.selectedOptions?.selected[0]?.value?.lname}}
     </span>
 
+    <button mat-icon-button mat-raised-button [matMenuTriggerFor]="contactMenu" class="newMessageButton"
+            [matMenuTriggerData]="{contact: contacts?.selectedOptions?.selected[0]?.value}">
+      <mat-icon class="newMessageButton">create</mat-icon>
+    </button>
+
   </header>
 
   <nav class="center messagesHeader">
@@ -46,7 +51,7 @@
         <input matInput class="form-control" type="text" name="search"
                autocomplete="off" placeholder="ex. Jacoby" disabled>
       </mat-form-field>
-      <mat-icon>edit</mat-icon>
+      <mat-icon>search</mat-icon>
     </div>
 
     <mat-selection-list class="contactNames contact" [multiple]="false" #contacts>
@@ -66,14 +71,15 @@
   </main>
 
   <footer>
-    <mat-form-field id="input" class="inputDiv">
-      <input matInput type="text" name="message" autocomplete="off"
-             placeholder="Message" class="messageInput" [(ngModel)]="messageToSend"
+    <mat-form-field id="input" class="messasgeInput">
+      <input matInput [(ngModel)]="messageToSend"
+             placeholder="Message"
       >
-      <mat-icon style="align-items: center">edit</mat-icon>
     </mat-form-field>
-    <button (click)="sendSms(contacts.selectedOptions.selected[0]?.value)">
-      Send IT
+    <button mat-raised-button mat-icon-button
+            (click)="sendSms(contacts.selectedOptions.selected[0]?.value)"
+    >
+      <mat-icon>send</mat-icon>
     </button>
   </footer>
 </section>
@@ -85,6 +91,5 @@
     >
       Events
     </button>
-    <button mat-menu-item>Delete Messages</button>
   </ng-template>
 </mat-menu>

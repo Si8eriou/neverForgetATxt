@@ -56,7 +56,7 @@ class SendEventSms implements ShouldQueue
         if($triggers) {
             foreach ($triggers as $trigger) {
 
-                $sendSms->sendText($trigger);
+                $sendSms->sendEventSms($trigger);
                 (new SaveSentTrigger)->saveSentTrigger($trigger);
             }
         }

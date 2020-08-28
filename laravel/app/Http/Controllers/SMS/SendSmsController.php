@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 class SendSmsController
 {
     public function sendSms(Request $request, $cell, SendSms $sendSms) {
-        return $sendSms->sendSms($request, $cell);
+        $smsSent = $sendSms->sendSms($request, $cell);
+
+        return response()->json(['smsSent' => $smsSent]);
     }
 }
