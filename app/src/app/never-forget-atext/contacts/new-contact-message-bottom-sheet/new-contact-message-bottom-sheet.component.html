@@ -1,0 +1,40 @@
+<section id="page">
+  <header id="head">
+    <mat-form-field>
+      <input type="text" matInput [matAutocomplete]="auto" [(ngModel)]="contactToMessage">
+      <mat-autocomplete #auto="matAutocomplete" aria-placeholder="To:">
+        <mat-option *ngFor="let contact of data.contacts" [value]="contact.fname + ' ' + contact.lname">
+          {{contact.fname}} {{contact.lname}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </header>
+
+  <main id="main">
+    <mat-form-field style="width: 100%; height: 100%">
+      <mat-label>Body</mat-label>
+      <textarea matInput style="width: 100%; height: 100%"
+                type="text"
+                cdkTextareaAutosize
+                cdkAutosizeMinRows="10"
+                cdkAutosizeMaxRows="20"
+                [(ngModel)]="messageBody"
+      >
+      </textarea>
+    </mat-form-field>
+  </main>
+
+  <footer class="footerButtons">
+    <button mat-icon-button mat-raised-button (click)="closeBottomSheet()">
+      <mat-icon>
+        cancel
+      </mat-icon>
+    </button>
+
+    <button mat-icon-button mat-raised-button (click)="closeBottomSheet()">
+      <mat-icon>
+        send
+      </mat-icon>
+    </button>
+  </footer>
+</section>

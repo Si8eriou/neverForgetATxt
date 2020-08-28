@@ -30,6 +30,9 @@ import {MatDialogModule} from "@angular/material/dialog";
 import { CreateContactDialogComponent } from './contacts/create-contact-dialog/create-contact-dialog.component';
 import { BubbleComponent } from './messages/bubble-style-messages/bubble/bubble.component';
 import { BubbleStyleMessagesComponent } from './messages/bubble-style-messages/bubble-style-messages.component';
+import { NewContactMessageBottomSheetComponent } from './contacts/new-contact-message-bottom-sheet/new-contact-message-bottom-sheet.component';
+import {MatBottomSheet, MatBottomSheetModule} from "@angular/material/bottom-sheet";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
 
 
 @NgModule({
@@ -48,6 +51,7 @@ import { BubbleStyleMessagesComponent } from './messages/bubble-style-messages/b
     CreateContactDialogComponent,
     BubbleComponent,
     BubbleStyleMessagesComponent,
+    NewContactMessageBottomSheetComponent,
   ],
   exports: [
     BubbleStyleMessagesComponent
@@ -69,6 +73,8 @@ import { BubbleStyleMessagesComponent } from './messages/bubble-style-messages/b
     MatMenuModule,
     MatStepperModule,
     MatDialogModule,
+    MatBottomSheetModule,
+    MatAutocompleteModule
   ]
 })
 export class NeverForgetATextModule { }

@@ -5,6 +5,8 @@ import {EditContactDialogComponent} from "../contacts/edit-contact-dialog/edit-c
 import {MatDialog} from "@angular/material/dialog";
 import {SendSmsService} from "../../utilities/services/neverForgetAText/send-sms.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {MatBottomSheet, MatBottomSheetRef} from "@angular/material/bottom-sheet";
+import {NewContactMessageBottomSheetComponent} from "../contacts/new-contact-message-bottom-sheet/new-contact-message-bottom-sheet.component";
 
 @Component({
   selector: 'app-messages',
@@ -26,6 +28,7 @@ export class MessagesComponent implements OnInit {
     public dialog: MatDialog,
     public sendSmsService: SendSmsService,
     private snackBar: MatSnackBar,
+    private _bottomSheet: MatBottomSheet
     ) { }
 
   ngOnInit(): void {
@@ -53,14 +56,30 @@ export class MessagesComponent implements OnInit {
     });
   }
 
+  openNewContactMessageBottomSheet() {
+    if (this.contacts) {
+      const bottomSheetRef = this._bottomSheet.open(NewContactMessageBottomSheetComponent, {
+        data: {
+          contacts: this.contacts
+        }
+      });
+
+      bottomSheetRef.afterDismissed().subscribe((result) => {
+        this.messageToSend = result
+
+        console.log(result);
+
+      })
+    }
+  }
+
   async getUserContacts() {
     this.contacts = await this.contactService.getUserContacts(sessionStorage.id);
-
-    console.log(this.contacts);
   }
 
   async sendSms(contact) {
-    let messageSent = await this.sendSmsService.sendSms(this.messageToSend, contact.cell);
+    console.log(contact);
+    // let messageSent = await this.sendSmsService.sendSms(this.messageToSend, contact.cell);
     this.snackBar.open('Message Sent', 'X', {
       duration: 4000
     });

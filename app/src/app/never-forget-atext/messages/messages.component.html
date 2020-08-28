@@ -26,8 +26,8 @@
       {{contacts?.selectedOptions?.selected[0]?.value?.fname}} {{contacts?.selectedOptions?.selected[0]?.value?.lname}}
     </span>
 
-    <button mat-icon-button mat-raised-button [matMenuTriggerFor]="contactMenu" class="newMessageButton"
-            [matMenuTriggerData]="{contact: contacts?.selectedOptions?.selected[0]?.value}">
+    <button mat-icon-button mat-raised-button class="newMessageButton"
+            (click)="openNewContactMessageBottomSheet()">
       <mat-icon class="newMessageButton">create</mat-icon>
     </button>
 
