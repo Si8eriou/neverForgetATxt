@@ -28,6 +28,16 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {MatCardModule} from "@angular/material/card";
 import { ProfileComponent } from './profile/profile/profile.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import { reducers } from './store/reducers';
+import { environment } from '../environments/environment';
+import { StoreModule } from '@ngrx/store';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule, EffectsRootModule } from '@ngrx/effects';
+import {ProfileEffects} from "./store/effects/profile.effects";
+import {RouterModule} from "@angular/router";
+import {ContactEffects} from "./store/effects/contact.effects";
+
 
 @NgModule({
   declarations: [
@@ -39,6 +49,7 @@ import {MatDialogModule} from "@angular/material/dialog";
     ProfileComponent,
   ],
   imports: [
+    RouterModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -61,7 +72,20 @@ import {MatDialogModule} from "@angular/material/dialog";
     MatListModule,
     MatSlideToggleModule,
     MatCardModule,
-    MatDialogModule
+    MatDialogModule,
+    StoreModule.forRoot(reducers, {
+      runtimeChecks: {
+        strictActionImmutability: true,
+        strictStateImmutability: true
+      }
+    }),
+    StoreRouterConnectingModule.forRoot(),
+    StoreDevtoolsModule.instrument({maxAge: 25, logOnly: environment.production}),
+    EffectsModule.forRoot(
+      [
+        ProfileEffects,
+        ContactEffects
+    ]),
   ],
   providers: [],
   bootstrap: [AppComponent]

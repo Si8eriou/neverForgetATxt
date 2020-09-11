@@ -13,15 +13,15 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'login',
+    path: 'auth/login',
     loadChildren: './auth/auth.module#AuthModule',
   },
   {
-    path:'register',
+    path:'auth/register',
     loadChildren: './auth/auth.module#AuthModule'
   },
   {
-    path: 'settings',
+    path: 'auth/settings',
     component: SettingsComponent,
     canActivate:[AuthService]
   },

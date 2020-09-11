@@ -24,7 +24,8 @@ import {ProfileComponent} from "../profile/profile/profile.component";
         MatButtonModule,
         MatInputModule,
         ReactiveFormsModule,
-        MatStepperModule
+        MatStepperModule,
+        RouterModule
     ]
 })
 export class AuthModule { }

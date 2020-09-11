@@ -5,7 +5,7 @@ import {SettingsComponent} from "./settings/settings.component";
 
 export const AuthRouting = [
   {
-    path: '',
+    path: 'auth',
     component: AuthComponent
   },
   {

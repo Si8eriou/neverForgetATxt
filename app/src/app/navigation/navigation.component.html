@@ -1,34 +1,34 @@
 <div class="toolBar">
   <mat-toolbar color="primary">
 
-    <button mat-icon-button [disabled]="isUserLoggedIn()" (click)="sidenav.toggle()">
+    <button mat-icon-button [disabled]="isUserLoggedIn" (click)="sidenav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
 
     <span class="alignContent"></span>
 
-    <button mat-button [disabled]="isUserLoggedIn()" [routerLink]="['/']">
+    <button mat-button [disabled]="isUserLoggedIn" [routerLink]="['/']">
       <img class="logoImage" src="/assets/img/mainLogo.jpeg">
     </button>
 
     <span class="alignContent"></span>
 
     <button mat-raised-button mat-icon-button [matMenuTriggerFor]="profileMenu"
-            [disabled]="isUserLoggedIn()">
+            [disabled]="isUserLoggedIn">
       <mat-icon>person</mat-icon>
     </button>
 
   </mat-toolbar>
 
   <mat-menu #profileMenu="matMenu">
-    <span mat-menu-item *ngIf="this.user">Hi, {{userName}}!</span>
+    <span mat-menu-item *ngIf="this.isUserLoggedIn">Hi, {{this.profile?.name}}!</span>
     <button mat-menu-item>Profile</button>
     <button mat-menu-item>Settings</button>
-    <button *ngIf="user" mat-menu-item (click)="logout()">
+    <button *ngIf="!isUserLoggedIn" mat-menu-item (click)="logout()">
       Logout
       <mat-icon>exit_to_app</mat-icon>
     </button>
-    <button *ngIf="!user" mat-menu-item [routerLink]="'login'">Register/Login</button>
+    <button *ngIf="isUserLoggedIn" mat-menu-item [routerLink]="'login'">Register/Login</button>
   </mat-menu>
 
 </div>
@@ -39,11 +39,11 @@
 
       <a class="whiteFont" mat-list-item [matMenuTriggerFor]="profileMenu" [class.mat-elevation-z2]="true">
         <mat-icon>person</mat-icon>
-        <span style="margin-left: 2em" [routerLink]="'profile'">{{this.userName? this.userName :'Profile'}}</span>
+        <span style="margin-left: 2em" [routerLink]="'profile'">{{this.profile.name}}</span>
         <mat-icon>keyboard_arrow_down</mat-icon>
       </a>
 
-      <a class="whiteFont" mat-list-item [mat-menu-trigger-for]="neverForgetATextMenu" disabled="{{!this.user}}"
+      <a class="whiteFont" mat-list-item [mat-menu-trigger-for]="neverForgetATextMenu" disabled="{{this.isUserLoggedIn}}"
          [class.mat-elevation-z2]="true">Never Forget A Text
       <mat-icon>keyboard_arrow_down</mat-icon>
       </a>

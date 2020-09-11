@@ -1,18 +1,24 @@
 import {EventEmitter, Injectable, Output} from '@angular/core';
 import {environment} from "../../../../environments/environment";
-import {map, tap} from "rxjs/operators";
 import { HttpClient } from "@angular/common/http";
 import {getToken} from "codelyzer/angular/styles/cssLexer";
 import {Router} from "@angular/router";
+import { map, skipWhile, take } from 'rxjs/operators';
+import { select, Store } from '@ngrx/store';
+import * as fromRoot from '../../../store/reducers';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  private profile: any;
   private token: string;
   private redirectUrl: string;
 
-  constructor(private http: HttpClient, public router: Router) { }
+  constructor(private http: HttpClient,
+              public router: Router,
+              private store: Store
+  ) { }
 
   public saveUser(body) {
     let url = `${environment.apiUrl}/auth/register`;
@@ -47,12 +53,16 @@ export class AuthService {
     return this.token;
   }
 
-  public canActivate(): boolean {
-    if (sessionStorage.getItem('id') == null) {
-      this.router.navigate(['login']);
+  public canActivate() {
+    this.store.select(fromRoot.getProfile).subscribe(profile => {
+      this.profile = profile;
+    });
 
-      return false;
+    if (this.profile) {
+      return true;
     }
-    return true;
+
+    this.router.navigate(['login']);
+    return false;
   }
 }

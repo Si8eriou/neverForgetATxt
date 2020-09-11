@@ -30,6 +30,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import { CreateContactDialogComponent } from './contacts/create-contact-dialog/create-contact-dialog.component';
 import { BubbleComponent } from './messages/bubble-style-messages/bubble/bubble.component';
 import { BubbleStyleMessagesComponent } from './messages/bubble-style-messages/bubble-style-messages.component';
+import {RouterModule} from "@angular/router";
 
 
 @NgModule({
@@ -69,6 +70,7 @@ import { BubbleStyleMessagesComponent } from './messages/bubble-style-messages/b
     MatMenuModule,
     MatStepperModule,
     MatDialogModule,
+    RouterModule
   ]
 })
 export class NeverForgetATextModule { }

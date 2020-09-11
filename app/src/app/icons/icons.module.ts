@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IconsComponent } from './icons.component';
+import {RouterModule} from "@angular/router";
 
 
 
@@ -10,7 +11,8 @@ import { IconsComponent } from './icons.component';
         IconsComponent
     ],
     imports: [
-        CommonModule
+        CommonModule,
+        RouterModule
     ]
 })
 export class IconsModule { }
