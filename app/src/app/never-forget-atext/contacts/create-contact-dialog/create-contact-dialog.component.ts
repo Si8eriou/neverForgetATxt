@@ -5,6 +5,9 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {ContactService} from "../../../utilities/services/neverForgetAText/contact.service";
 import {RouterModule} from "@angular/router";
+import {Store} from "@ngrx/store";
+import * as fromRoot from "../../../store/reducers";
+import {take} from "rxjs/operators";
 
 @Component({
   selector: 'app-create-contact-dialog',
@@ -13,6 +16,7 @@ import {RouterModule} from "@angular/router";
 })
 export class CreateContactDialogComponent implements OnInit {
   loginForm: FormGroup;
+  public profile: any;
 
 
   error_messages = {
@@ -41,7 +45,9 @@ export class CreateContactDialogComponent implements OnInit {
   constructor(private snackBar: MatSnackBar,
               private contactService: ContactService,
               private router: RouterModule,
-              public formBuilder: FormBuilder) {
+              public formBuilder: FormBuilder,
+              private store: Store
+              ) {
 
     this.loginForm = this.formBuilder.group({
       fname: new FormControl('', Validators.compose([
@@ -65,6 +71,7 @@ export class CreateContactDialogComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getProfile();
   }
 
   saveForm() {
@@ -74,11 +81,9 @@ export class CreateContactDialogComponent implements OnInit {
     formData.append('lname', this?.loginForm?.value?.lname);
     formData.append('cell', this?.loginForm?.value?.email);
     formData.append('email', this?.loginForm?.value?.email);
-    formData.append('userID', sessionStorage?.id);
+    formData.append('userID', this.profile?.id);
 
     let contactID = false;
-
-    console.log(formData, contactID);
 
     this.contactService.saveContact(formData, contactID);
     this.snackBar.open('Saved', 'X', {
@@ -94,6 +99,14 @@ export class CreateContactDialogComponent implements OnInit {
       }
     }
     return true;
+  }
+
+  getProfile() {
+    this.store.select(fromRoot.getProfile).pipe(
+      take(1)
+    ).subscribe(profile => {
+      this.profile = profile;
+    })
   }
 
 }

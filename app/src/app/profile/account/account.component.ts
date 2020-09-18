@@ -124,10 +124,6 @@ export class AccountComponent implements OnInit {
     formData.append('password', this.password);
     formData.append('id', sessionStorage.id);
     formData.append('fname', this.loginForm['fname']);
-
-    console.log(formData['id'], sessionStorage.id);
-
-    console.log(await this.profileService.updateProfile(formData));
   }
 
 
