@@ -5,6 +5,11 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
 import {EditContactDialogComponent} from "../edit-contact-dialog/edit-contact-dialog.component";
 import {MatDialog} from '@angular/material/dialog';
 import {CreateContactDialogComponent} from "../create-contact-dialog/create-contact-dialog.component";
+import * as contactActions from "../../../store/actions/contact.action";
+import * as fromRoot from "../../../store/reducers";
+import {skipWhile, take} from "rxjs/operators";
+import {Store} from "@ngrx/store";
+import {getProfileAction} from "../../../store/actions/profile.actions";
 
 
 export interface DialogData {
@@ -27,6 +32,10 @@ export interface DialogData {
 
 
 export class UserContactsComponent implements OnInit {
+  private profile: any;
+  public userContacts: any;
+
+
   expandedContact: ContactElement | null;
   columnsToDisplay = ['fname', 'cell'];
   columnsToDisplayNames = {
@@ -34,18 +43,34 @@ export class UserContactsComponent implements OnInit {
     'cell' : 'Cell',
   }
 
-  public userContacts: any;
-
   constructor(private contactService: ContactService,
               private router: Router,
-              public dialog: MatDialog) { }
+              public dialog: MatDialog,
+              private store: Store
+  ) { }
 
   ngOnInit(): void {
+    this.getProfile();
     this.getUserContacts();
   }
 
- async getUserContacts() {
-    this.userContacts = await this.contactService.getUserContacts(sessionStorage.id);
+  getProfile() {
+    this.store.select(fromRoot.getProfile).pipe(
+      take(1)
+    ).subscribe(profile => {
+      this.profile = profile;
+    })
+  }
+
+  getUserContacts() {
+    this.store.dispatch(contactActions.getContactsAction({userID: this.profile.id}));
+
+    this.store.select(fromRoot.getContacts).pipe(
+      skipWhile((contacts) => (contacts == false))
+    )
+      .subscribe(contacts => {
+        this.userContacts = contacts;
+      })
   }
 
   openEditContactDialog(contact) {

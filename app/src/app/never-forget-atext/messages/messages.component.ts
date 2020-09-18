@@ -5,6 +5,10 @@ import {EditContactDialogComponent} from "../contacts/edit-contact-dialog/edit-c
 import {MatDialog} from "@angular/material/dialog";
 import {SendSmsService} from "../../utilities/services/neverForgetAText/send-sms.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {Store} from "@ngrx/store";
+import * as contactActions from '../../store/actions/contact.action';
+import * as fromRoot from "../../store/reducers";
+import {skipWhile} from "rxjs/operators";
 
 @Component({
   selector: 'app-messages',
@@ -12,28 +16,29 @@ import {MatSnackBar} from "@angular/material/snack-bar";
   styleUrls: ['./messages.component.scss']
 })
 export class MessagesComponent implements OnInit {
-  checked = false;
-  disabled = false;
+  public checked: boolean = false;
+  public disabled: boolean = false;
   color: ThemePalette = 'primary';
   public usersAndMessages: any;
-  panelOpenState = false;
+  public panelOpenState: boolean = false;
   public messageToSend: any;
-
+  public profile: any;
+  public userID: any;
+  public deleteMessages: boolean = false;
 
   constructor(
     private contactService: ContactService,
     public dialog: MatDialog,
     public sendSmsService: SendSmsService,
     private snackBar: MatSnackBar,
+    private store: Store
     ) { }
 
   ngOnInit(): void {
-    this.getContactsWithMessages()
-
-  }
-
-  async getContactsWithMessages() {
-    this.usersAndMessages = await this.contactService.getContactsWithMessages(sessionStorage.id);
+    this.profile = this.getUser();
+    if (this.profile) {
+      this.getContactsWithMessages();
+    }
   }
 
   openEditContactDialog(contact) {
@@ -59,5 +64,27 @@ export class MessagesComponent implements OnInit {
     this.snackBar.open('Message Sent', 'X', {
       duration: 4000
     });
+  }
+
+  getUser() {
+    let profileResponse = false;
+
+    this.store.select(fromRoot.getProfile)
+      .subscribe(profile => {
+        profileResponse = profile;
+      });
+
+    return profileResponse;
+  }
+
+  getContactsWithMessages() {
+    this.store.dispatch(contactActions.getContactsWithMessagesAction({userID: this.profile.id}));
+
+    this.store.select(fromRoot.getContactsWithMessages).pipe(
+      skipWhile((contactsWithMessages) => (contactsWithMessages == false))
+    )
+      .subscribe(contacts => {
+      this.usersAndMessages = contacts;
+    })
   }
 }

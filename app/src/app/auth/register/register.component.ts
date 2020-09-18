@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
 
   error_messages = {
     'fname': [
-      { type: 'required', message: 'First/Laste Name is required.' },
+      { type: 'required', message: 'First/Last Name is required.' },
     ],
 
     'lname': [

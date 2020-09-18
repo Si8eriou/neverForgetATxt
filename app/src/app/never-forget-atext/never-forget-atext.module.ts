@@ -30,6 +30,8 @@ import {MatDialogModule} from "@angular/material/dialog";
 import { CreateContactDialogComponent } from './contacts/create-contact-dialog/create-contact-dialog.component';
 import { BubbleComponent } from './messages/bubble-style-messages/bubble/bubble.component';
 import { BubbleStyleMessagesComponent } from './messages/bubble-style-messages/bubble-style-messages.component';
+import {RouterModule} from "@angular/router";
+import {MatRadioModule} from "@angular/material/radio";
 
 
 @NgModule({
@@ -52,23 +54,25 @@ import { BubbleStyleMessagesComponent } from './messages/bubble-style-messages/b
   exports: [
     BubbleStyleMessagesComponent
   ],
-  imports: [
-    CommonModule,
-    NeverForgetATextRoutingModule,
-    MatButtonModule,
-    MatTableModule,
-    MatIconModule,
-    MatInputModule,
-    FormsModule,
-    MatDatepickerModule,
-    MatSelectModule,
-    ReactiveFormsModule,
-    MatGridListModule,
-    MatListModule,
-    MatExpansionModule,
-    MatMenuModule,
-    MatStepperModule,
-    MatDialogModule,
-  ]
+    imports: [
+        CommonModule,
+        NeverForgetATextRoutingModule,
+        MatButtonModule,
+        MatTableModule,
+        MatIconModule,
+        MatInputModule,
+        FormsModule,
+        MatDatepickerModule,
+        MatSelectModule,
+        ReactiveFormsModule,
+        MatGridListModule,
+        MatListModule,
+        MatExpansionModule,
+        MatMenuModule,
+        MatStepperModule,
+        MatDialogModule,
+        RouterModule,
+        MatRadioModule
+    ]
 })
 export class NeverForgetATextModule { }

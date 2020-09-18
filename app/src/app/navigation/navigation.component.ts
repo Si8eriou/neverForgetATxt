@@ -2,6 +2,10 @@ import {Router} from "@angular/router";
 import {Component, OnInit, OnDestroy} from '@angular/core';
 import {AuthService} from "../utilities/services/neverForgetAText/auth.service";
 import {subscribeOn} from "rxjs/operators";
+import {SessionService} from "../utilities/services/neverForgetAText/session.service";
+import {Store} from "@ngrx/store";
+import * as fromRoot from "../store/reducers";
+import { take } from 'rxjs/operators';
 
 
 @Component({
@@ -10,32 +14,35 @@ import {subscribeOn} from "rxjs/operators";
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent implements OnInit {
-  public user: any;
-  public userName: any;
+  public isUserLoggedIn: any;
+  public profile: any;
 
 
-  constructor(private router: Router, private authService: AuthService) {
+  constructor(private router: Router,
+              private authService: AuthService,
+              private sessionService: SessionService,
+              private store: Store
+  ) {
   }
 
   ngOnInit(): void {
-    this.userName = sessionStorage.user;
-    this.user = this.authService.canActivate();
+    this.isUserLoggedIn = this.authService.canActivate();
+    this.getUser();
   }
 
   ngOnDestroy(): void {
-    this.user.unsubscribe;
-}
-
-isUserLoggedIn() {
-    if(!this.user) {
-      return true;
-    }
+    this.profile.unsubscribe;
 }
 
   public logout() {
-    sessionStorage.clear();
+    this.sessionService.clearStore();
     this.authService.canActivate();
-    this.router.navigate(['login']);
-    window.location.reload();
+  }
+
+  private getUser() {
+    this.store.select(fromRoot.getProfile)
+      .subscribe(profile => {
+      this.profile = profile;
+    });
   }
 }

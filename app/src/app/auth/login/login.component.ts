@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../utilities/services/neverForgetAText/auth.service";
 import {Router} from "@angular/router";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { map, skipWhile, take } from 'rxjs/operators';
+import { select, Store } from '@ngrx/store';
+import * as fromRoot from '../../store/reducers';
+import * as profileActions from '../../store/actions/profile.actions';
 
 
 @Component({
@@ -15,7 +19,11 @@ export class LoginComponent implements OnInit {
   public name: any;
   public userLogged: any;
 
-  constructor(private authService: AuthService, private router: Router, private matSnackBar: MatSnackBarModule) { }
+  constructor(private authService: AuthService,
+              private router: Router,
+              private matSnackBar: MatSnackBarModule,
+              private store: Store<fromRoot.State>
+  ) { }
 
   ngOnInit(): void {
   }
@@ -36,11 +44,8 @@ export class LoginComponent implements OnInit {
       this.userLogged = await this.authService.userLogin(formData);
 
       if (this.userLogged) {
-        sessionStorage.setItem('user', this.userLogged.name);
-        sessionStorage.setItem('id', this.userLogged.id);
-        sessionStorage.setItem('remember_token', this.userLogged.remember_token);
-        await this.router.navigate(['']);
-        window.location.reload();
+        this.store.dispatch(profileActions.setProfileAction({profile: this.userLogged}))
+        await this.router.navigate(['/']);
       }
       else {
         alert('Username or password do not match records')
