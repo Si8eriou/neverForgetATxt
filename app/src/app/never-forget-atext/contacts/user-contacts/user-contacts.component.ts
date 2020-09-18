@@ -70,7 +70,6 @@ export class UserContactsComponent implements OnInit {
     )
       .subscribe(contacts => {
         this.userContacts = contacts;
-        console.log('god is good', this.userContacts);
       })
   }
 

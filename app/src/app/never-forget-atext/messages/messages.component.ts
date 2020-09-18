@@ -16,14 +16,15 @@ import {skipWhile} from "rxjs/operators";
   styleUrls: ['./messages.component.scss']
 })
 export class MessagesComponent implements OnInit {
-  checked = false;
-  disabled = false;
+  public checked: boolean = false;
+  public disabled: boolean = false;
   color: ThemePalette = 'primary';
   public usersAndMessages: any;
-  panelOpenState = false;
+  public panelOpenState: boolean = false;
   public messageToSend: any;
   public profile: any;
   public userID: any;
+  public deleteMessages: boolean = false;
 
   constructor(
     private contactService: ContactService,
@@ -35,9 +36,7 @@ export class MessagesComponent implements OnInit {
 
   ngOnInit(): void {
     this.profile = this.getUser();
-    console.log(this.profile);
     if (this.profile) {
-      console.log(this.profile);
       this.getContactsWithMessages();
     }
   }
@@ -86,7 +85,6 @@ export class MessagesComponent implements OnInit {
     )
       .subscribe(contacts => {
       this.usersAndMessages = contacts;
-      console.log('god is good', this.usersAndMessages);
     })
   }
 }

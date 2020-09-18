@@ -50,8 +50,8 @@
     </div>
 
     <mat-selection-list class="contactNames contact" [multiple]="false" #contacts>
-      <mat-list-option *ngFor="let user of usersAndMessages" [value]="user" [selected]="true">
-        {{user?.fname}} {{user?.lname}}
+      <mat-list-option *ngFor="let contact of usersAndMessages" [value]="contact" [selected]="true">
+        {{contact?.fname}} {{contact?.lname}}
       </mat-list-option>
     </mat-selection-list>
   </nav>
@@ -85,6 +85,6 @@
     >
       Events
     </button>
-    <button mat-menu-item>Delete Messages</button>
+    <button mat-menu-item (click)="deleteMessages = !deleteMessages">Delete Messages</button>
   </ng-template>
 </mat-menu>
