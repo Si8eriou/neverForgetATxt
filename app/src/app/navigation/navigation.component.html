@@ -33,7 +33,7 @@
 
 </div>
 
-<mat-sidenav-container [class.mat-elevation-z2]="true">
+<mat-sidenav-container [class.mat-elevation-z2]="true" *ngIf="isUserLoggedIn">
   <mat-sidenav #sidenav>
     <mat-nav-list>
 

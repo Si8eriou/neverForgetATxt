@@ -23,7 +23,21 @@ const profileReducer = createReducer(
 
   on(profileActions.setProfileAction, (state, action) => ({
     ...state,
+    profile: action.profile,
+  })),
+
+  on(profileActions.setProfileActionSuccessful, (state, action) => ({
+    ...state,
+    profileLoading: false,
+    profileSuccessful: true,
     profile: action.profile
+  })),
+
+  on(profileActions.setProfileActionFailed, (state, action) => ({
+    ...state,
+    profileLoading: false,
+    profileSuccessful: false,
+    profileError: action.err
   })),
 
   on(profileActions.getProfileAction, state => ({

@@ -6,6 +6,8 @@ import {Router} from "@angular/router";
 import { map, skipWhile, take } from 'rxjs/operators';
 import { select, Store } from '@ngrx/store';
 import * as fromRoot from '../../../store/reducers';
+import * as fromProfile from '../../../store/actions/profile.actions';
+import * as profileActions from "../../../store/actions/profile.actions";
 
 @Injectable({
   providedIn: 'root'
@@ -54,15 +56,24 @@ export class AuthService {
   }
 
   public canActivate() {
-    this.store.select(fromRoot.getProfile).subscribe(profile => {
+    let profile = 0;
+
+    this.store.dispatch(profileActions.setProfileAction({profile: this.profile}))
+
+    this.store.select(fromProfile.getProfileAction).pipe(
+      skipWhile(profile => !profile)
+    ).subscribe(profile => {
       this.profile = profile;
+      console.log('auth service', this.profile);
     });
 
-    if (this.profile) {
+    if (this.profile.length) {
+      console.log('here');
       return true;
     }
 
     this.router.navigate(['login']);
+    console.log('there');
     return false;
   }
 }

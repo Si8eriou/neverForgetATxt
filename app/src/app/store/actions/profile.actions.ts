@@ -6,9 +6,19 @@ export const setProfileAction = createAction(
   props<{profile: any}>()
 )
 
+export const setProfileActionSuccessful = createAction(
+  '[Profile] get user profile Successful',
+  props<{profile: any}>()
+);
+
+export const setProfileActionFailed = createAction(
+  '[Profile] get user profile Failed',
+  props<{err: string}>()
+);
+
 export const getProfileAction = createAction(
   '[Profile] get user profile',
-  props<{}>()
+  props<{profile: any}>()
 );
 
 export const getProfileSuccessful = createAction(
