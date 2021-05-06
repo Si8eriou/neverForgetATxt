@@ -8,7 +8,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import {Store} from "@ngrx/store";
 import * as contactActions from '../../store/actions/contact.action';
 import * as fromRoot from "../../store/reducers";
-import {skipWhile} from "rxjs/operators";
+import {skipWhile, take} from "rxjs/operators";
 
 @Component({
   selector: 'app-messages',
@@ -37,6 +37,7 @@ export class MessagesComponent implements OnInit {
   ngOnInit(): void {
     this.profile = this.getUser();
     if (this.profile) {
+      console.log('what the fucked');
       this.getContactsWithMessages();
     }
   }
@@ -81,9 +82,9 @@ export class MessagesComponent implements OnInit {
     this.store.dispatch(contactActions.getContactsWithMessagesAction({userID: this.profile.id}));
 
     this.store.select(fromRoot.getContactsWithMessages).pipe(
-      skipWhile((contactsWithMessages) => (contactsWithMessages == false))
-    )
-      .subscribe(contacts => {
+      skipWhile((contactsWithMessages) => (contactsWithMessages == false)),
+      take(1)
+    ).subscribe(contacts => {
       this.usersAndMessages = contacts;
     })
   }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "be0b2dbc3f126ca333a96af61c0ccf05",
+    "content-hash": "739a894cd7594b103f51c1481121f25b",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4112,16 +4112,16 @@
         },
         {
             "name": "twilio/sdk",
-            "version": "6.10.2",
+            "version": "6.23.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twilio/twilio-php.git",
-                "reference": "703fe5dfb8ae7e862dfa907e88ca289e4a7666b9"
+                "reference": "4e69cc175512db9ef07e87e92c124aefa4d01360"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twilio/twilio-php/zipball/703fe5dfb8ae7e862dfa907e88ca289e4a7666b9",
-                "reference": "703fe5dfb8ae7e862dfa907e88ca289e4a7666b9",
+                "url": "https://api.github.com/repos/twilio/twilio-php/zipball/4e69cc175512db9ef07e87e92c124aefa4d01360",
+                "reference": "4e69cc175512db9ef07e87e92c124aefa4d01360",
                 "shasum": ""
             },
             "require": {
@@ -4158,7 +4158,7 @@
                 "sms",
                 "twilio"
             ],
-            "time": "2020-09-16T21:25:06+00:00"
+            "time": "2021-05-05T19:15:04+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -5408,6 +5408,7 @@
             "keywords": [
                 "tokenizer"
             ],
+            "abandoned": true,
             "time": "2019-09-17T06:23:10+00:00"
         },
         {

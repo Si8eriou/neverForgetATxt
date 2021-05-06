@@ -14,7 +14,9 @@ export class SendSmsService {
   public sendSms(body, cell) {
     let url = `${environment.apiUrl}/sendSms/${cell}`;
 
-    return this.http.post(url, body).pipe(
+    return this.http.post(url, {
+      body
+    }).pipe(
       map((response: any) => response)).toPromise();
   }
 }

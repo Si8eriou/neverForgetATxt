@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class SendSmsController
 {
-    public function sendSms(Request $request, $cell, SendSms $sendSms) {
-        return $sendSms->sendSms($request, $cell);
+    public function sendSms(Request $request, SendSms $sendSms, $cell) {
+        return $sendSms->sendSms($request->get('body'), $cell);
     }
 }

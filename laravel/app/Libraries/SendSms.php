@@ -2,7 +2,6 @@
 
 
 namespace App\Libraries;
-use App\Libraries\SaveSentTrigger;
 use Twilio\Rest\Client;
 
 
@@ -28,21 +27,27 @@ class SendSms {
     }
 
     public static function sendSms($message, $cell) {
-        $sid    = env('TWILIO_SID');
-        $token  = env("TWILIO_TOKEN");
-        $twilio = new Client($sid, $token);
+        try {
+            $sid    = env('TWILIO_SID');
+            $token  = env("TWILIO_TOKEN");
+            $twilio = new Client($sid, $token);
 
-        $number = '+1';
-        $number .= $cell;
 
-        $message = $twilio->messages
-            ->create($number, // to
-                [
-                    "body" => $message,
-                    "from" => env("TWILIO_NUMBER"),
-                ]
-            );
+            $number = '+1';
+            $number .= $cell;
 
-        return true;
+            $twilio->messages
+                ->create(
+                    $number,
+                    [
+                        "body" => $message,
+                        "from" => env("TWILIO_NUMBER"),
+                    ]
+                );
+
+            return true;
+        } catch (\Exception $e) {
+            return false;
+        }
     }
 }

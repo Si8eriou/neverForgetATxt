@@ -11,14 +11,14 @@ import {ContactService} from "../../utilities/services/neverForgetAText/contact.
 @Injectable()
 export class ContactEffects {
 
-  setUserContacts = createEffect(() => this.actions$.pipe(
+  setUserContacts$ = createEffect(() => this.actions$.pipe(
     ofType(contactAction.setContactsAction.type),
     switchMap((action: any) => this.contactService.getUserContacts(action.userID)),
     map((contacts: any) => contactAction.setContactsActionSuccessful({contacts: contacts})),
     catchError((err: string) => of(contactAction.getContactsActionFailed({err})))
   ));
 
-  getUserContacts = createEffect(() => this.actions$.pipe(
+  getUserContacts$ = createEffect(() => this.actions$.pipe(
     ofType(contactAction.getContactsAction.type),
     switchMap((action: any) => {
 
@@ -36,7 +36,7 @@ export class ContactEffects {
     catchError((err: string) => of(contactAction.getContactsActionFailed({err})))
   ));
 
-  getUserContactsWithMessages = createEffect(() => this.actions$.pipe(
+  getUserContactsWithMessages$ = createEffect(() => this.actions$.pipe(
     ofType(contactAction.getContactsWithMessagesAction.type),
     switchMap((action: any) => {
 
